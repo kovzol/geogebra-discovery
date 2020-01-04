@@ -7,7 +7,7 @@ some experimental features like
 * updates and bugfixes to the Automated Reasoning Tools (ART),
 * other bugfixes that are relevant to Classic 5 and Classic 6.
 
-The files in this project are used to compile and deploy GeoGebra.
+The files in this project are used to compile and deploy GeoGebra Discovery.
 
 ## Prerequisites, compilation, running and deployment
 
