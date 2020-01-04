@@ -1,0 +1,5 @@
+#!/bin/sh
+set -e
+test .build
+cd fork/geogebra/desktop/build/install/desktop/bin
+./desktop
