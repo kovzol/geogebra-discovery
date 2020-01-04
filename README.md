@@ -14,10 +14,12 @@ The files in this project are used to compile and deploy GeoGebra Discovery.
 You will need a typical Linux system to make the software work.
 The following tools are available:
 
+### Classic 5
+
 * Type `./get-build-tools` to download some prerequisites including an appropriate
 Java Development Kit.
-* Run `./build` to build GeoGebra Discovery.
-* Enter `./run` to start the software.
+* Run `./build5` to build GeoGebra Discovery.
+* Enter `./run5` to start the software.
 
 ## Authors
 
