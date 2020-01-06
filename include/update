@@ -1,0 +1,6 @@
+#!/bin/sh
+mkdir -p fork
+cd fork
+test -d geogebra || git clone https://github.com/kovzol/geogebra
+cd geogebra
+git pull

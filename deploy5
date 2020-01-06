@@ -1,7 +1,4 @@
-#!/bin/sh
-set -e
-JDK_REL=buildtools/jbr
-test -x $JDK_REL/bin/java
-export JAVA_HOME=`pwd`/$JDK_REL
+#!/bin/sh -x
+. include/common
 cd fork/geogebra
 ./gradlew :desktop:distZip

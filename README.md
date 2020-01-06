@@ -21,6 +21,12 @@ Java Development Kit.
 * Run `./build5` to build GeoGebra Discovery.
 * Enter `./run5` to start the software.
 
+### Classic 6
+
+* Type `./get-build-tools` to download the prerequisites.
+* Run `./build6` to build GeoGebra Discovery.
+* Enter `./run6` to start the software.
+
 ## Authors
 
 GeoGebra is written by its [authors](https://www.geogebra.org/team).

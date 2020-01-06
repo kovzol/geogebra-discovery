@@ -1,4 +1,4 @@
 #!/bin/sh -x
 . include/common
 . include/update
-./gradlew :desktop:installDist
+./gradlew :web:draftDeployIntoWar

@@ -1,0 +1,5 @@
+#!/bin/sh -x
+set -e
+WARDIR=fork/geogebra/web/war
+test -r $WARDIR/web3d/web3d.nocache.js
+sensible-browser $WARDIR/app.html
