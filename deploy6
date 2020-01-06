@@ -13,4 +13,3 @@ GD=geogebra-discovery
 rm -f $GD
 ln -s war $GD
 zip -9r $ZIPFILE_ABS $GD/index.html $GD/web3d
-#printf "@ $WARDIR\n@=geogebra-discovery\n" | zipnote -w $DISTDIR/$ZIPFILE
