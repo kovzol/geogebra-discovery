@@ -1,0 +1,3 @@
+#!/bin/sh
+export LINUX_VARIANT=`lsb_release -i | cut -f2`
+export LINUX_VERSION=`lsb_release -r | cut -f2`

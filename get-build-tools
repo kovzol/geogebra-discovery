@@ -1,6 +1,6 @@
 #!/bin/sh -x
 set -e
-. include/common
+. include/detect
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  mkdir -p buildtools/natives
  cd buildtools/natives

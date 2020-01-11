@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
-export LINUX_VARIANT=`lsb_release -i | cut -f2`
-export LINUX_VERSION=`lsb_release -r | cut -f2`
+. include/detect
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
  export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2g -DXX:MaxMetaspaceSize=2g"
