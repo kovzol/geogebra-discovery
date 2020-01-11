@@ -3,7 +3,7 @@ set -e
 . include/detect
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
- export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2g -DXX:MaxMetaspaceSize=2g"
+ export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2000m -DXX:MaxMetaspaceSize=2000m"
 else
  JDK_REL=`pwd`/buildtools/jbr
  fi

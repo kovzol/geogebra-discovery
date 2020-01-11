@@ -4,7 +4,7 @@ set -e
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  mkdir -p buildtools/natives
  cd buildtools/natives
- wget http://dev.geogebra.org/maven2/fr/ujf-grenoble/javagiac/69259b/javagiac-69259b-natives-linux-arm.jar
+ wget -c -N http://dev.geogebra.org/maven2/fr/ujf-grenoble/javagiac/69259b/javagiac-69259b-natives-linux-arm.jar
  exit 0
  fi
 # Linux (Ubuntu 18.04)
@@ -13,5 +13,5 @@ JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
 JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
 mkdir -p buildtools
 cd buildtools
-wget $JDK_URL
+wget -c -N $JDK_URL
 tar xzf $JDK_TGZ
