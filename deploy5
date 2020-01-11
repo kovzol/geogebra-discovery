@@ -1,4 +1,18 @@
 #!/bin/sh -x
 . include/common
 cd fork/geogebra
-./gradlew :desktop:distZip
+./gradlew $GRADLE_OPTIONS :desktop:distZip
+if [ "$LINUX_VARIANT" = Raspbian ]; then
+ # Ensure that a Giac library for the wrong platform will not be loaded:
+ rm -f desktop/build/install/desktop/lib/javagiac-69259-natives-linux-*.jar
+ # Update Giac to the newest available version:
+ cd ../../buildtools/natives/
+ GJAR=javagiac-69259-natives-linux-arm.jar
+ cp javagiac-69259b-natives-linux-arm.jar $GJAR
+ ZIP=../../fork/geogebra/desktop/build/distributions/desktop.zip
+ zip -d $ZIP 'desktop/lib/javagiac-69259-natives-*.jar' 'desktop/lib/*-natives-windows-*.jar' \
+  'desktop/lib/*-natives-macosx-*.jar' 'desktop/lib/*-natives-linux-amd64.jar' 'desktop/lib/*-natives-linux-i586.jar'
+ zip -ur $ZIP $GJAR
+ rm $GJAR
+ printf "@ $GJAR\n@=desktop/lib/$GJAR\n" | zipnote -w $ZIP
+ fi

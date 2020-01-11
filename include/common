@@ -1,5 +1,13 @@
 #!/bin/sh
 set -e
-JDK_REL=buildtools/jbr
+export LINUX_VARIANT=`lsb_release -i | cut -f2`
+export LINUX_VERSION=`lsb_release -r | cut -f2`
+if [ "$LINUX_VARIANT" = Raspbian ]; then
+ JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
+ export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2g -DXX:MaxMetaspaceSize=2g"
+else
+ JDK_REL=`pwd`/buildtools/jbr
+ fi
 test -x $JDK_REL/bin/java
-export JAVA_HOME=`pwd`/$JDK_REL
+export JAVA_HOME=$JDK_REL
+

@@ -12,6 +12,9 @@ The files in this project are used to compile and deploy GeoGebra Discovery.
 ## Prerequisites, compilation, running and deployment
 
 You will need a typical Linux system to make the software work.
+In particular, the scripts were tested on an Ubuntu 18.04, and
+partially on Raspbian Buster.
+
 The following tools are available:
 
 ### Classic 5
