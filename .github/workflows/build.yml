@@ -1,0 +1,17 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: prerequisites
+      run: ./get-build-tools
+    - name: build5
+      run: ./build5
+    - name: build6
+      run: ./build6
