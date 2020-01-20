@@ -4,6 +4,18 @@
 rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
 cp -ur fork/geogebra/desktop/build/install/desktop dist/$PACKAGE_NAME/geogebra
+# Cross-platform deployment (from Linux to Windows only)
+if [ "$1" = win ]; then
+ for i in linux mac; do
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+  done
+ rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
+ echo "@echo Welcome to $SOFTWARE_NAME
+@geogebra\\desktop\\\\bin\\desktop.bat" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+ ZIPNAME=$PACKAGE_NAME-Windows
+
+else
+# Non-cross-platform deployment
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
@@ -45,7 +57,9 @@ geogebra/desktop/bin/desktop" > dist/$PACKAGE_NAME/GeoGebra-Discovery
  chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
  ZIPNAME=$PACKAGE_NAME-Linux64
  fi
+fi # End of non-cross-platform deployment
 
+# Common parts in all types of deployments
 ZIPNAME=$ZIPNAME.zip
 cd dist
 rm -f $ZIPNAME
