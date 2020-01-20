@@ -10,3 +10,9 @@ else
 test -x $JDK_REL/bin/java
 export JAVA_HOME=$JDK_REL
 
+GGB_VERSION=`cat fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebraConstants.java |\
+ grep " VERSION_STRING = " | awk '{print $7}' | sed s/\"//g | sed s/";"//`
+TODAY=`LANG=C; date +%Y%b%d`
+SOFTWARE_NAME="GeoGebra Discovery $TODAY (based on GeoGebra $GGB_VERSION)"
+PACKAGE_NAME="GeoGebra-Discovery-$GGB_VERSION-$TODAY"
+export GGB_VERSION SOFTWARE_NAME PACKAGE_NAME

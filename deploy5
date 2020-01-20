@@ -1,18 +1,49 @@
 #!/bin/sh -x
 . include/common
-cd fork/geogebra
-./gradlew $GRADLE_OPTIONS :desktop:distZip
+./build5
+rm -fr dist/$PACKAGE_NAME
+mkdir -p dist/$PACKAGE_NAME/geogebra
+cp -ur fork/geogebra/desktop/build/install/desktop dist/$PACKAGE_NAME/geogebra
 if [ "$LINUX_VARIANT" = Raspbian ]; then
+ for i in windows mac i586 libpxcc zspace; do
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+  done
+ rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
  # Ensure that a Giac library for the wrong platform will not be loaded:
- rm -f desktop/build/install/desktop/lib/javagiac-69259-natives-linux-*.jar
+ rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/javagiac-69259-natives-linux-*.jar
  # Update Giac to the newest available version:
- cd ../../buildtools/natives/
- GJAR=javagiac-69259-natives-linux-arm.jar
- cp javagiac-69259b-natives-linux-arm.jar $GJAR
- ZIP=../../fork/geogebra/desktop/build/distributions/desktop.zip
- zip -d $ZIP 'desktop/lib/javagiac-69259-natives-*.jar' 'desktop/lib/*-natives-windows-*.jar' \
-  'desktop/lib/*-natives-macosx-*.jar' 'desktop/lib/*-natives-linux-amd64.jar' 'desktop/lib/*-natives-linux-i586.jar'
- zip -ur $ZIP $GJAR
- rm $GJAR
- printf "@ $GJAR\n@=desktop/lib/$GJAR\n" | zipnote -w $ZIP
+ cp buildtools/natives/javagiac-69259-natives-linux-arm.jar dist/$PACKAGE_NAME/geogebra/desktop/lib
+
+ cp -ur realgeom/build/install/realgeom dist/$PACKAGE_NAME
+ echo "#!/bin/sh
+echo \"Welcome to $SOFTWARE_NAME\"
+echo -n \"Starting local RealGeom server on port 8765...\"
+export TERMINAL=lxterminal
+$TERMINAL -e \"realgeom/bin/realgeom -s\" 2>/dev/null &
+REALGEOM_PID=\$!
+while ! nc -z localhost 8765; do sleep 1; echo -n .; done
+echo
+echo -n \"Launching GeoGebra...\"
+geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765
+echo \"GeoGebra session ended.\"
+echo \"Stopping RealGeom session...\"
+kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+ chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
+ ZIPNAME=$PACKAGE_NAME-RaspberryPi
+else
+ for i in windows mac i586 arm libpxcc zspace; do
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+  done
+ rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
+
+ echo "#!/bin/sh
+echo \"Welcome to $SOFTWARE_NAME\"
+geogebra/desktop/bin/desktop" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+ chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
+ ZIPNAME=$PACKAGE_NAME-Linux64
  fi
+
+ZIPNAME=$ZIPNAME.zip
+cd dist
+rm -f $ZIPNAME
+zip -9r $ZIPNAME $PACKAGE_NAME
