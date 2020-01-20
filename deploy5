@@ -5,7 +5,7 @@ rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
 cp -ur fork/geogebra/desktop/build/install/desktop dist/$PACKAGE_NAME/geogebra
 if [ "$LINUX_VARIANT" = Raspbian ]; then
- for i in windows mac i586 libpxcc zspace; do
+ for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
@@ -19,7 +19,7 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
 echo \"Welcome to $SOFTWARE_NAME\"
 echo -n \"Starting local RealGeom server on port 8765...\"
 export TERMINAL=lxterminal
-$TERMINAL -e \"realgeom/bin/realgeom -s\" 2>/dev/null &
+\$TERMINAL -e \"realgeom/bin/realgeom -s\" 2>/dev/null &
 REALGEOM_PID=\$!
 while ! nc -z localhost 8765; do sleep 1; echo -n .; done
 echo
@@ -29,6 +29,9 @@ echo \"GeoGebra session ended.\"
 echo \"Stopping RealGeom session...\"
 kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
  chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
+ rm -f dist/$PACKAGE_NAME/realgeom/lib/*amd64*.jar
+ rm -f dist/$PACKAGE_NAME/realgeom/bin/realgeom.bat
+
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
  for i in windows mac i586 arm libpxcc zspace; do
