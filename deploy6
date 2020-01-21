@@ -2,14 +2,11 @@
 . include/common
 WARDIR=fork/geogebra/web/war
 test -r $WARDIR/web3d/web3d.nocache.js
-cp $WARDIR/classic.html $WARDIR/index.html
-DISTDIR=fork/geogebra/web/build/distributions
-ZIPFILE=geogebra-discovery-offline.zip
-ZIPFILE_ABS=`realpath $DISTDIR/$ZIPFILE`
-rm -f $DISTDIR/$ZIPFILE
+DISTDIR=dist/$PACKAGE_NAME6
 mkdir -p $DISTDIR
-cd $WARDIR/..
-GD=geogebra-discovery
-rm -f $GD
-ln -s war $GD
-zip -9r $ZIPFILE_ABS $GD/index.html $GD/web3d
+cp $WARDIR/classic.html $DISTDIR/index.html
+cp -ur $WARDIR/web3d $DISTDIR
+ZIPFILE=$PACKAGE_NAME6.zip
+rm -f dist/$ZIPFILE
+cd dist
+zip -9r $ZIPFILE $PACKAGE_NAME6

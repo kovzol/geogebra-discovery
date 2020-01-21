@@ -1,6 +1,6 @@
 #!/bin/sh -x
 . include/common
-./build5
+test -x fork/geogebra/desktop/build/install/desktop/bin/desktop
 rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
 cp -ur fork/geogebra/desktop/build/install/desktop dist/$PACKAGE_NAME/geogebra

@@ -15,4 +15,6 @@ GGB_VERSION=`cat fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebra
 TODAY=`LC_ALL=C date +%Y%b%d`
 SOFTWARE_NAME="GeoGebra Discovery $TODAY (based on GeoGebra $GGB_VERSION)"
 PACKAGE_NAME="GeoGebra-Discovery-$GGB_VERSION-$TODAY"
-export GGB_VERSION SOFTWARE_NAME PACKAGE_NAME
+GGB_VERSION6=`echo $GGB_VERSION | sed s/^5/6/`
+PACKAGE_NAME6="GeoGebra-Discovery-$GGB_VERSION6-$TODAY"
+export GGB_VERSION GGB_VERSION6 SOFTWARE_NAME PACKAGE_NAME
