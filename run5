@@ -6,9 +6,8 @@ test -r $BINDIR/desktop
 REALGEOM=realgeom/build/install/realgeom/bin/realgeom
 test -x $REALGEOM
 
-if [ "$LINUX_VARIANT" = Raspbian ]; then
+if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
  echo -n "Starting local RealGeom server on port 8765..."
- export TERMINAL=lxterminal
  $TERMINAL -e "$REALGEOM -s" 2>/dev/null &
  REALGEOM_PID=$!
  while ! nc -z localhost 8765; do sleep 1; echo -n "."; done
@@ -17,7 +16,7 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
 
 echo -n "Launching GeoGebra..."
 cd $BINDIR
-if [ "$LINUX_VARIANT" = Raspbian ]; then
+if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
  ./desktop --realgeomws=remoteurl:http\\://localhost\\:8765
 else
  ./desktop 
@@ -25,7 +24,7 @@ else
 
 echo "GeoGebra session ended."
 
-if [ "$LINUX_VARIANT" = Raspbian ]; then
+if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
  echo "Stopping RealGeom session..."
  kill $REALGEOM_PID
  fi

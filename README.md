@@ -23,9 +23,9 @@ The following tools are available:
 * Type `./get-build-tools` to download some prerequisites including an appropriate
 Java Development Kit on Ubuntu 18.04. On Raspberry Pi, a recent version of Giac
 will be downloaded and the default Java 11 (OpenJDK) will be used.
-* Run `./build5` to build GeoGebra Discovery. On a Raspberry Pi this will also build
+* Run `./build5` to build GeoGebra Discovery. On a Raspberry Pi (or, if Mathematica is available locally) this will also build
 [RealGeom](https://github.com/kovzol/realgeom).
-* Enter `./run5` to start the software. On a Raspberry Pi this will also use a local
+* Enter `./run5` to start the software. On a Raspberry Pi (or, if Mathematica is available locally) this will also use a local
 RealGeom service.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program.
