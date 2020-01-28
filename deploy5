@@ -31,7 +31,7 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
 echo \"Welcome to $SOFTWARE_NAME\"
 echo -n \"Starting local RealGeom server on port 8765...\"
 export TERMINAL=lxterminal
-\$TERMINAL -e \"realgeom/bin/realgeom -s\" 2>/dev/null &
+\$TERMINAL -e \"cd realgeom; ./gradlew run --args=\\\"-s\\\"\" 2>/dev/null &
 REALGEOM_PID=\$!
 while ! nc -z localhost 8765; do sleep 1; echo -n .; done
 echo
