@@ -6,7 +6,7 @@ test -r $BINDIR/desktop
 REALGEOM=realgeom/build/install/realgeom/bin/realgeom
 test -x $REALGEOM
 
-if [ "$WOLFRAMSCRIPT" != "" ]; then
+if [ "$MATHEMATICA" != "" ]; then
  echo -n "Starting local RealGeom server on port 8765..."
  $TERMINAL -e "cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  REALGEOM_PID=$!
@@ -16,7 +16,7 @@ if [ "$WOLFRAMSCRIPT" != "" ]; then
 
 echo -n "Launching GeoGebra..."
 cd $BINDIR
-if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
+if [ "$MATHEMATICA" != "" ]; then
  ./desktop --realgeomws=remoteurl:http\\://localhost\\:8765
 else
  ./desktop 
@@ -24,7 +24,7 @@ else
 
 echo "GeoGebra session ended."
 
-if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
+if [ "$MATHEMATICA" != "" ]; then
  echo "Stopping RealGeom session..."
  kill $REALGEOM_PID
  fi
