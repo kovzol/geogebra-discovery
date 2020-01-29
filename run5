@@ -6,7 +6,7 @@ test -r $BINDIR/desktop
 REALGEOM=realgeom/build/install/realgeom/bin/realgeom
 test -x $REALGEOM
 
-if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
+if [ "$WOLFRAMSCRIPT" != "" ]; then
  echo -n "Starting local RealGeom server on port 8765..."
  $TERMINAL -e "cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  REALGEOM_PID=$!

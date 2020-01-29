@@ -10,7 +10,7 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
   desktop/build/install/desktop/lib/javagiac-69259-natives-linux-arm.jar
  fi
 
-if [ "$LINUX_VARIANT" = Raspbian -o "$WOLFRAMSCRIPT" != "" ]; then
+if [ "$WOLFRAMSCRIPT" != "" ]; then
  cd ../../realgeom
  ./gradlew $GRADLE_OPTIONS installDist
  fi
