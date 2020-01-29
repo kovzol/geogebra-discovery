@@ -16,6 +16,10 @@ if [ "$1" = win ]; then
 
 else
 # Non-cross-platform deployment
+cp -ur realgeom dist/$PACKAGE_NAME
+mkdir -p dist/$PACKAGE_NAME/helper
+cp include/detect dist/$PACKAGE_NAME/helper
+
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
@@ -24,42 +28,40 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
  # Ensure that a Giac library for the wrong platform will not be loaded:
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/javagiac-69259-natives-linux-*.jar
  # Update Giac to the newest available version:
- cp buildtools/natives/javagiac-69259b-natives-linux-arm.jar dist/$PACKAGE_NAME/geogebra/desktop/lib/javagiac-69259-natives-linux-arm.jar
-
- cp -ur realgeom/build/install/realgeom dist/$PACKAGE_NAME
- echo "#!/bin/sh
-echo \"Welcome to $SOFTWARE_NAME\"
-echo -n \"Starting local RealGeom server on port 8765...\"
-export TERMINAL=lxterminal
-\$TERMINAL -e \"cd realgeom; ./gradlew run --args=\\\"-s\\\"\" 2>/dev/null &
-REALGEOM_PID=\$!
-while ! nc -z localhost 8765; do sleep 1; echo -n .; done
-echo
-echo -n \"Launching GeoGebra...\"
-geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765
-echo \"GeoGebra session ended.\"
-echo \"Stopping RealGeom session...\"
-kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
- chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
- rm -f dist/$PACKAGE_NAME/realgeom/lib/*amd64*.jar
- rm -f dist/$PACKAGE_NAME/realgeom/bin/realgeom.bat
-
+ cp buildtools/natives/javagiac-69259b-natives-linux-arm.jar dist/$PACKAGE_NAME/helper/javagiac-69259-natives-linux-arm.jar
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
  for i in windows mac i586 arm libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
-
- echo "#!/bin/sh
-echo \"Welcome to $SOFTWARE_NAME\"
-geogebra/desktop/bin/desktop" > dist/$PACKAGE_NAME/GeoGebra-Discovery
- chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
  ZIPNAME=$PACKAGE_NAME-Linux64
  fi
 fi # End of non-cross-platform deployment
 
 # Common parts in all types of deployments
+echo "#!/bin/sh
+echo \"Welcome to $SOFTWARE_NAME\"
+. helper/detect
+if [ \"\$MATHEMATICA\" != \"\" ]; then
+ echo -n \"Starting local RealGeom server on port 8765...\"
+ if [ \"\$LINUX_VARIANT\" = Raspbian ]; then
+  cp natives/javagiac-69259-natives-linux-arm.jar realgeom/build/install/realgeom/lib/
+  fi
+ \$TERMINAL -e \"cd realgeom; ./gradlew run --args=\\\"-s\\\"\" 2>/dev/null &
+ REALGEOM_PID=\$!
+ while ! nc -z localhost 8765; do sleep 1; echo -n .; done
+ echo
+ echo -n \"Launching GeoGebra...\"
+ geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765
+ echo \"GeoGebra session ended.\"
+ echo \"Stopping RealGeom session...\"
+ kill \$REALGEOM_PID
+else
+ geogebra/desktop/bin/desktop
+ fi" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
+
 ZIPNAME=$ZIPNAME.zip
 cd dist
 rm -f $ZIPNAME
