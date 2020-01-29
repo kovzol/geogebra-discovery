@@ -32,9 +32,7 @@ else
   done
  ZIPNAME=$PACKAGE_NAME-Linux64
  fi
-fi # End of non-cross-platform deployment
-
-# Common parts in all types of deployments
+# Linux startup shell
 echo "#!/bin/sh
 echo \"Welcome to $SOFTWARE_NAME\"
 . helper/detect
@@ -53,7 +51,9 @@ else
  geogebra/desktop/bin/desktop
  fi" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
+fi # End of non-cross-platform deployment
 
+# Common parts in all types of deployments
 ZIPNAME=$ZIPNAME.zip
 cd dist
 rm -f $ZIPNAME
