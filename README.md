@@ -59,4 +59,14 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech,
-Carlos Ueno, Manuel Ladra and Pilar Paez for their support.
+Carlos Ueno, Manuel Ladra, Pilar Paez and Jonathan Yu for their support.
+
+## Bugs
+
+* The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
+
+## [Benchmarks](https://prover-test.geogebra.org/)
+
+### Latest outputs
+* [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover/html/all.html)
+* [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/art-plotter/html/all.html)
