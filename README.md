@@ -63,10 +63,15 @@ Carlos Ueno, Manuel Ladra, Pilar Paez and Jonathan Yu for their support.
 
 ## Bugs
 
-* The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
+The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
 
-## [Benchmarks](https://prover-test.geogebra.org/)
+## Benchmarks
+The [benchmarking system](https://prover-test.geogebra.org/) collects results and speed related information on a daily basis for the [Prove](https://wiki.geogebra.org/en/Prove_Command), [ProveDetails](https://wiki.geogebra.org/en/Prove_Command), [LocusEquation](https://wiki.geogebra.org/en/LocusEquation_Command) and [Envelope](https://wiki.geogebra.org/en/Envelope_Command) commands.
 
 ### Latest outputs
 * [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover/html/all.html)
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/art-plotter/html/all.html)
+
+### All outputs
+* [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
+* [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/)
