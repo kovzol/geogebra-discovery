@@ -10,6 +10,9 @@ and the [Compare](https://www.youtube.com/playlist?list=PLQ71P_dimzuUNNOSoZkIhaq
 for some introductory ideas),
 * other bugfixes that are relevant to Classic 5 and Classic 6.
 
+Most of the features are considered unstable. It is planned that after making them stable,
+they will be added to the official version of GeoGebra as well.
+
 The files in this project are used to compile and deploy GeoGebra Discovery.
 
 ## Releases
