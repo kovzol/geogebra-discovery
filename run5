@@ -17,9 +17,9 @@ if [ "$MATHEMATICA" != "" ]; then
 echo -n "Launching GeoGebra..."
 cd $BINDIR
 if [ "$MATHEMATICA" != "" ]; then
- ./desktop --realgeomws=remoteurl:http\\://localhost\\:8765
+ ./desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
 else
- ./desktop 
+ ./desktop "$@"
  fi
 
 echo "GeoGebra session ended."
