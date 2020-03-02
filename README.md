@@ -10,6 +10,9 @@ and the [Compare](https://www.youtube.com/playlist?list=PLQ71P_dimzuUNNOSoZkIhaq
 for some introductory ideas),
 * other bugfixes that are relevant to Classic 5 and Classic 6.
 
+Most of the features are considered unstable. It is planned that after making them stable,
+they will be added to the official version of GeoGebra as well.
+
 The files in this project are used to compile and deploy GeoGebra Discovery.
 
 ## Releases
@@ -59,4 +62,19 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech,
-Carlos Ueno, Manuel Ladra and Pilar Paez for their support.
+Carlos Ueno, Manuel Ladra, Pilar Paez and Jonathan Yu for their support.
+
+## Bugs
+
+The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
+
+## Benchmarks
+The [benchmarking system](https://prover-test.geogebra.org/) collects results and speed related information on a daily basis for the [Prove](https://wiki.geogebra.org/en/Prove_Command), [ProveDetails](https://wiki.geogebra.org/en/Prove_Command), [LocusEquation](https://wiki.geogebra.org/en/LocusEquation_Command) and [Envelope](https://wiki.geogebra.org/en/Envelope_Command) commands.
+
+### Latest outputs
+* [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover/html/all.html)
+* [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/art-plotter/html/all.html)
+
+### All outputs
+* [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
+* [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/)
