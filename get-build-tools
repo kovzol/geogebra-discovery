@@ -2,9 +2,6 @@
 set -e
 . include/detect
 if [ "$LINUX_VARIANT" = Raspbian ]; then
- mkdir -p buildtools/natives
- cd buildtools/natives
- wget -c -N http://dev.geogebra.org/maven2/fr/ujf-grenoble/javagiac/69259b/javagiac-69259b-natives-linux-arm.jar
  exit 0
  fi
 # Linux (Ubuntu 18.04)

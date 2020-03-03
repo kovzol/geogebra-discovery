@@ -2,13 +2,6 @@
 . include/common
 . include/update
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
-if [ "$LINUX_VARIANT" = Raspbian ]; then
- # Ensure that a Giac library for the wrong platform will not be loaded:
- rm -f desktop/build/install/desktop/lib/javagiac-69259-natives-linux-*.jar
- # Update Giac to the newest available version:
- cp ../../buildtools/natives/javagiac-69259b-natives-linux-arm.jar\
-  desktop/build/install/desktop/lib/javagiac-69259-natives-linux-arm.jar
- fi
 
 if [ "$MATHEMATICA" != "" ]; then
  cd ../../realgeom
