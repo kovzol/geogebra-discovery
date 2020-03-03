@@ -1,5 +1,12 @@
 #!/bin/sh -x
 . include/common
+
+if [ "$MATHEMATICA" = "" -a "$1" != "win" -a "$1" != "lin-force" ]; then
+ echo "Mathematica is not installed."
+ echo "Add 'win' or 'lin-force' to build a Windows package or to build the package without realgeom, respectively."
+ exit 1
+ fi
+
 test -x fork/geogebra/desktop/build/install/desktop/bin/desktop
 rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
