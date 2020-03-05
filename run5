@@ -1,12 +1,14 @@
 #!/bin/sh -x
-. include/detect
+MYBASENAME=`realpath -P "$0"`
+MYPATH=`dirname "$MYBASENAME"`
+. $MYPATH/include/detect
 
 BINDIR=fork/geogebra/desktop/build/install/desktop/bin
-test -r $BINDIR/desktop
+test -r $MYPATH/$BINDIR/desktop
 
 if [ "$MATHEMATICA" != "" ]; then
  REALGEOM=realgeom/build/install/realgeom/bin/realgeom
- test -x $REALGEOM
+ test -x $MYPATH/$REALGEOM
  echo -n "Starting local RealGeom server on port 8765..."
  $TERMINAL -e "cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  REALGEOM_PID=$!
@@ -15,11 +17,10 @@ if [ "$MATHEMATICA" != "" ]; then
  fi
 
 echo -n "Launching GeoGebra..."
-cd $BINDIR
 if [ "$MATHEMATICA" != "" ]; then
- ./desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
+ $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
 else
- ./desktop "$@"
+ $MYPATH/$BINDIR/desktop "$@"
  fi
 
 echo "GeoGebra session ended."
