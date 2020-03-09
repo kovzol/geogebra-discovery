@@ -17,6 +17,8 @@ The files in this project are used to compile and deploy GeoGebra Discovery.
 
 ## Releases
 
+### Desktop version (Classic 5)
+
 End users may want to download one of the most recent [releases](https://github.com/kovzol/geogebra/releases). Then:
 
 * First you need to [install Java RE](https://www.java.com/en/download/)
@@ -24,10 +26,13 @@ End users may want to download one of the most recent [releases](https://github.
 * To run GeoGebra Discovery, you need to extract the downloaded archive and run the file **GeoGebra-Discovery.bat**
 (or **GeoGebra-Discovery** on non-Windows systems).
 
-### Web version
+### Web version (Classic 6)
 
 The web version is available online at [autogeo.online](http://autgeo.online) and usually updated on every new release.
 This version can be downloaded and run offline as well at [autgeo.online/off](http://autgeo.online/off).
+
+Please note that the web version cannot solve any problems in real geometry at the moment.
+For this purpose you need to download the desktop version.
 
 ## Prerequisites, compilation, running and deployment
 
@@ -83,3 +88,17 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 ### All outputs
 * [Prove test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/)
+
+## References
+
+### Discover command
+
+* [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215-220)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
+
+### Relation command
+* [Z. Kovács: The Relation Tool in GeoGebra 5 (ADG 2014: Automated Deduction in Geometry, p. 53-71)](https://link.springer.com/chapter/10.1007/978-3-319-21362-0_4)
+
+### Prove/ProveDetails commands
+
+* [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39-59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
+
