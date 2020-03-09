@@ -36,6 +36,8 @@ For this purpose you need to download the desktop version.
 
 ## Prerequisites, compilation, running and deployment
 
+![build](https://github.com/kovzol/geogebra/workflows/build/badge.svg)
+
 You may decide to compile GeoGebra Discovery on your own.
 
 If you do so, you will need a typical Linux system to make the software work.
