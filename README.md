@@ -24,6 +24,11 @@ End users may want to download one of the most recent [releases](https://github.
 * To run GeoGebra Discovery, you need to extract the downloaded archive and run the file **GeoGebra-Discovery.bat**
 (or **GeoGebra-Discovery** on non-Windows systems).
 
+### Web version
+
+The web version is available online at [autogeo.online](http://autgeo.online) and usually updated on every new release.
+This version can be downloaded and run offline as well at [autgeo.online/off](http://autgeo.online/off).
+
 ## Prerequisites, compilation, running and deployment
 
 You may decide to compile GeoGebra Discovery on your own.
