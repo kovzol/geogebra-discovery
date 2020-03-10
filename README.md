@@ -74,7 +74,7 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech,
-Carlos Ueno, Manuel Ladra, Pilar Paez and Jonathan Yu for their support.
+Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar and Jonathan Yu for their support.
 
 ## Bugs
 
@@ -105,4 +105,8 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 ### Prove/ProveDetails commands
 
 * [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39-59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
+
+### Compare command
+
+* [C. Abar, Z. Kovács, T. Recio, R. Vajda: Conectando Mathematica e GeoGebra para explorar construções geométricas planas, 2019](https://www.researchgate.net/publication/337499551_Conectando_Mathematica_e_GeoGebra_para_explorar_construcoes_geometricas_planas)
 
