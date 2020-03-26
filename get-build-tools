@@ -4,11 +4,17 @@ set -e
 if [ "$LINUX_VARIANT" = Raspbian ]; then
  exit 0
  fi
-# Linux (Ubuntu 18.04)
-test -x buildtools/jbr/bin/java && exit 0
-JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
-JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
+if [ "$LINUX_VARIANT" = Mac ]; then
+ test -x buildtools/jbrsdk/Contents/Home/bin/java && exit 0
+ JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
+ JDK_URL=https://bintray.com/jetbrains/intellij-jbr/download_file?file_path=$JDK_TGZ
+else 
+ # Linux (Ubuntu 18.04)
+ test -x buildtools/jbr/bin/java && exit 0
+ JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
+ JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
+ fi
 mkdir -p buildtools
 cd buildtools
-wget -c -N $JDK_URL
+wget -c -N $JDK_URL || curl -o $JDK_TGZ -O -L $JDK_URL
 tar xzf $JDK_TGZ
