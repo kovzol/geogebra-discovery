@@ -1,6 +1,12 @@
 #!/bin/sh
-export LINUX_VARIANT=`lsb_release -i | cut -f2`
-export LINUX_VERSION=`lsb_release -r | cut -f2`
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+ export LINUX_VARIANT=Mac
+ export LINUX_VERSION="$OSTYPE"
+else
+ export LINUX_VARIANT=`lsb_release -i | cut -f2`
+ export LINUX_VERSION=`lsb_release -r | cut -f2`
+ fi
 export MATHEMATICA=`which mathematica`
 export TERMINAL=`which lxterminal`
 if [ "$TERMINAL" = "" ]; then

@@ -5,7 +5,11 @@ if [ "$LINUX_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
  export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2000m -DXX:MaxMetaspaceSize=2000m"
 else
- JDK_REL=`pwd`/buildtools/jbr
+ if [ "$LINUX_VARIANT" != Mac ]; then
+  JDK_REL=`pwd`/buildtools/jbr
+ else
+  JDK_REL=`pwd`/buildtools/jbrsdk/Contents/Home
+  fi
  fi
 test -x $JDK_REL/bin/java
 export JAVA_HOME=$JDK_REL
