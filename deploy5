@@ -18,7 +18,7 @@ if [ "$1" = win ]; then
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@echo Welcome to $SOFTWARE_NAME
-@geogebra\\desktop\\\\bin\\desktop.bat" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+@geogebra\\desktop\\\\bin\\desktop.bat %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  ZIPNAME=$PACKAGE_NAME-Windows
 
 else
@@ -50,12 +50,12 @@ if [ \"\$MATHEMATICA\" != \"\" ]; then
  while ! nc -z localhost 8765; do sleep 1; echo -n .; done
  echo
  echo -n \"Launching GeoGebra...\"
- geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765
+ geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
  echo \"GeoGebra session ended.\"
  echo \"Stopping RealGeom session...\"
  kill \$REALGEOM_PID
 else
- geogebra/desktop/bin/desktop
+ geogebra/desktop/bin/desktop \"\$@\"
  fi" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
