@@ -40,7 +40,7 @@ else
  ZIPNAME=$PACKAGE_NAME-Linux64
  fi
 # Linux startup shell
-echo "#!/bin/sh
+echo "#!/bin/bash
 echo \"Welcome to $SOFTWARE_NAME\"
 . helper/detect
 if [ \"\$MATHEMATICA\" != \"\" ]; then
