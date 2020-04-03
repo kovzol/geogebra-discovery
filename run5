@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 MYBASENAME=`realpath -P "$0"`
 MYPATH=`dirname "$MYBASENAME"`
 . $MYPATH/include/detect
