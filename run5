@@ -1,5 +1,5 @@
 #!/bin/bash -x
-MYBASENAME=`realpath -P "$0"`
+MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
 MYPATH=`dirname "$MYBASENAME"`
 . $MYPATH/include/detect
 
@@ -14,6 +14,10 @@ if [ "$MATHEMATICA" != "" ]; then
  REALGEOM_PID=$!
  while ! nc -z localhost 8765; do sleep 1; echo -n "."; done
  echo
+ fi
+
+if [ "$LINUX_VARIANT" = Mac ]; then
+ export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbrsdk/Contents/Home/bin`
  fi
 
 echo -n "Launching GeoGebra..."
