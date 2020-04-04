@@ -1,0 +1,25 @@
+#!/bin/bash
+
+MYBASENAME=`realpath -P "$0"`
+MYPATH=`dirname "$MYBASENAME"`
+. "$MYPATH"/../include/detect
+
+if [ "$MATHEMATICA" = "" ]; then
+ echo "Mathematica is not installed."
+ exit 1
+fi
+
+# TODO. Put this in a common part...
+REALGEOM=../realgeom/build/install/realgeom/bin/realgeom
+test -x $MYPATH/$REALGEOM
+echo -n "Starting local RealGeom server on port 8765..."
+$TERMINAL -e "cd ../realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
+REALGEOM_PID=$!
+while ! nc -z localhost 8765; do sleep 1; echo -n "."; done
+echo
+
+cd ../fork/geogebra/test/scripts/benchmark/compare
+./test-RPi
+
+echo "Stopping RealGeom session..."
+kill $REALGEOM_PID
