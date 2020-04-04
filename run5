@@ -17,7 +17,7 @@ if [ "$MATHEMATICA" != "" ]; then
  fi
 
 if [ "$LINUX_VARIANT" = Mac ]; then
- export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbrsdk/Contents/Home/bin`
+ export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbrsdk/Contents/Home`
  fi
 
 echo -n "Launching GeoGebra..."
