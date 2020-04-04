@@ -76,6 +76,10 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech,
 Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar and Jonathan Yu for their support.
 
+## Mailing list
+
+A public list is available at [Google Groups](https://groups.google.com/forum/#!forum/geogebra-discovery).
+
 ## Bugs
 
 The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
