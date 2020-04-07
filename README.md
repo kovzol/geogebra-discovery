@@ -43,21 +43,21 @@ You may decide to compile GeoGebra Discovery on your own.
 If you do so, you will need a typical Linux system to make the software work.
 In particular, the provided scripts were tested on Ubuntu 18.04 and 19.10 (64-bit), and
 partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work,
-however you need at least 2 GB of memory for compilation).
+however you need at least 2 GB of memory for compilation). The latest version also works on Mac OS 10.15 Catalina.
 
 The following tools are available:
 
 ### Classic 5
 
 * Type `./get-build-tools` to download some prerequisites including an appropriate
-Java Development Kit on Ubuntu 18.04. On Raspberry Pi, a recent version of Giac
-will be downloaded and the default Java 11 (OpenJDK) will be used.
+Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
 * Run `./build5` to build GeoGebra Discovery. This will also build
 [RealGeom](https://github.com/kovzol/realgeom).
 * Enter `./run5` to start the software. On a Raspberry Pi (or, if Mathematica is available locally) this will also use a local
 RealGeom service.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
+This tool comes with a built-in help that can be invoked by the `-h` option.
 
 ### Classic 6
 
