@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 set -e
 . include/detect
 if [ "$LINUX_VARIANT" = Raspbian ]; then

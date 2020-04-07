@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 . include/common
 . include/update
 ./gradlew $GRADLE_OPTIONS :web:clean :web:draftDeployIntoWar

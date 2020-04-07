@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 . include/common
 WARDIR=fork/geogebra/web/war
 test -r $WARDIR/web3d/web3d.nocache.js

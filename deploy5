@@ -1,4 +1,4 @@
-#!/bin/sh -x
+#!/bin/bash -x
 . include/common
 
 if [ "$MATHEMATICA" = "" -a "$1" != "win" -a "$1" != "lin-force" ]; then

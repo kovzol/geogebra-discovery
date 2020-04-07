@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 . include/detect
 mkdir -p fork
 cd fork
