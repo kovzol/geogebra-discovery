@@ -1,5 +1,39 @@
-#!/bin/bash -x
+#!/bin/bash
 . helper/common
+
+BUNDLE=0
+
+usage() {
+ echo "$0 - creates a GeoGebra Discovery Classic 5 package"
+ echo "Usage: $0 [options] [scenario]"
+ echo " where [options] can be:"
+ echo "  -h          this help"
+ echo "  -j          add Java Runtime Environment from \"$JAVA_HOME\" to the bundle"
+ echo " [scenario] can be:"
+ echo "  win         create Windows package"
+ echo "  lin-force   create Mac or Linux package (even if Mathematica is not available)"
+ echo "By default the scenario is to create a Linux package and the presence of Mathematica is assumed."
+ exit 0
+ }
+
+while getopts "jh" OPT; do
+ case $OPT in
+  j)
+   BUNDLE=1
+   ;;
+  h)
+   usage
+   ;;
+  \?)
+   echo "Invalid option: $OPTARG" 1>&2
+   exit 1
+   ;;
+ esac
+done
+
+# Put name of the filters into $@
+shift $((OPTIND-1))
+
 
 if [ "$MATHEMATICA" = "" -a "$1" != "win" -a "$1" != "lin-force" ]; then
  echo "Mathematica is not installed."
@@ -28,6 +62,10 @@ mkdir -p dist/$PACKAGE_NAME/helper
 cp helper/{detect,start-realgeom} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
+if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
+ mkdir dist/$PACKAGE_NAME/jre
+ rsync -ur "$JAVA_HOME"/* dist/$PACKAGE_NAME/jre
+ fi
 if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
@@ -57,6 +95,7 @@ echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
+test -x jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' jre\`\"
 if [ \"\$MATHEMATICA\" != \"\" ]; then
  echo
  \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
