@@ -50,8 +50,8 @@ else
 echo "#!/bin/bash
 
 # This script can be called from anywhere.
-MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
-MYPATH=`dirname \"\$MYBASENAME\"`
+MYBASENAME=\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$0\"\`
+MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
