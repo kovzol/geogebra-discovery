@@ -16,7 +16,7 @@ if [ "$MATHEMATICA" != "" ]; then
  echo
  fi
 
-if [ "$LINUX_VARIANT" = Mac ]; then
+if [ "$OS_VARIANT" = Mac ]; then
  export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbrsdk/Contents/Home`
  fi
 

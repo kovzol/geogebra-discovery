@@ -28,13 +28,13 @@ mkdir -p dist/$PACKAGE_NAME/helper
 cp include/detect dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
-if [ "$LINUX_VARIANT" = Raspbian ]; then
+if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
   done
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
- if [ "$LINUX_VARIANT" = Mac ]; then
+ if [ "$OS_VARIANT" = Mac ]; then
   for i in windows linux i586 amd64 libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
    done

@@ -1,10 +1,10 @@
 #!/bin/bash -x
 set -e
 . include/detect
-if [ "$LINUX_VARIANT" = Raspbian ]; then
+if [ "$OS_VARIANT" = Raspbian ]; then
  exit 0
  fi
-if [ "$LINUX_VARIANT" = Mac ]; then
+if [ "$OS_VARIANT" = Mac ]; then
  test -x buildtools/jbrsdk/Contents/Home/bin/java && exit 0
  JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
  JDK_URL=https://bintray.com/jetbrains/intellij-jbr/download_file?file_path=$JDK_TGZ
