@@ -95,7 +95,7 @@ echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
-test -x jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' jre\`\"
+test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 if [ \"\$MATHEMATICA\" != \"\" ]; then
  echo
  \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
