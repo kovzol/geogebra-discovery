@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# This script can be called from anywhere.
+. "$MYPATH"/helper/detect
+
+if [ "$MATHEMATICA" != "" ]; then
+ REALGEOM=realgeom/build/install/realgeom/bin/realgeom
+ test -x "$MYPATH"/$REALGEOM
+ echo -n "Starting local RealGeom server on port 8765..."
+ $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
+ export REALGEOM_PID=$!
+ while ! nc -z localhost 8765; do sleep 1; echo -n "."; done
+ echo
+ fi
