@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-. include/detect
+. helper/detect
 if [ "$OS_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
  export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2000m -DXX:MaxMetaspaceSize=2000m"

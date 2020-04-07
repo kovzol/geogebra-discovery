@@ -1,5 +1,5 @@
 #!/bin/bash
-. include/detect
+. helper/detect
 mkdir -p fork
 cd fork
 test -d geogebra || git clone --depth 1 https://github.com/kovzol/geogebra

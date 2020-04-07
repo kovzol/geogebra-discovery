@@ -1,6 +1,6 @@
 #!/bin/bash -x
-. include/common
-. include/update
+. helper/common
+. helper/update
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 
 if [ "$MATHEMATICA" != "" ]; then

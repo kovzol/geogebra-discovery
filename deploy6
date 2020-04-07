@@ -1,5 +1,5 @@
 #!/bin/bash -x
-. include/common
+. helper/common
 WARDIR=fork/geogebra/web/war
 test -r $WARDIR/web3d/web3d.nocache.js
 DISTDIR=dist/$PACKAGE_NAME6

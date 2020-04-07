@@ -1,5 +1,5 @@
 #!/bin/bash -x
-. include/common
+. helper/common
 
 if [ "$MATHEMATICA" = "" -a "$1" != "win" -a "$1" != "lin-force" ]; then
  echo "Mathematica is not installed."
@@ -25,7 +25,7 @@ else
 # Non-cross-platform deployment
 test -d realgeom && rsync -ur realgeom dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/helper
-cp include/detect dist/$PACKAGE_NAME/helper
+cp helper/{detect,start-realgeom} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ "$OS_VARIANT" = Raspbian ]; then
@@ -48,21 +48,23 @@ else
  fi
 # Linux startup shell
 echo "#!/bin/bash
+
+# This script can be called from anywhere.
+MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
+MYPATH=`dirname \"\$MYBASENAME\"`
+
 echo \"Welcome to $SOFTWARE_NAME\"
-. helper/detect
+. \"\$MYPATH\"/helper/detect
+. \"\$MYPATH\"/helper/start-realgeom
+echo -n \"Launching GeoGebra...\"
 if [ \"\$MATHEMATICA\" != \"\" ]; then
- echo -n \"Starting local RealGeom server on port 8765...\"
- \$TERMINAL -e \"cd realgeom; ./gradlew run --args=\\\"-s\\\"\" 2>/dev/null &
- REALGEOM_PID=\$!
- while ! nc -z localhost 8765; do sleep 1; echo -n .; done
  echo
- echo -n \"Launching GeoGebra...\"
- geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
+ \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
  echo \"GeoGebra session ended.\"
  echo \"Stopping RealGeom session...\"
  kill \$REALGEOM_PID
 else
- geogebra/desktop/bin/desktop \"\$@\"
+ \"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"
  fi" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
