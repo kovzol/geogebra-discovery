@@ -109,6 +109,9 @@ chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 
 # Common parts in all types of deployments
+if [ $BUNDLE = 1 ]; then
+ ZIPNAME=$ZIPNAME-withJava
+ fi
 ZIPNAME=$ZIPNAME.zip
 cd dist
 rm -f $ZIPNAME
