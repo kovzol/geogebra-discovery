@@ -7,3 +7,7 @@ if [ "$MATHEMATICA" != "" ]; then
  cd ../../realgeom
  ./gradlew $GRADLE_OPTIONS installDist
  fi
+
+if [ "$OS_VARIANT" = Raspbian ]; then
+ rm fork/geogebra/desktop/build/install/desktop/lib/*{amd64,windows,i586,mac}*.jar || true
+ fi
