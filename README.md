@@ -21,10 +21,9 @@ The files in this project are used to compile and deploy GeoGebra Discovery.
 
 End users may want to download one of the most recent [releases](https://github.com/kovzol/geogebra/releases). Then:
 
-* First you need to [install Java RE](https://www.java.com/en/download/)
-(unless it is already installed on your computer).
 * To run GeoGebra Discovery, you need to extract the downloaded archive and run the file **GeoGebra-Discovery.bat**
 (or **GeoGebra-Discovery** on non-Windows systems). A short video [tutorial](https://www.youtube.com/watch?v=S1upzsdcW10) is also available.
+* In case the program does not start, you need to [install Java RE](https://www.java.com/en/download/).
 
 ### Web version (Classic 6)
 
