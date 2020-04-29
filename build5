@@ -2,10 +2,12 @@
 . helper/common
 . helper/update
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
+cd ../..
 
 if [ "$MATHEMATICA" != "" ]; then
- cd ../../realgeom
+ cd realgeom
  ./gradlew $GRADLE_OPTIONS installDist
+ cd ..
  fi
 
 if [ "$OS_VARIANT" = Raspbian ]; then
