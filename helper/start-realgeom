@@ -9,6 +9,7 @@ if [ "$MATHEMATICA" != "" ]; then
  echo -n "Starting local RealGeom server on port 8765..."
  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  export REALGEOM_PID=$!
- while ! nc -z localhost 8765; do sleep 1; echo -n "."; done
+ while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
+ nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
  echo
  fi
