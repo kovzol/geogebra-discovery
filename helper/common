@@ -16,7 +16,8 @@ export JAVA_HOME=$JDK_REL
 
 GGB_VERSION=`cat fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebraConstants.java |\
  grep " VERSION_STRING = " | awk '{print $7}' | sed s/\"//g | sed s/";"//`
-TODAY=`LC_ALL=C date +%Y%b%d`
+TODAY=`cat fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebraConstants.java |\
+ grep " DISCOVERY_VERSION = " | awk '{print $7}' | sed s/\"//g | sed s/";"//`
 SOFTWARE_NAME="GeoGebra Discovery $TODAY (based on GeoGebra $GGB_VERSION)"
 PACKAGE_NAME="GeoGebra-Discovery-$GGB_VERSION-$TODAY"
 GGB_VERSION6=`echo $GGB_VERSION | sed s/^5/6/`
