@@ -56,6 +56,7 @@ Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubu
 RealGeom service.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
+Mac users should use the command line `./deploy5 -j lin-force`.
 This tool comes with a built-in help that can be invoked by the `-h` option.
 
 ### Classic 6
@@ -113,4 +114,4 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 ### Compare command
 
 * [C. Abar, Z. Kovács, T. Recio, R. Vajda: Conectando Mathematica e GeoGebra para explorar construções geométricas planas, 2019](https://www.researchgate.net/publication/337499551_Conectando_Mathematica_e_GeoGebra_para_explorar_construcoes_geometricas_planas)
-
+* [R. Vajda, Z. Kovács: GeoGebra and the realgeom Reasoning Tool, 2020](https://www.researchgate.net/publication/345246253_GeoGebra_and_the_realgeom_Reasoning_Tool)
