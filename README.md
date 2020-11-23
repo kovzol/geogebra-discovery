@@ -27,8 +27,8 @@ End users may want to download one of the most recent [releases](https://github.
 
 ### Web version (Classic 6)
 
-The web version is available online at [autogeo.online](http://autgeo.online) and usually updated on every new release.
-This version can be downloaded and run offline as well at [autgeo.online/off](http://autgeo.online/off).
+The web version is available online at [autogeo.online](https://autgeo.online) and usually updated on every new release.
+This version can be downloaded and run offline as well at [autgeo.online/off](https://autgeo.online/off).
 
 Please note that the web version cannot solve any problems in real geometry at the moment.
 For this purpose you need to download the desktop version.
