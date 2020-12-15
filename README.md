@@ -10,7 +10,7 @@ and the [Compare](https://www.youtube.com/playlist?list=PLQ71P_dimzuUNNOSoZkIhaq
 for some introductory ideas),
 * other bugfixes that are relevant to Classic 5 and Classic 6.
 
-Most of the features are considered unstable. It is planned that after making them stable,
+Most of the [features](#prerequisites-compilation-running-and-deployment) are considered unstable. It is planned that after making them stable,
 they will be added to the official version of GeoGebra as well.
 
 The files in this project are used to compile and deploy GeoGebra Discovery.
@@ -79,6 +79,23 @@ Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar and Jonathan Yu for their sup
 ## Mailing list
 
 A public list is available at [Google Groups](https://groups.google.com/forum/#!forum/geogebra-discovery).
+
+## Feature matrix
+
+This table is ordered by maturity.
+
+| Feature | GeoGebra 	  | GeoGebra Discovery    |
+|:-------	|:---------:	|:-------------------:	|
+| LocusEquation	| command only | command and tool	|
+| Envelope | command only	| command and tool |
+| Incircle | numerical command only	| symbolic command and tool |
+| IncircleCenter | numerical command only	| symbolic command and tool |
+| Symbolic angle bisectors | slow | fast |
+| Algebraic curves as inputs in locus computations | no | yes |
+| Raspberry Pi support | partial (no 3D View) | fully functional |
+| Discover tool/command	| no | beta	|
+| Compare command | no | alpha |
+| ApplyMap command | no | prototype |
 
 ## Bugs
 
