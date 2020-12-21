@@ -87,11 +87,11 @@ This table is ordered by maturity.
 | Feature | GeoGebra 	  | GeoGebra Discovery    |
 |:-------	|:---------:	|:-------------------:	|
 | LocusEquation	| command only | command and tool	|
-| Envelope | command only	| command and tool |
+| Envelope | command only	| command and [tool](https://matek.hu/zoltan/blog-20201111.php) |
 | Incircle | numerical command only	| symbolic command and tool |
 | IncircleCenter | numerical command only	| symbolic command and tool |
-| Symbolic angle bisectors | slow | fast |
-| Algebraic curves as inputs in locus computations | no | yes |
+| Symbolic angle bisectors | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) |
+| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) |
 | Raspberry Pi support | partial (no 3D View) | fully functional |
 | Discover tool/command	| no | beta	|
 | Compare command | no | alpha |
