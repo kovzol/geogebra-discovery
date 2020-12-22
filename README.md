@@ -88,10 +88,10 @@ This table is ordered by maturity.
 |:-------	|:---------:	|:-------------------:	|:---------: |
 | Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
 | Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/green.png) GeoGebra Team: approve |
-| Incircle | numerical command only	| prover support | ![approve](images/green.png) GeoGebra Team: approve |
-| IncircleCenter command | no	| yes (with prover support) | ![approve](images/green.png) GeoGebra Team: approve |
-| Incircle tool | no	| yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| IncircleCenter tool | no	| yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
+| IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
+| Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
