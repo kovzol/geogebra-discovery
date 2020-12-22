@@ -84,18 +84,20 @@ A public list is available at [Google Groups](https://groups.google.com/forum/#!
 
 This table is ordered by maturity.
 
-| Feature | GeoGebra 	  | GeoGebra Discovery    |
-|:-------	|:---------:	|:-------------------:	|
-| LocusEquation	| command only | command and tool	|
-| Envelope | command only	| command and [tool](https://matek.hu/zoltan/blog-20201111.php) |
-| Incircle | numerical command only	| symbolic command and tool |
-| IncircleCenter | numerical command only	| symbolic command and tool |
-| Symbolic angle bisectors | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) |
-| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) |
-| Raspberry Pi support | partial (no 3D View) | fully functional |
-| Discover tool/command	| no | beta	|
-| Compare command | no | alpha |
-| ApplyMap command | no | prototype |
+| Feature | GeoGebra 	  | GeoGebra Discovery    | Next step  |
+|:-------	|:---------:	|:-------------------:	|:---------: |
+| Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | GeoGebra Team: approve |
+| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | GeoGebra Team: approve |
+| Incircle | numerical command only	| prover support | GeoGebra Team: approve |
+| IncircleCenter command | no	| yes (with prover support) | GeoGebra Team: approve |
+| Incircle tool | no	| yes | GeoGebra Team: approve/update |
+| IncircleCenter tool | no	| yes | GeoGebra Team: approve/update |
+| LocusEquation	tool | no | yes	| GeoGebra Team: approve/update |
+| Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | GeoGebra Team: approve/update |
+| Raspberry Pi 3D View | no | yes | GeoGebra Team: approve/update |
+| Discover tool/command	| no | beta	| [Progress bar](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) |
+| Compare command | no | alpha | Fix [degree issue](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-39) and [variable collision](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-45) |
+| ApplyMap command | no | prototype | Explanation needed |
 
 ## Bugs
 
