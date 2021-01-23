@@ -90,13 +90,13 @@ This table is ordered by maturity.
 | Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/green.png) GeoGebra Team: approve |
 | Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
+| Compare command | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Discover tool/command	| no | beta	| ![approve](images/red.png) [Progress bar](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) |
-| Compare command | no | alpha | ![approve](images/red.png) Fix [degree issue](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-39) and [variable collision](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-45) |
 | ApplyMap command | no | prototype | ![approve](images/red.png) Explanation needed |
 
 ## Bugs
