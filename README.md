@@ -95,7 +95,7 @@ This table is ordered by maturity.
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Compare command | no | beta | ![approve](images/red.png) Minor bugfixes |
+| Compare command | no | beta | ![approve](images/red.png) Minor bugfixes including [an incorrect result](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-59) |
 | Discover tool/command	| no | beta	| ![approve](images/red.png) [Progress bar](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) |
 | ApplyMap command | no | prototype | ![approve](images/red.png) Explanation needed |
 
