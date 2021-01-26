@@ -97,7 +97,7 @@ This table is ordered by maturity.
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Discover tool/command	| no | beta	| ![approve](images/red.png) [Progress bar](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) |
-| ApplyMap command | no | prototype | ![approve](images/red.png) Explanation needed |
+| ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![approve](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ## Bugs
 
