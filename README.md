@@ -89,7 +89,7 @@ This table is ordered by maturity.
 | Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
 | Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/green.png) GeoGebra Team: approve |
 | Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
-| Discover tool/command	| no | beta	| ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
