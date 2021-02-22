@@ -20,15 +20,9 @@ else
  fi
 
 echo -n "Launching GeoGebra..."
-if [ "$MATHEMATICA" != "" ]; then
- $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
-else
- $MYPATH/$BINDIR/desktop "$@"
- fi
+$MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
 
 echo "GeoGebra session ended."
 
-if [ "$MATHEMATICA" != "" ]; then
- echo "Stopping RealGeom session..."
- kill $REALGEOM_PID
- fi
+echo "Stopping RealGeom session..."
+kill $REALGEOM_PID

@@ -4,11 +4,9 @@
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 cd ../..
 
-if [ "$MATHEMATICA" != "" ]; then
- cd realgeom
- ./gradlew $GRADLE_OPTIONS installDist
- cd ..
- fi
+cd realgeom
+./gradlew $GRADLE_OPTIONS installDist
+cd ..
 
 if [ "$OS_VARIANT" = Raspbian ]; then
  rm fork/geogebra/desktop/build/install/desktop/lib/*{amd64,windows,i586,mac}*.jar || true
