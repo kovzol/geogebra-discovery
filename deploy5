@@ -11,8 +11,7 @@ usage() {
  echo "  -j          add Java Runtime Environment from \"$JAVA_HOME\" to the bundle"
  echo " [scenario] can be:"
  echo "  win         create Windows package"
- echo "  lin-force   create Mac or Linux package (even if Mathematica is not available)"
- echo "By default the scenario is to create a Linux package and the presence of Mathematica is assumed."
+ echo "By default the scenario is to create a Linux package."
  exit 0
  }
 
@@ -35,12 +34,6 @@ done
 shift $((OPTIND-1))
 
 
-if [ "$MATHEMATICA" = "" -a "$1" != "win" -a "$1" != "lin-force" ]; then
- echo "Mathematica is not installed."
- echo "Add 'win' or 'lin-force' to build a Windows package or to build the package without realgeom, respectively."
- exit 1
- fi
-
 test -x fork/geogebra/desktop/build/install/desktop/bin/desktop
 rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
@@ -57,9 +50,13 @@ if [ "$1" = win ]; then
 
 else
 # Non-cross-platform deployment
-test -d realgeom && rsync -ur realgeom dist/$PACKAGE_NAME
+test -d realgeom && {
+ rsync -ur --exclude qepcad realgeom dist/$PACKAGE_NAME
+ mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+ cp realgeom/qepcad/qesource/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+ }
 mkdir -p dist/$PACKAGE_NAME/helper
-cp helper/{detect,start-realgeom} dist/$PACKAGE_NAME/helper
+cp helper/{detect,qepcad,start-realgeom} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
@@ -93,18 +90,15 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
+. \"\$MYPATH\"/helper/qepcad
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
-if [ \"\$MATHEMATICA\" != \"\" ]; then
- echo
- \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
- echo \"GeoGebra session ended.\"
- echo \"Stopping RealGeom session...\"
- kill \$REALGEOM_PID
-else
- \"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"
- fi" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+echo
+\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
+echo \"GeoGebra session ended.\"
+echo \"Stopping RealGeom session...\"
+kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 

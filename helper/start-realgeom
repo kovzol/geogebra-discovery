@@ -2,6 +2,7 @@
 
 # This script can be called from anywhere.
 . "$MYPATH"/helper/detect
+. "$MYPATH"/helper/qepcad
 
 REALGEOM=realgeom/build/install/realgeom/bin/realgeom
 test -x "$MYPATH"/$REALGEOM

@@ -1,8 +1,34 @@
 #!/bin/bash -x
 . helper/common
+. helper/qepcad
 . helper/update
+
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 cd ../..
+
+# Install QEPCAD if it does not yet exists:
+which qepcad || {
+ mkdir -p realgeom/qepcad
+ cd realgeom/qepcad
+ QEPCAD_TGZ=qepcad-B.1.72.tar.gz
+ QEPCAD_URL=https://www.usna.edu/Users/cs/wcbrown/qepcad/INSTALL/$QEPCAD_TGZ
+ SACLIB_TGZ=saclib2.2.7.tar.gz
+ SACLIB_URL=https://www.usna.edu/Users/cs/wcbrown/qepcad/INSTALL/$SACLIB_TGZ
+ wget -c -N $QEPCAD_URL || curl -o $QEPCAD_TGZ -O -L $QEPCAD_URL
+ wget -c -N $SACLIB_URL || curl -o $SACLIB_TGZ -O -L $SACLIB_URL
+ tar xzf $QEPCAD_TGZ
+ tar xzf $SACLIB_TGZ
+ cd saclib2.2.7
+ export saclib=`pwd`
+ cd bin
+ ./sconf && ./mkproto && ./mkmake && ./mklib all
+ cd ../..
+ cd qesource
+ make
+ cd bin
+ mv qepcad qepcad-unstable && mv qepcadd qepcad # only if gcc >= 8.3.0
+ cd ../../../..
+ }
 
 cd realgeom
 ./gradlew $GRADLE_OPTIONS installDist
