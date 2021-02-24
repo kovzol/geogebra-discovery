@@ -100,7 +100,7 @@ if [ \"\$OS_VARIANT\" = Raspbian ]; then
 else
  CAS=qepcad
  fi
-\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas=\$CAS \"\$@\"
+\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS \"\$@\"
 echo \"GeoGebra session ended.\"
 echo \"Stopping RealGeom session...\"
 kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
