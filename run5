@@ -25,4 +25,4 @@ $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
 echo "GeoGebra session ended."
 
 echo "Stopping RealGeom session..."
-kill $REALGEOM_PID
+kill_descendant_processes $$

@@ -21,8 +21,23 @@ if [ "$OS_VARIANT" = "Mac" ]; then
  REALGEOM_PID=`pgrep -n bash`
 else
  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
- export REALGEOM_PID=$!
+ REALGEOM_PID=$!
  fi
 while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
 nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
 echo
+
+# This will be used later.
+kill_descendant_processes() {
+# Taken from https://stackoverflow.com/a/26966800/1044586
+    local pid="$1"
+    local and_self="${2:-false}"
+    if children="$(pgrep -P "$pid")"; then
+        for child in $children; do
+            kill_descendant_processes "$child" true
+        done
+    fi
+    if [[ "$and_self" == true ]]; then
+        kill -9 "$pid"
+    fi
+}
