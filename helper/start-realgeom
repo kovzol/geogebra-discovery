@@ -17,12 +17,12 @@ if [ "$OS_VARIANT" = "Mac" ]; then
   ./gradlew run --args=\"-s\"" > start-realgeom.command
  chmod 755 start-realgeom.command
  open start-realgeom.command
- echo "Hoping for the best..."
- sleep 15
+ sleep 2
+ REALGEOM_PID=`pgrep -n bash`
 else
  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  export REALGEOM_PID=$!
- while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
- nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
  fi
+while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
+nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
 echo
