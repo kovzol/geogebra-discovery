@@ -93,9 +93,9 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
 . \"\$MYPATH\"/helper/qepcad
+test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
-test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 echo
 if [ \"\$OS_VARIANT\" = Raspbian ]; then
  CAS=mathematica
