@@ -95,7 +95,12 @@ echo \"Welcome to $SOFTWARE_NAME\"
 echo -n \"Launching GeoGebra...\"
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 echo
-\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 \"\$@\"
+if [ \"\$OS_VARIANT\" = Raspbian ]; then
+ CAS=mathematica
+else
+ CAS=qepcad
+ fi
+\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas=\$CAS \"\$@\"
 echo \"GeoGebra session ended.\"
 echo \"Stopping RealGeom session...\"
 kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
