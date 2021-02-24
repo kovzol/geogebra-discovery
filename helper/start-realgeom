@@ -7,8 +7,20 @@
 REALGEOM=realgeom/build/install/realgeom/bin/realgeom
 test -x "$MYPATH"/$REALGEOM
 echo -n "Starting local RealGeom server on port 8765..."
-$TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
-export REALGEOM_PID=$!
-while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
-nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
+if [ "$OS_VARIANT" = "Mac" ]; then
+ echo "#!/bin/bash
+  export JAVA_HOME="$JAVA_HOME"
+  cd "$MYPATH"
+  cd realgeom
+  ./gradlew run --args=\"-s\"" > start-realgeom.command
+ chmod 755 start-realgeom.command
+ open start-realgeom.command
+ echo "Hoping for the best..."
+ sleep 10
+else
+ $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
+ export REALGEOM_PID=$!
+ while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
+ nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
+ fi
 echo

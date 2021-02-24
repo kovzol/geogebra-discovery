@@ -8,9 +8,6 @@ MYPATH=`dirname "$MYBASENAME"`
 BINDIR=fork/geogebra/desktop/build/install/desktop/bin
 test -r "$MYPATH"/$BINDIR/desktop
 
-export MYPATH
-. "$MYPATH"/helper/start-realgeom
-
 if [ "$OS_VARIANT" = Mac ]; then
  export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbrsdk/Contents/Home`
 else
@@ -18,6 +15,9 @@ else
   export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbr`
   fi
  fi
+
+export MYPATH
+. "$MYPATH"/helper/start-realgeom
 
 echo -n "Launching GeoGebra..."
 $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
