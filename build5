@@ -24,6 +24,9 @@ which qepcad || {
  ./sconf && ./mkproto && ./mkmake && ./mklib all
  cd ../..
  cd qesource
+ # Compile qepcad statically:
+ sed -i '/^FLAGS/ s/$/ -static/' Makefile
+ sed -i '/\-lrt \\$/ s/\\$/-lpthread -ltinfo \\/' source/Makefile
  make
  cd bin
  mv qepcad qepcad-unstable && mv qepcadd qepcad # only if gcc >= 8.3.0
