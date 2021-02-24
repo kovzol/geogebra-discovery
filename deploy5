@@ -97,15 +97,16 @@ test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_p
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
 echo
-if [ \"\$OS_VARIANT\" = Raspbian ]; then
- CAS=mathematica
-else
+if [ \"\$MATHEMATICA\" = \"\" ]; then
  CAS=qepcad
+else
+ CAS=mathematica
  fi
 \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS \"\$@\"
 echo \"GeoGebra session ended.\"
 echo \"Stopping RealGeom session...\"
-kill \$REALGEOM_PID" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+kill_descendant_processes \$REALGEOM_PID
+kill_descendant_processes \$\$" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 

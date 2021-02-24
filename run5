@@ -20,9 +20,17 @@ export MYPATH
 . "$MYPATH"/helper/start-realgeom
 
 echo -n "Launching GeoGebra..."
-$MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765 "$@"
+if [ "$MATHEMATICA" = "" ] ; then
+ CAS=qepcad
+else
+ CAS=mathematica
+ fi
+$MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS "$@"
 
 echo "GeoGebra session ended."
 
 echo "Stopping RealGeom session..."
+
+kill_descendant_processes $REALGEOM_PID
 kill_descendant_processes $$
+
