@@ -52,8 +52,10 @@ else
 # Non-cross-platform deployment
 test -d realgeom && {
  rsync -ur --exclude qepcad realgeom dist/$PACKAGE_NAME
- mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
- cp realgeom/qepcad/qesource/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+ if [ "$OS_VARIANT" != Raspbian ]; then
+  mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+  cp realgeom/qepcad/qesource/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+  fi
  }
 mkdir -p dist/$PACKAGE_NAME/helper
 cp helper/{detect,qepcad,start-realgeom} dist/$PACKAGE_NAME/helper
