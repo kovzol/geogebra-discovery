@@ -10,13 +10,15 @@ echo -n "Starting local RealGeom server on port 8765..."
 if [ "$OS_VARIANT" = "Mac" ]; then
  echo "#!/bin/bash
   export JAVA_HOME="$JAVA_HOME"
+  export qe="$qe"
+  export PATH="$PATH"
   cd "$MYPATH"
   cd realgeom
   ./gradlew run --args=\"-s\"" > start-realgeom.command
  chmod 755 start-realgeom.command
  open start-realgeom.command
  echo "Hoping for the best..."
- sleep 10
+ sleep 15
 else
  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  export REALGEOM_PID=$!
