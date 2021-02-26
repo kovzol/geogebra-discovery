@@ -15,3 +15,6 @@ if [ "$TERMINAL" = "" ]; then
 if [ "$TERMINAL" = "" ]; then
  export TERMINAL=`which xterm`
  fi
+if [ "$TERMINAL" = "" ]; then
+ export TERMINAL=`which gnome-terminal`
+ fi
