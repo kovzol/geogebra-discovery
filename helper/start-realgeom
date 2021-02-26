@@ -20,6 +20,10 @@ if [ "$OS_VARIANT" = "Mac" ]; then
  sleep 2
  REALGEOM_PID=`pgrep -n bash`
 else
+ if [ "$TERMINAL" = "" ]; then
+  echo "No terminal found. Please install xterm or a compatible one"
+  exit 1
+  fi
  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
  REALGEOM_PID=$!
  fi
