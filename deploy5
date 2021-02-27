@@ -47,7 +47,7 @@ if [ "$1" = win ]; then
  echo "@echo Welcome to $SOFTWARE_NAME
 @echo Starting realgeom server...
 @cd realgeom\\bin
-@start realgeom -s
+@start \"realgeom\" realgeom -s
 @cd ..\\..
 :c
 @netstat /a /n | findstr 8765 | findstr LISTENING
@@ -56,8 +56,9 @@ if [ "$1" = win ]; then
 @goto :c
 :ggstart
 @echo Starting GeoGebra...
-@geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:20 %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
- mkdir dist/$PACKAGE_NAME/realgeom
+@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:20 %*
+@taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+ mkdir -p dist/$PACKAGE_NAME/realgeom/bin
  cp bin/qepcad.exe dist/$PACKAGE_NAME/realgeom/bin
  cp realgeom/qepcad/qesource/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip (TODO: do it similarly for the other platforms as well)
