@@ -45,7 +45,28 @@ if [ "$1" = win ]; then
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@echo Welcome to $SOFTWARE_NAME
-@geogebra\\desktop\\\\bin\\desktop.bat %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+@echo Starting realgeom server...
+@cd realgeom\\bin
+@start realgeom -s
+@cd ..\\..
+:c
+@netstat /a /n | findstr 8765 | findstr LISTENING
+@if %ERRORLEVEL%==0 goto :ggstart
+@ping 127.0.0.1 -n 2 > nul
+@goto :c
+:ggstart
+@echo Starting GeoGebra...
+@geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:20 %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+ mkdir dist/$PACKAGE_NAME/realgeom
+ cp bin/qepcad.exe dist/$PACKAGE_NAME/realgeom/bin
+ cp realgeom/qepcad/qesource/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
+ # Copy installed version of realgeom in the .zip (TODO: do it similarly for the other platforms as well)
+ cd realgeom
+ ./gradlew installDist
+ rsync -ur build/install/realgeom ../dist/$PACKAGE_NAME
+ cd ..
+ rm dist/$PACKAGE_NAME/realgeom/bin/realgeom
+ rm dist/$PACKAGE_NAME/realgeom/lib/{*linux*,*macosx*}
  ZIPNAME=$PACKAGE_NAME-Windows
 
 else
