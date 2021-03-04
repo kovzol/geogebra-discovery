@@ -4,33 +4,6 @@
 . "$MYPATH"/helper/detect
 . "$MYPATH"/helper/qepcad
 
-REALGEOM=realgeom/build/install/realgeom/bin/realgeom
-test -x "$MYPATH"/$REALGEOM
-echo -n "Starting local RealGeom server on port 8765..."
-if [ "$OS_VARIANT" = "Mac" ]; then
- echo "#!/bin/bash
-  export JAVA_HOME=\"$JAVA_HOME\"
-  export qe=\"$qe\"
-  export PATH=\"$PATH\"
-  cd \"$MYPATH\"
-  cd realgeom
-  ./gradlew run --args=\"-s\"" > start-realgeom.command
- chmod 755 start-realgeom.command
- open start-realgeom.command
- sleep 2
- REALGEOM_PID=`pgrep -n bash`
-else
- if [ "$TERMINAL" = "" ]; then
-  echo "No terminal found. Please install xterm or a compatible one"
-  exit 1
-  fi
- $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
- REALGEOM_PID=$!
- fi
-while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
-nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
-echo
-
 # This will be used later.
 kill_descendant_processes() {
 # Taken from https://stackoverflow.com/a/26966800/1044586
@@ -45,3 +18,66 @@ kill_descendant_processes() {
         kill -9 "$pid"
     fi
 }
+
+for _ in once; do
+ # Use the installed version if possible:
+ REALGEOM=realgeom/bin/realgeom
+ test -x "$MYPATH"/$REALGEOM || break # Fallback for starting via Gradle
+ echo -n "Starting local RealGeom server on port 8765..."
+ if [ "$OS_VARIANT" = "Mac" ]; then
+  echo "#!/bin/bash
+   export JAVA_HOME=\"$JAVA_HOME\"
+   export qe=\"$qe\"
+   export PATH=\"$PATH\"
+   cd \"$MYPATH\"
+   cd realgeom/bin
+   ./realgeom -s" > start-realgeom.command
+  chmod 755 start-realgeom.command
+  open start-realgeom.command
+  sleep 2
+  REALGEOM_PID=`pgrep -n bash`
+ else
+  if [ "$TERMINAL" = "" ]; then
+   echo "No terminal found. Please install xterm or a compatible one"
+   exit 1
+   fi
+  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom/bin; ./realgeom -s" 2>/dev/null &
+  REALGEOM_PID=$!
+  fi
+ while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
+ REALGEOM_STARTED=1
+ nc -z localhost 8765 || {
+  echo "No realgeom server can be found, expect problems with RealGeomWS"
+  REALGEOM_STARTED=0
+  }
+ done # End of attempt running realgeom directly (without Gradle)
+echo
+
+if [ "$REALGEOM_STARTED" != 1 ]; then
+ REALGEOM=realgeom/build/install/realgeom/bin/realgeom
+ test -x "$MYPATH"/$REALGEOM
+ echo -n "Starting local RealGeom server on port 8765..."
+ if [ "$OS_VARIANT" = "Mac" ]; then
+  echo "#!/bin/bash
+   export JAVA_HOME=\"$JAVA_HOME\"
+   export qe=\"$qe\"
+   export PATH=\"$PATH\"
+   cd \"$MYPATH\"
+   cd realgeom
+   ./gradlew run --args=\"-s\"" > start-realgeom.command
+  chmod 755 start-realgeom.command
+  open start-realgeom.command
+  sleep 2
+  REALGEOM_PID=`pgrep -n bash`
+ else
+  if [ "$TERMINAL" = "" ]; then
+   echo "No terminal found. Please install xterm or a compatible one"
+   exit 1
+   fi
+  $TERMINAL -e "cd \"$MYPATH\"; cd realgeom; ./gradlew run --args=\"-s\"" 2>/dev/null &
+  REALGEOM_PID=$!
+  fi
+ while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
+ nc -z localhost 8765 || echo "No realgeom server can be found, expect problems with RealGeomWS"
+ echo
+ fi # End of attempt running realgeom via Gradle

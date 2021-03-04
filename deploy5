@@ -56,24 +56,38 @@ if [ "$1" = win ]; then
 @goto :c
 :ggstart
 @echo Starting GeoGebra...
-@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:20 %*
+@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:10 %*
 @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
  cp bin/qepcad.exe dist/$PACKAGE_NAME/realgeom/bin
  cp realgeom/qepcad/qesource/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
- # Copy installed version of realgeom in the .zip (TODO: do it similarly for the other platforms as well)
+ # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
  rsync -ur build/install/realgeom ../dist/$PACKAGE_NAME
  cd ..
  rm dist/$PACKAGE_NAME/realgeom/bin/realgeom
  rm dist/$PACKAGE_NAME/realgeom/lib/{*linux*,*macosx*}
+ # End of copying
  ZIPNAME=$PACKAGE_NAME-Windows
 
 else
 # Non-cross-platform deployment
 test -d realgeom && {
- rsync -ur --exclude qepcad realgeom dist/$PACKAGE_NAME
+ # Copy installed version of realgeom in the .zip
+ cd realgeom
+ ./gradlew installDist
+ rsync -ur build/install/realgeom ../dist/$PACKAGE_NAME
+ cd ..
+ rm dist/$PACKAGE_NAME/realgeom/bin/realgeom.bat
+ rm dist/$PACKAGE_NAME/realgeom/lib/*windows*
+ if [ "$OS_VARIANT" != Mac ]; then
+  cp realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
+  rm dist/$PACKAGE_NAME/realgeom/lib/*macosx*
+ else
+  rm dist/$PACKAGE_NAME/realgeom/lib/*linux*
+  fi
+ # End of copying
  if [ "$OS_VARIANT" != Raspbian ]; then
   mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
   cp realgeom/qepcad/qesource/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
@@ -124,7 +138,7 @@ if [ \"\$MATHEMATICA\" = \"\" ]; then
 else
  CAS=mathematica
  fi
-\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS \"\$@\"
+\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS,timeout:10 \"\$@\"
 echo \"GeoGebra session ended.\"
 echo \"Stopping RealGeom session...\"
 kill_descendant_processes \$REALGEOM_PID
