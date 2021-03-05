@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-qe=`pwd`/realgeom/qepcad/qesource
+qe=`pwd`/realgeom/qepcad/qepcad/qesource
 test -x $qe/bin/qepcad && export PATH="$PATH:$qe/bin"
 export qe

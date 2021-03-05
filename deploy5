@@ -1,5 +1,6 @@
 #!/bin/bash
 . helper/common
+. helper/qepcad
 
 BUNDLE=0
 
@@ -60,7 +61,7 @@ if [ "$1" = win ]; then
 @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
  cp bin/qepcad.exe dist/$PACKAGE_NAME/realgeom/bin
- cp realgeom/qepcad/qesource/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
+ cp $qe/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
@@ -83,14 +84,11 @@ test -d realgeom && {
  rm dist/$PACKAGE_NAME/realgeom/lib/*windows*
  if [ "$OS_VARIANT" != Mac ]; then
   cp realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
-  rm dist/$PACKAGE_NAME/realgeom/lib/*macosx*
- else
-  rm dist/$PACKAGE_NAME/realgeom/lib/*linux*
   fi
  # End of copying
  if [ "$OS_VARIANT" != Raspbian ]; then
-  mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
-  cp realgeom/qepcad/qesource/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qesource/bin
+  mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qepcad/qesource/bin
+  cp $qe/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qepcad/qesource/bin
   fi
  }
 mkdir -p dist/$PACKAGE_NAME/helper
@@ -104,17 +102,20 @@ if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
 if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+  rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
   done
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
  if [ "$OS_VARIANT" = Mac ]; then
   for i in windows linux i586 amd64 libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+   rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
   ZIPNAME=$PACKAGE_NAME-Mac
  else
   for i in windows mac i586 arm libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+   rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
   ZIPNAME=$PACKAGE_NAME-Linux64
   fi
