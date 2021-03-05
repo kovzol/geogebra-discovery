@@ -40,7 +40,7 @@ For this purpose you need to download the desktop version.
 You may decide to compile GeoGebra Discovery on your own.
 
 If you do so, you will need a typical Linux system to make the software work.
-In particular, the provided scripts were tested on Ubuntu 18.04 and 19.10 (64-bit), and
+In particular, the provided scripts were tested on Ubuntu 18.04, 19.10 and 20.04 (64-bit), and
 partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work,
 however you need at least 2 GB of memory for compilation). The latest version also works on Mac OS 10.15 Catalina.
 
@@ -56,7 +56,7 @@ Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubu
 RealGeom service.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
-Mac users should use the command line `./deploy5 -j lin-force`.
+Mac users should use the command line `./deploy5 -j`.
 This tool comes with a built-in help that can be invoked by the `-h` option.
 
 ### Classic 6
