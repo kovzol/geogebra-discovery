@@ -71,7 +71,12 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
 
 cd realgeom
 ./gradlew $GRADLE_OPTIONS installDist
-cp lib/*.so build/install/realgeom/lib
+LIBDIR=lib
+if [ "$OS_VARIANT" = Raspbian ]; then
+ # FIXME: This is hardcoded.
+ LIBDIR=/opt/Wolfram/WolframEngine/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-ARM
+ fi
+cp $LIBDIR/*.so build/install/realgeom/lib
 cd ..
 
 if [ "$OS_VARIANT" = Raspbian ]; then

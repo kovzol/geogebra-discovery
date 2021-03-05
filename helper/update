@@ -11,15 +11,17 @@ test -d realgeom || git clone --depth 1 https://github.com/kovzol/realgeom
 cd realgeom
 git pull
 
-test -d qepcad || mkdir qepcad
-cd qepcad
-test -d saclib || git clone --depth 1 https://github.com/chriswestbrown/saclib
-cd saclib
-git pull
-cd ..
-test -d qepcad || git clone --depth 1 https://github.com/chriswestbrown/qepcad
-cd qepcad
-git pull
-cd ../..
+if [ "$OS_VARIANT" != "Raspbian" ]; then
+ test -d qepcad || mkdir qepcad
+ cd qepcad
+ test -d saclib || git clone --depth 1 https://github.com/chriswestbrown/saclib
+ cd saclib
+ git pull
+ cd ..
+ test -d qepcad || git clone --depth 1 https://github.com/chriswestbrown/qepcad
+ cd qepcad
+ git pull
+ cd ../..
+ fi
 
 cd ../fork/geogebra

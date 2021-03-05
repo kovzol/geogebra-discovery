@@ -83,7 +83,7 @@ test -d realgeom && {
  rm dist/$PACKAGE_NAME/realgeom/bin/realgeom.bat
  rm dist/$PACKAGE_NAME/realgeom/lib/*windows*
  if [ "$OS_VARIANT" != Mac ]; then
-  cp realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
+  cp realgeom/build/install/realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
   fi
  # End of copying
  if [ "$OS_VARIANT" != Raspbian ]; then
