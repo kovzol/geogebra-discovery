@@ -81,6 +81,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
 
 cd realgeom
 ./gradlew $GRADLE_OPTIONS installDist
+cp lib/*.so build/install/realgeom/lib
 cd ..
 
 if [ "$OS_VARIANT" = Raspbian ]; then
