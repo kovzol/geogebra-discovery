@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
+# We assume that MYPATH is correctly set.
+# If not, we set it to .
+if [ "$MYPATH" = "" ]; then
+ MYPATH=.
+ fi
 
-qe=`pwd`/realgeom/qepcad/qepcad/qesource
+qe="$MYPATH"/realgeom/qepcad/qepcad/qesource
 test -x $qe/bin/qepcad && export PATH="$PATH:$qe/bin"
 export qe
