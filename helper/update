@@ -18,7 +18,55 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
  cd saclib
  git pull
  cd ..
- test -d qepcad || git clone --depth 1 https://github.com/chriswestbrown/qepcad
+ test -d qepcad || {
+  git clone --depth 1 https://github.com/chriswestbrown/qepcad
+  cd qepcad/qesource
+  if [ "$OS_VARIANT" != "Mac" ]; then
+   # Compile qepcad statically (on non-Mac systems):
+   sed -i '/^FLAGS/ s/$/ -static/' Makefile
+   sed -i '/\-lrt \\$/ s/\\$/-lpthread -ltinfo \\/' source/Makefile
+  else
+   # On Mac:
+   sed -i .bak 's/\-lrt //' source/Makefile # remove -lrt
+   # Remove flag U from ar:
+   for i in `find . -name Makefile`; do
+    sed -i .bak 's/^ARFLAGS := crvU/ARFLAGS := crv/' $i
+    done
+   # Remove the timer from MAIN.c:
+   cd source/main
+   echo "--- MAIN.c	2018-01-25 22:25:22.000000000 +0100
++++ MAIN.c	2021-02-24 12:48:12.000000000 +0100
+@@ -81,25 +81,7 @@
+ 
+ static int sendSignalAfterInterval(int seconds, int signum)
+ {
+-  /* Create timer */
+-  timer_t timerid;
+-  struct sigevent sev;
+-  sev.sigev_notify = SIGEV_SIGNAL;
+-  sev.sigev_signo = signum;
+-  sev.sigev_value.sival_ptr = &timerid;
+-  if (timer_create(CLOCK_MONOTONIC, &sev, &timerid) == -1)
+-    return 1;
+-
+-  /* Start timer */
+-  struct itimerspec its;
+-  its.it_value.tv_sec = seconds;
+-  its.it_value.tv_nsec = 0;
+-  its.it_interval.tv_sec = its.it_value.tv_sec;
+-  its.it_interval.tv_nsec = its.it_value.tv_nsec;
+-  if (timer_settime(timerid, 0, &its, NULL) == -1)
+-    return 2;
+-
+-  return 0;
++  return 1;
+ }
+ 
+ int main(int argc, char **argv)" | patch
+   cd ../..
+   fi # end of Mac related changes
+  cd ../..
+  }
  cd qepcad
  git pull
  cd ../..
