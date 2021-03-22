@@ -70,6 +70,20 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
  cd qepcad
  git pull
  cd ../..
+
+ test -d tarski || {
+  git clone --depth 1 https://github.com/chriswestbrown/tarski
+  cd tarski
+  if [ "$OS_VARIANT" != "Mac" ]; then
+   # Compile tarski statically (on non-Mac systems) and remove debug information:
+   sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
+   sed -i 's/\-g//' interpreter/Makefile
+   fi
+  cd ..
+  }
+ cd tarski
+ git pull
+ cd ..
  fi
 
 cd ../fork/geogebra
