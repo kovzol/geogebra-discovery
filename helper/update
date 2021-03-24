@@ -122,7 +122,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
  int main(int argc, char **argv)" | patch
    cd ../../..
    # Make code C11 compatible
-   sed -i 's/"PRIu64"/ "PRIu64" /' minisat/core/Main.cc
+   sed -i .bak 's/"PRIu64"/" PRIu64 "/' minisat/core/Main.cc
    fi # end of Mac related changes
   cd ..
   }
