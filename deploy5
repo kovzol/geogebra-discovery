@@ -93,10 +93,12 @@ test -d realgeom && {
  if [ "$OS_VARIANT" != Raspbian ]; then
   mkdir -p dist/$PACKAGE_NAME/realgeom/qepcad/qepcad/qesource/bin
   cp $qe/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/qepcad/qepcad/qesource/bin
+  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
+  cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
   fi
  }
 mkdir -p dist/$PACKAGE_NAME/helper
-cp helper/{detect,qepcad,start-realgeom} dist/$PACKAGE_NAME/helper
+cp helper/{detect,qepcad,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
@@ -134,12 +136,13 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
 . \"\$MYPATH\"/helper/qepcad
+. \"\$MYPATH\"/helper/tarski
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
 echo
 if [ \"\$MATHEMATICA\" = \"\" ]; then
- CAS=qepcad
+ CAS=tarski
 else
  CAS=mathematica
  fi

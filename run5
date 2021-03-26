@@ -21,7 +21,7 @@ export MYPATH
 
 echo -n "Launching GeoGebra..."
 if [ "$MATHEMATICA" = "" ] ; then
- CAS=qepcad
+ CAS=tarski
 else
  CAS=mathematica
  fi
