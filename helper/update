@@ -72,7 +72,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
  cd ../..
 
  test -d tarski || {
-  git clone --depth 1 https://github.com/chriswestbrown/tarski
+  git clone --depth 1 https://github.com/kovzol/tarski
   cd tarski
   if [ "$OS_VARIANT" != "Mac" ]; then
    # Compile tarski statically (on non-Mac systems) and remove debug information:
