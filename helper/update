@@ -100,8 +100,8 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
      exit 1
      }
     fi
-   sed -i .bak "s/extIncludesMD5:=.*/extIncludesMD5:=-I$MAC_OPENSSL/include/" interpreter/Makefile
-   sed -i .bak "s/extLibMD5:=.*/extLibMD5:=$MAC_OPENSSL/lib/libssl.a $MAC_OPENSSL/lib/libcrypto.a/" interpreter/Makefile
+   sed -i .bak "s'extIncludesMD5:=.*'extIncludesMD5:=-I$MAC_OPENSSL/include'" interpreter/Makefile
+   sed -i .bak "s'extLibMD5:=.*'extLibMD5:=$MAC_OPENSSL/lib/libssl.a $MAC_OPENSSL/lib/libcrypto.a'" interpreter/Makefile
    sed -i .bak 's/LDFLAGS :=.*/LDFLAGS := -lreadline $(extLibSACLIB) $(extLibMINISAT) $(extLibMD5)/' interpreter/Makefile
    sed -i .bak '/^INC_FLAGS/ s/$/ $(extIncludesMD5)/' interpreter/Makefile
    # Remove flag U from ar:
