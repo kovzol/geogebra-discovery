@@ -1,7 +1,5 @@
 #!/bin/bash -x
 
-# If you want to compile tarski, add the option -t.
-
 # This script can be called from anywhere.
 MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
 MYPATH=`dirname "$MYBASENAME"`
@@ -32,12 +30,9 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
   fi
  cd ../../../..
  # Compile Tarski:
- if [ "$1" = "-t" ]; then
-  cd realgeom/tarski
-  ./build.sh
-  cd ../..
-  fi
- # TODO: Fix build.sh in Tarski to avoid recompiling the interpreter if no change was made.
+ cd realgeom/tarski
+ ./build.sh
+ cd ../..
  fi
 
 cd realgeom
