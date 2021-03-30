@@ -2,6 +2,6 @@
 set -e
 # We assume that MYPATH is correctly set.
 
-qe="$MYPATH"/realgeom/qepcad/qepcad/qesource
-test -x $qe/bin/qepcad && export PATH="$PATH:$qe/bin"
+qe="$MYPATH/realgeom/qepcad/qepcad/qesource"
+test -x "$qe/bin/qepcad" && export PATH="$PATH:$qe/bin"
 export qe

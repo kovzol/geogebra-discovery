@@ -5,14 +5,15 @@ if [ "$OS_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
  export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2000m -DXX:MaxMetaspaceSize=2000m"
 else
+ PWD=`pwd`
  if [ "$OS_VARIANT" != Mac ]; then
-  JDK_REL=`pwd`/buildtools/jbr
+  JDK_REL="$PWD/buildtools/jbr"
  else
-  JDK_REL=`pwd`/buildtools/jbrsdk/Contents/Home
+  JDK_REL="$PWD/buildtools/jbrsdk/Contents/Home"
   fi
  fi
-test -x $JDK_REL/bin/java
-export JAVA_HOME=$JDK_REL
+test -x "$JDK_REL/bin/java"
+export JAVA_HOME="$JDK_REL"
 
 GGB_VERSION=`cat fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebraConstants.java |\
  grep " VERSION_STRING = " | awk '{print $7}' | sed s/\"//g | sed s/";"//`

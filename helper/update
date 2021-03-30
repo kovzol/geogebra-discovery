@@ -84,14 +84,14 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    sed -i 's/\-g//' interpreter/Makefile
    # Compile tarski/QEPCAD statically:
    sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
-   sed -i '/\-lrt \\$/ s/\\$/-lpthread -ltinfo \\/' qesource/source/Makefile
+   sed -i '/\-lrt / s/\\$/-lpthread -ltinfo \\/' qesource/source/Makefile
   else
    # On Mac:
    sed -i .bak 's/\-lrt //' qesource/source/Makefile # remove -lrt
    sed -i .bak 's/\-lrt //' interpreter/Makefile # remove -lrt
    # Make sure libssl and libcrypto are linked statically from a local openssl installation
    if [ "$MAC_OPENSSL" = "" ]; then
-    MAC_OPENSSL=/usr/local/Cellar/openssl/1.0.2o_1
+    MAC_OPENSSL=/usr/local/Cellar/openssl@1.1/1.1.1j
     test -x $MAC_OPENSSL || {
      echo "It seems you have no openssl installed. To build Tarski, you need it."
      echo "Consider installing it via Homebrew by typing 'brew install openssl'."
