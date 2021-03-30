@@ -108,7 +108,6 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    for i in `find . -name Makefile`; do
     sed -i .bak 's/^ARFLAGS := crvU/ARFLAGS := crv/' $i
     done
-   cd ../../..
    fi # end of Mac related changes
   cd ..
   }
