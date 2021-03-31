@@ -84,7 +84,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    sed -i 's/\-g//' interpreter/Makefile
    # Compile tarski/QEPCAD statically:
    sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
-   sed -i '/\-lrt / s/\\$/-lpthread -ltinfo \\/' qesource/source/Makefile
+   sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
   else
    # On Mac:
    sed -i .bak 's/\-lrt //' qesource/source/Makefile # remove -lrt
