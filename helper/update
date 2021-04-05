@@ -97,6 +97,8 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
      echo "Consider installing it via Homebrew by typing 'brew install openssl'."
      echo "Alternatively, you can set the environment variable MAC_OPENSSL"
      echo "to point to the correct installation path, e.g. /usr/local/Cellar/openssl/1.0.2o_1."
+     cd ..
+     rm -fr tarski # FIXME: do this without removing Tarski completely
      exit 1
      }
     fi
