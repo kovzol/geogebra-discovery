@@ -3,7 +3,7 @@ name: CI
 on: [push]
 
 jobs:
-  build:
+  linux:
 
     runs-on: ubuntu-latest
 
@@ -15,3 +15,16 @@ jobs:
       run: ./build5
     - name: build6
       run: ./build6
+
+  mac:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: prerequisites1
+      run: brew install readline openssl
+    - name: prerequisites2
+      run: ./get-build-tools
+    - name: build5
+      run: ./build5

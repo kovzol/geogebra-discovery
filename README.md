@@ -50,6 +50,9 @@ The following tools are available:
 
 * Type `./get-build-tools` to download some prerequisites including an appropriate
 Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
+(You may need further prerequisites. The current version automatically downloads and compiles [QEPCAD B](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) 1.74
+and [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
+They require the readline and openssl libraries, and maybe additional ones.)
 * Run `./build5` to build GeoGebra Discovery. This will also build
 [RealGeom](https://github.com/kovzol/realgeom).
 * Enter `./run5` to start the software. On a Raspberry Pi (or, if Mathematica is available locally) this will also use a local
