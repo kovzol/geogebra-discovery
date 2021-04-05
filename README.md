@@ -52,7 +52,8 @@ The following tools are available:
 Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
 (You may need further prerequisites. The current version automatically downloads and compiles [QEPCAD B](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) 1.74
 and [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
-They require the readline and openssl libraries, and maybe additional ones.)
+They require the [readline](https://tiswww.case.edu/php/chet/readline/rltop.html) and [openssl](https://www.openssl.org/)
+libraries, and maybe additional ones.)
 * Run `./build5` to build GeoGebra Discovery. This will also build
 [RealGeom](https://github.com/kovzol/realgeom).
 * Enter `./run5` to start the software. On a Raspberry Pi (or, if Mathematica is available locally) this will also use a local
@@ -65,19 +66,19 @@ This tool comes with a built-in help that can be invoked by the `-h` option.
 #### Steps to build GeoGebra Discovery on macOS
 
 * Start Terminal: Press Cmd+Space to open spotlight search, and type terminal and hit return.
-* Get Homebrew by copy-pasting this into the terminal: 
+* Get [Homebrew](https://brew.sh/) by copy-pasting this into the terminal: 
 `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`.
 You will be asked to enter a password that allows you making changes on your system.
 * Install readline and openssl via Homebrew: `brew install readline openssl`.
 * Make sure that you have no space character on your path in the terminal. If so, you need to perform the remaining
-steps in a folder that does not contain any space characters, e.g. in /tmp/. (Later you may copy the created bundle
+steps in a folder that does not contain any space characters, e.g. in **/tmp/**. (Later you may copy the created bundle
 to a different folder that will be not deleted on reboot.) In this case, enter `cd /tmp`.
 * Type `./get-build-tools` to get Java.
 * Type `./build5` to build GeoGebra Discovery.
 * Type `./run5` to test if GeoGebra Discovery runs properly.
-* Type `./deploy5 -j` to create a .zip bundle that contains all necessary files for GeoGebra Discovery.
-The bundle will be put in the relative folder `dist/`. (In case your working directory is `/tmp/`, you may want
-to copy the .zip bundle to another folder, say, your home folder, to avoid deletion of all your created files
+* Type `./deploy5 -j` to create a **.zip** bundle that contains all necessary files for GeoGebra Discovery.
+The bundle will be put in the relative folder **dist/**. (In case your working directory is **/tmp/**, you may want
+to copy the **.zip** bundle to another folder, say, your home folder, to avoid deletion of all your created files
 on an accidental reboot.)
 
 ### Classic 6
