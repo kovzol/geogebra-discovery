@@ -35,7 +35,7 @@ For this purpose you need to download the desktop version.
 
 ## Prerequisites, compilation, running and deployment
 
-![build](https://github.com/kovzol/geogebra-discovery/workflows/CI/badge.svg)
+![build](https://github.com/kovzol/geogebra-discovery/workflows/build/badge.svg)
 
 You may decide to compile GeoGebra Discovery on your own.
 
