@@ -91,7 +91,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    sed -i .bak 's/\-lrt //' interpreter/Makefile # remove -lrt
    # Make sure libssl and libcrypto are linked statically from a local openssl installation
    if [ "$MAC_OPENSSL" = "" ]; then
-    MAC_OPENSSL=/usr/local/Cellar/openssl@1.1/1.1.1j
+    MAC_OPENSSL=/usr/local/Cellar/openssl@1.1/1.1.1k
     test -x $MAC_OPENSSL || {
      echo "It seems you have no openssl installed. To build Tarski, you need it."
      echo "Consider installing it via Homebrew by typing 'brew install openssl'."
