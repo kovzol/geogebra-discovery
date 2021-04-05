@@ -16,5 +16,5 @@ else
  fi
 mkdir -p buildtools
 cd buildtools
-wget -c -N $JDK_URL || curl -o $JDK_TGZ -O -L $JDK_URL
+wget -c -N $JDK_URL -O $JDK_TGZ || curl -o $JDK_TGZ -O -L $JDK_URL
 tar xzf $JDK_TGZ
