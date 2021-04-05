@@ -62,6 +62,24 @@ to run the program. In case you need a .zip file for Windows users, enter `./dep
 Mac users should use the command line `./deploy5 -j`.
 This tool comes with a built-in help that can be invoked by the `-h` option.
 
+#### Steps to build GeoGebra Discovery on macOS
+
+* Start Terminal: Press Cmd+Space to open spotlight search, and type terminal and hit return.
+* Get Homebrew by copy-pasting this into the terminal: 
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`.
+You will be asked to enter a password that allows you making changes on your system.
+* Install readline and openssl via Homebrew: `brew install readline openssl`.
+* Make sure that you have no space character on your path in the terminal. If so, you need to perform the remaining
+steps in a folder that does not contain any space characters, e.g. in /tmp/. (Later you may copy the created bundle
+to a different folder that will be not deleted on reboot.) In this case, enter `cd /tmp`.
+* Type `./get-build-tools` to get Java.
+* Type `./build5` to build GeoGebra Discovery.
+* Type `./run5` to test if GeoGebra Discovery runs properly.
+* Type `./deploy5 -j` to create a .zip bundle that contains all necessary files for GeoGebra Discovery.
+The bundle will be put in the relative folder `dist/`. (In case your working directory is `/tmp/`, you may want
+to copy the .zip bundle to another folder, say, your home folder, to avoid deletion of all your created files
+on an accidental reboot.)
+
 ### Classic 6
 
 * Type `./get-build-tools` to download the prerequisites.
