@@ -89,6 +89,7 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    # On Mac:
    sed -i .bak 's/\-lrt //' qesource/source/Makefile # remove -lrt
    sed -i .bak 's/\-lrt //' interpreter/Makefile # remove -lrt
+   sed -i .bak '/^CPPFLAGS/ s/$/ --std=c++11/' interpreter/Makefile # force C++11 dialect
    # Make sure libssl and libcrypto are linked statically from a local openssl installation
    if [ "$MAC_OPENSSL" = "" ]; then
     MAC_OPENSSL=/usr/local/Cellar/openssl@1.1/1.1.1k
