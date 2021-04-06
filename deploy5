@@ -51,8 +51,10 @@ if [ "$1" = win ]; then
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@echo Welcome to $SOFTWARE_NAME
 @echo Starting realgeom server...
-@cd realgeom\\bin
-@start \"realgeom\" realgeom -s
+@cd realgeom
+@set \"qe=%cd%\"
+@cd bin
+@start \"realgeom\" realgeom -s -g
 @cd ..\\..
 :c
 @netstat /a /n | findstr 8765 | findstr LISTENING
@@ -61,10 +63,11 @@ if [ "$1" = win ]; then
 @goto :c
 :ggstart
 @echo Starting GeoGebra...
-@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:qepcad,timeout:10 %*
+@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:tarski,timeout:10 %*
 @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
- cp bin/qepcad.exe dist/$PACKAGE_NAME/realgeom/bin
+ cp bin/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
+ cp bin/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
  cp $qe/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip
  cd realgeom
