@@ -3,4 +3,4 @@ set -e
 # We assume that MYPATH is correctly set.
 
 tarski="$MYPATH/realgeom/tarski"
-test -x "$tarski/bin/tarski" && export PATH="$PATH:$tarski/bin"
+test -x "$tarski/bin/tarski" && export PATH="$PATH:$tarski/bin" || true
