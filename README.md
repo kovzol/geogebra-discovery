@@ -73,6 +73,8 @@ You will be asked to enter a password that allows you making changes on your sys
 * Make sure that you have no space character on your path in the terminal. If so, you need to perform the remaining
 steps in a folder that does not contain any space characters, e.g. in **/tmp/**. (Later you may copy the created bundle
 to a different folder that will be not deleted on reboot.) In this case, enter `cd /tmp`.
+* Type `git clone https://github.com/kovzol/geogebra-discovery` to download the source code.
+* Type `cd geogebra-discovery` to change the working directory.
 * Type `./get-build-tools` to get Java.
 * Type `./build5` to build GeoGebra Discovery.
 * Type `./run5` to test if GeoGebra Discovery runs properly.
