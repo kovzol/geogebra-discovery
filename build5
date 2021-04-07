@@ -12,23 +12,6 @@ MYPATH=`dirname "$MYBASENAME"`
 cd ../..
 
 if [ "$OS_VARIANT" != "Raspbian" ]; then
- # Compile QEPCAD:
- cd realgeom/qepcad/saclib
- export saclib=`pwd`
- cd bin
- ./sconf && ./mkproto && ./mkmake && ./mklib all
- cd ../..
- cd qepcad/qesource
- make
- if [ "$OS_VARIANT" != "Mac" ]; then
-  # Use the non-optimized version:
-  cd bin
-  test -x qepcad-unstable || {
-   mv qepcad qepcad-unstable && mv qepcadd qepcad # TODO: do this only if gcc >= 8.3.0
-   }
-  cd ..
-  fi
- cd ../../../..
  # Compile Tarski:
  cd realgeom/tarski
  ./build.sh

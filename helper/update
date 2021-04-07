@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# This script assumes that the environment variabe MAC_OPENSSL is correctly set.
-# If not, it sets a default value, but it may be different from the correct value.
-
 . helper/detect
 mkdir -p fork
 cd fork
@@ -16,65 +13,6 @@ cd realgeom
 git pull
 
 if [ "$OS_VARIANT" != "Raspbian" ]; then
- test -d qepcad || mkdir qepcad
- cd qepcad
- test -d saclib || git clone --depth 1 https://github.com/chriswestbrown/saclib
- cd saclib
- git pull
- cd ..
- test -d qepcad || {
-  git clone --depth 1 https://github.com/chriswestbrown/qepcad
-  cd qepcad/qesource
-  if [ "$OS_VARIANT" != "Mac" ]; then
-   # Compile qepcad statically (on non-Mac systems):
-   sed -i '/^FLAGS/ s/$/ -static/' Makefile
-   sed -i '/\-lrt \\$/ s/\\$/-lpthread -ltinfo \\/' source/Makefile
-  else
-   # On Mac:
-   sed -i .bak 's/\-lrt //' source/Makefile # remove -lrt
-   # Remove flag U from ar:
-   for i in `find . -name Makefile`; do
-    sed -i .bak 's/^ARFLAGS := crvU/ARFLAGS := crv/' $i
-    done
-   # Remove the timer from MAIN.c:
-   cd source/main
-   echo "--- MAIN.c	2018-01-25 22:25:22.000000000 +0100
-+++ MAIN.c	2021-02-24 12:48:12.000000000 +0100
-@@ -81,25 +81,7 @@
- 
- static int sendSignalAfterInterval(int seconds, int signum)
- {
--  /* Create timer */
--  timer_t timerid;
--  struct sigevent sev;
--  sev.sigev_notify = SIGEV_SIGNAL;
--  sev.sigev_signo = signum;
--  sev.sigev_value.sival_ptr = &timerid;
--  if (timer_create(CLOCK_MONOTONIC, &sev, &timerid) == -1)
--    return 1;
--
--  /* Start timer */
--  struct itimerspec its;
--  its.it_value.tv_sec = seconds;
--  its.it_value.tv_nsec = 0;
--  its.it_interval.tv_sec = its.it_value.tv_sec;
--  its.it_interval.tv_nsec = its.it_value.tv_nsec;
--  if (timer_settime(timerid, 0, &its, NULL) == -1)
--    return 2;
--
--  return 0;
-+  return 1;
- }
- 
- int main(int argc, char **argv)" | patch
-   cd ../..
-   fi # end of Mac related changes
-  cd ../..
-  }
- cd qepcad
- git pull
- cd ../..
-
  test -d tarski || {
   git clone --depth 1 https://github.com/kovzol/tarski
   cd tarski
@@ -85,37 +23,11 @@ if [ "$OS_VARIANT" != "Raspbian" ]; then
    # Compile tarski/QEPCAD statically:
    sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
    sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
-  else
-   # On Mac:
-   sed -i .bak 's/\-lrt //' qesource/source/Makefile # remove -lrt
-   sed -i .bak 's/\-lrt //' interpreter/Makefile # remove -lrt
-   sed -i .bak '/^CPPFLAGS/ s/$/ --std=c++11/' interpreter/Makefile # force C++11 dialect
-   # Make sure libssl and libcrypto are linked statically from a local openssl installation
-   if [ "$MAC_OPENSSL" = "" ]; then
-    MAC_OPENSSL=/usr/local/Cellar/openssl@1.1/1.1.1k
-    test -x $MAC_OPENSSL || {
-     echo "It seems you have no openssl installed. To build Tarski, you need it."
-     echo "Consider installing it via Homebrew by typing 'brew install openssl'."
-     echo "Alternatively, you can set the environment variable MAC_OPENSSL"
-     echo "to point to the correct installation path, e.g. /usr/local/Cellar/openssl/1.0.2o_1."
-     cd ..
-     rm -fr tarski # FIXME: do this without removing Tarski completely
-     exit 1
-     }
-    fi
-   sed -i .bak "s'extIncludesMD5:=.*'extIncludesMD5:=-I$MAC_OPENSSL/include'" interpreter/Makefile
-   sed -i .bak "s'extLibMD5:=.*'extLibMD5:=$MAC_OPENSSL/lib/libssl.a $MAC_OPENSSL/lib/libcrypto.a'" interpreter/Makefile
-   sed -i .bak 's/LDFLAGS :=.*/LDFLAGS := -lreadline $(extLibSACLIB) $(extLibMINISAT) $(extLibMD5)/' interpreter/Makefile
-   sed -i .bak '/^INC_FLAGS/ s/$/ $(extIncludesMD5)/' interpreter/Makefile
-   # Remove flag U from ar:
-   for i in `find . -name Makefile`; do
-    sed -i .bak 's/^ARFLAGS := crvU/ARFLAGS := crv/' $i
-    done
-   fi # end of Mac related changes
+   fi
   cd ..
   }
  cd tarski
- git pull
+ git pull || (git stash save; git pull; git stash pop)
  cd ..
  fi
 
