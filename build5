@@ -8,16 +8,16 @@ MYPATH=`dirname "$MYBASENAME"`
 . helper/qepcad
 . helper/update
 
+# Compile GeoGebra
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 cd ../..
 
-if [ "$OS_VARIANT" != "Raspbian" ]; then
- # Compile Tarski:
- cd realgeom/tarski
- ./build.sh
- cd ../..
- fi
+# Compile Tarski:
+cd realgeom/tarski
+./build.sh
+cd ../..
 
+# Compile RealGeom:
 cd realgeom
 ./gradlew $GRADLE_OPTIONS installDist
 LIBDIR=lib

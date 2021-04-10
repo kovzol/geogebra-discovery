@@ -12,23 +12,21 @@ test -d realgeom || git clone --depth 1 https://github.com/kovzol/realgeom
 cd realgeom
 git pull
 
-if [ "$OS_VARIANT" != "Raspbian" ]; then
- test -d tarski || {
-  git clone --depth 1 https://github.com/kovzol/tarski
-  cd tarski
-  if [ "$OS_VARIANT" != "Mac" ]; then
-   # Compile tarski statically (on non-Mac systems) and remove debug information:
-   sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
-   sed -i 's/\-g//' interpreter/Makefile
-   # Compile tarski/QEPCAD statically:
-   sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
-   sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
-   fi
-  cd ..
-  }
+test -d tarski || {
+ git clone --depth 1 https://github.com/kovzol/tarski
  cd tarski
- git pull || (git stash save; git pull; git stash pop)
+ if [ "$OS_VARIANT" != "Mac" ]; then
+  # Compile tarski statically (on non-Mac systems) and remove debug information:
+  sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
+  sed -i 's/\-g//' interpreter/Makefile
+  # Compile tarski/QEPCAD statically:
+  sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
+  sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
+  fi
  cd ..
- fi
+ }
+cd tarski
+git pull || (git stash save; git pull; git stash pop)
+cd ..
 
 cd ../fork/geogebra

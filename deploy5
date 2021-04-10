@@ -93,12 +93,10 @@ test -d realgeom && {
   cp realgeom/build/install/realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
   fi
  # End of copying
- if [ "$OS_VARIANT" != Raspbian ]; then
-  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
-  cp $qe/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
-  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
-  cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
-  fi
+ mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
+ cp $qe/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
+ mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
+ cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
  }
 mkdir -p dist/$PACKAGE_NAME/helper
 cp helper/{detect,qepcad,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
