@@ -118,8 +118,8 @@ This table is ordered by maturity.
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Proving inequalities | no | prototype | Substantial code cleanup | 
-| ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![approve](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
+| Proving inequalities | no | prototype | ![prototype](images/red.png) Substantial code cleanup | 
+| ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ## Bugs
 
