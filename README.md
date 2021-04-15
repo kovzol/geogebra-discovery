@@ -39,29 +39,26 @@ For this purpose you need to download the desktop version.
 
 You may decide to compile GeoGebra Discovery on your own.
 
-If you do so, you will need a typical Linux system to make the software work.
-In particular, the provided scripts were tested on Ubuntu 18.04, 19.10 and 20.04 (64-bit), and
-partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work,
-however you need at least 2 GB of memory for compilation). The latest version also works on Mac OS 10.15 Catalina.
+If you do so, you will need a typical Linux system to make the software work. In particular, the provided scripts were tested on Ubuntu 18.04, 19.10 and 20.04 (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). On a typical Ubuntu installation you need the packages `build-essential`, `libreadline-dev` and `libssl-dev` installed, in addition.
 
-The following tools are available:
+The latest version also works on Mac OS 10.15 Catalina, see the required steps below.
 
 ### Classic 5
 
 * Type `./get-build-tools` to download some prerequisites including an appropriate
 Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
-(You may need further prerequisites. The current version automatically downloads and compiles [QEPCAD B](https://www.usna.edu/Users/cs/wcbrown/qepcad/B/QEPCAD.html) 1.74
-and [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
-They require the [readline](https://tiswww.case.edu/php/chet/readline/rltop.html) and [openssl](https://www.openssl.org/)
-libraries, and maybe additional ones.)
+(The current version automatically downloads and compiles [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
+It requires the [readline](https://tiswww.case.edu/php/chet/readline/rltop.html) and [openssl](https://www.openssl.org/)
+libraries, as mentioned above.)
 * Run `./build5` to build GeoGebra Discovery. This will also build
 [RealGeom](https://github.com/kovzol/realgeom).
-* Enter `./run5` to start the software. On a Raspberry Pi (or, if Mathematica is available locally) this will also use a local
-RealGeom service.
+* Enter `./run5` to start the software. It will start RealGeom as well. On a Raspberry Pi (or, if Mathematica is available locally) RealGeom will connect to Mathematica automatically:
+To override this behavior you may want to use `./run5 --realgeomws=remoteurl:http\://localhost\:8765,cas:tarski` if you prefer to use Tarski instead.
+Note that the **Prove** command cannot prove inequalities in Mathematica mode yet.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
 Mac users should use the command line `./deploy5 -j`.
-This tool comes with a built-in help that can be invoked by the `-h` option.
+The deployment tool comes with a built-in help that can be invoked by the `-h` option.
 
 #### Steps to build GeoGebra Discovery on macOS
 
@@ -121,6 +118,7 @@ This table is ordered by maturity.
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Proving inequalities | no | prototype | Substantial code cleanup | 
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![approve](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ## Bugs
