@@ -1,25 +1,26 @@
 # GeoGebra Discovery
 
-This project is dedicated to maintain a [temporary fork](https://github.com/kovzol/geogebra)
-of [GeoGebra](https://github.com/geogebra/geogebra) that extends the official version with
-some experimental features like
+GeoGebra Discovery is an experimental version of [GeoGebra](https://www.geogebra.org). It contains some
+bleeding edge features of GeoGebra that are under heavy development and therefore not intended for every day use yet,
+so they are not included in the official GeoGebra version.
 
-* updates and bugfixes to the Automated Reasoning Tools (ART) (see some YouTube videos
-on the [Discover](https://www.youtube.com/playlist?list=PLQ71P_dimzuUGfzDk9jtC5Uy2I3dOn7QQ)
-and the [Compare](https://www.youtube.com/playlist?list=PLQ71P_dimzuUNNOSoZkIhaqU3yCa1Y3Ob) commands
-for some introductory ideas),
-* other bugfixes that are relevant to Classic 5 and Classic 6.
+We maintain a [feature list](#feature-matrix). Most features are considered unstable, but a couple of them are mature
+and ready to try by anyone, and close to being integrated into GeoGebra shortly.
+It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well.
 
-Most of the [features](#feature-matrix) are considered unstable. It is planned that after making them stable,
-they will be added to the official version of GeoGebra as well.
+Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra).
+We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
+web page have the following purposes:
+* We point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
+* We quickly explain the additions of GeoGebra Discovery compared to the official version of GeoGebra.
+* We provide a list of web references (research papers, links, benchmarks) to the additions.
+* We explain how to compile and deploy GeoGebra Discovery. For this purpose we provide some scripts and programmatic tools.
 
-The files in this project are used to compile and deploy GeoGebra Discovery.
-
-## Releases
+## Download a stable release
 
 ### Desktop version (Classic 5)
 
-End users may want to download one of the most recent [releases](https://github.com/kovzol/geogebra/releases). Then:
+End users may want to [download one of the most recent releases](https://github.com/kovzol/geogebra/releases). Then:
 
 * To run GeoGebra Discovery, you need to extract the downloaded archive and run the file **GeoGebra-Discovery.bat**
 (or **GeoGebra-Discovery** on non-Windows systems). A short video [tutorial](https://www.youtube.com/watch?v=S1upzsdcW10) is also available.
@@ -33,14 +34,15 @@ This version can be downloaded and run offline as well at [autgeo.online/off](ht
 Please note that the web version cannot solve any problems in real geometry at the moment.
 For this purpose you need to download the desktop version.
 
-## Prerequisites, compilation, running and deployment
+## Try the latest unstable version: Prerequisites, compilation, running and deployment
+
+This section can be technically challenging. If you are not familiar with program development, it is safer to use a stable release (see above).
 
 ![build](https://github.com/kovzol/geogebra-discovery/workflows/build/badge.svg)
 
 You may decide to compile GeoGebra Discovery on your own.
 
-If you do so, you will need a typical Linux system to make the software work. In particular, the provided scripts were tested on Ubuntu 18.04, 19.10 and 20.04 (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). On a typical Ubuntu installation you need the packages `build-essential`, `libreadline-dev` and `libssl-dev` installed, in addition.
-
+If you do so, you will need a typical Linux or Mac system to make the software work. The provided scripts were tested on Ubuntu Linux 18.04, 19.10 and 20.04 (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). On a typical Ubuntu installation you need the packages `build-essential`, `libreadline-dev` and `libssl-dev` installed, in addition.
 The latest version also works on Mac OS 10.15 Catalina, see the required steps below.
 
 ### Classic 5
