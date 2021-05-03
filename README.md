@@ -11,10 +11,10 @@ It is planned that each feature, after made stable, will be added to the officia
 Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra).
 We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
 web page have the following purposes:
-* We point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
-* We quickly explain the additions of GeoGebra Discovery compared to the official version of GeoGebra.
-* We provide a list of web references (research papers, links, benchmarks) to the additions.
-* We explain how to compile and deploy GeoGebra Discovery. For this purpose we provide some scripts and programmatic tools.
+* For end users, we point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
+* For end users, we explain the additions of GeoGebra Discovery compared to the official version of GeoGebra by short descriptions.
+* For researchers, we provide a list of web references (research papers, links, benchmarks) for the additions.
+* For programmers, we explain how to try the latest unstable version of GeoGebra Discovery. For this purpose we provide some scripts and programmatic tools.
 
 ## Download a stable release
 
@@ -109,10 +109,10 @@ This table is ordered by maturity.
 
 | Feature | GeoGebra 	  | GeoGebra Discovery    | Next step  |
 |:-------	|:---------:	|:-------------------:	|:---------: |
-| Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/lightgreen.png) Scheduled for merging into GeoGebra |
-| Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
-| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/green.png) GeoGebra Team: approve |
-| Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/green.png) GeoGebra Team: approve |
+| Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/lightgreen.png) merged, waiting for release |
+| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/lightgreen.png) merged, waiting for release |
+| Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/lightgreen.png) merged, waiting for release |
+| Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/green.png) Scheduled for merging into GeoGebra |
 | Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
