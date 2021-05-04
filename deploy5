@@ -68,7 +68,6 @@ if [ "$1" = win ]; then
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
  cp bin/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
  cp bin/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
- cp $qe/bin/qepcad.help dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
@@ -94,7 +93,7 @@ test -d realgeom && {
   fi
  # End of copying
  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
- cp $qe/bin/{qepcad,qepcad.help} dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
+ cp $qe/bin/qepcad dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
  cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
  }
