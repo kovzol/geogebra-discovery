@@ -28,7 +28,6 @@ attempt() {
  if [ "$OS_VARIANT" = "Mac" ]; then
   echo "#!/bin/bash
    export JAVA_HOME=\"$JAVA_HOME\"
-   export qe=\"$qe\"
    export PATH=\"$PATH\"
    cd \"$MYPATH\"
    cd \"$FOLDER\"
