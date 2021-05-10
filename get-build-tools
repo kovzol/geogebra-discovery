@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 set -e
 . helper/detect
 if [ "$OS_VARIANT" = Raspbian ]; then
