@@ -105,13 +105,12 @@ A public list is available at [Google Groups](https://groups.google.com/forum/#!
 
 ## Feature matrix
 
+### New features
+
 This table is ordered by maturity.
 
 | Feature | GeoGebra 	  | GeoGebra Discovery    | Next step  |
 |:-------	|:---------:	|:-------------------:	|:---------: |
-| Symbolic angle bisectors (prover) | slow | [fast](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/lightgreen.png) merged, waiting for release |
-| Algebraic curves as inputs in locus computations | no | [yes](https://matek.hu/zoltan/blog-20201031.php) | ![approve](images/lightgreen.png) merged, waiting for release |
-| Incircle | numerical command only	| [prover support](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/lightgreen.png) merged, waiting for release |
 | Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/green.png) Scheduled for merging into GeoGebra |
 | Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
@@ -120,8 +119,19 @@ This table is ordered by maturity.
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Proving inequalities | no | prototype | ![prototype](images/red.png) Substantial code cleanup | 
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
+
+### Features that have already been merged
+
+| Feature | GeoGebra version | Date |
+|:------- |:--------------------: |:---: |
+| [Fast symbolic angle bisectors (prover)](https://matek.hu/zoltan/blog-20200929.php) | 5.0.641.0 | May 2021 |
+| [Algebraic curves as inputs in locus computations](https://matek.hu/zoltan/blog-20201031.php) |  5.0.641.0 | May 2021 |
+| [Incircle (prover support)](https://matek.hu/zoltan/blog-20200929.php) | 5.0.641.0 | May 2021 |
 
 ## Bugs
 
