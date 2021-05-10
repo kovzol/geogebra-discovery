@@ -6,7 +6,6 @@ DISTDIR=dist/$PACKAGE_NAME6
 rm -fr $DISTDIR
 mkdir -p $DISTDIR
 cp $WARDIR/classic.html $DISTDIR/index.html
-cp $WARDIR/giacggb.wasm $DISTDIR # Workaround, temporary
 cp -ur $WARDIR/web3d $DISTDIR
 ZIPFILE=$PACKAGE_NAME6.zip
 rm -f dist/$ZIPFILE

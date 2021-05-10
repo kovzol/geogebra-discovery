@@ -2,6 +2,3 @@
 . helper/common
 . helper/update
 ./gradlew $GRADLE_OPTIONS :web:clean :web:deployIntoWar -Pgdraft
-
-# Workaround to use giacggb.wasm as well:
-cp ../../bin/giacggb.wasm web/war
