@@ -133,6 +133,11 @@ This table is ordered by maturity.
 | [Algebraic curves as inputs in locus computations](https://matek.hu/zoltan/blog-20201031.php) |  5.0.641.0 | May 2021 |
 | [Incircle (prover support)](https://matek.hu/zoltan/blog-20200929.php) | 5.0.641.0 | May 2021 |
 
+### [Technical documentation](docs/technical.md)
+
+We maintain a technical documentation to keep some programming related
+details up-to-date in order to help a possible merge of the two codebases.
+
 ## Bugs
 
 The database of issues is available at [YouTrack](https://geogebra-prover.myjetbrains.com/youtrack/issues).
