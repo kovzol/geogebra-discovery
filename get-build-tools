@@ -6,8 +6,11 @@ if [ "$OS_VARIANT" = Raspbian ]; then
  fi
 if [ "$OS_VARIANT" = Mac ]; then
  test -x buildtools/jbrsdk/Contents/Home/bin/java && exit 0
+ # Sometimes Jetbrains' download server does not work, so we prefer a safer download.
+ # JDK_TGZ=jbrsdk-11_0_10-osx-x64-b1428.2.tar.gz
+ # JDK_URL=https://bintray.com/jetbrains/intellij-jbr/download_file?file_path=$JDK_TGZ
  JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
- JDK_URL=https://bintray.com/jetbrains/intellij-jbr/download_file?file_path=$JDK_TGZ
+ JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
 else 
  # Linux (Ubuntu 18.04)
  test -x buildtools/jbr/bin/java && exit 0
