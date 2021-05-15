@@ -103,6 +103,7 @@ if __name__ == "__main__":
 
     COMPARE = next_property_id()
     COMPARE_SYNTAX = next_property_id()
+    COMPARE_A_AND_B = next_property_id()
 
     INCIRCLECENTER = next_property_id()
     INCIRCLECENTER_SYNTAX = next_property_id()
@@ -213,6 +214,7 @@ if __name__ == "__main__":
 
     add_command(COMPARE, 'Compare')
     add_command(COMPARE_SYNTAX, 'Compare.Syntax')
+    add_menu(COMPARE_A_AND_B, 'CompareAandB')
     add_translation(COMPARE, EN, 'Compare', ZK)
     add_translation(COMPARE, DE, 'Vergleiche', ZK)
     add_translation(COMPARE, ES, 'Compara', ZK)
@@ -221,6 +223,7 @@ if __name__ == "__main__":
     add_translation(COMPARE_SYNTAX, ES, '[ <Expresión>, <Expresión> ]', ZK)
     add_translation(COMPARE_SYNTAX, DE, '[ <Ausdruck>, <Ausdruck> ]', ZK)
     add_translation(COMPARE_SYNTAX, HU, '[ <Kifejezés>, <Kifejezés> ]', ZK)
+    add_translation(COMPARE_A_AND_B, EN, 'Compare %0 and %1', ZK)
 
     add_command(INCIRCLECENTER, 'IncircleCenter')
     add_command(INCIRCLECENTER_SYNTAX, 'IncircleCenter.Syntax')
