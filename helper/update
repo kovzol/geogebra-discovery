@@ -1,6 +1,8 @@
 #!/bin/bash
 
 . helper/detect
+
+echo "Downloading/updating GeoGebra fork..."
 mkdir -p fork
 cd fork
 test -d geogebra || git clone --depth 1 https://github.com/kovzol/geogebra
@@ -8,10 +10,12 @@ cd geogebra
 git pull
 cd ../..
 
+echo "Downloading/updating realgeom..."
 test -d realgeom || git clone --depth 1 https://github.com/kovzol/realgeom
 cd realgeom
 git pull
 
+echo "Downloading/updating Tarski..."
 test -d tarski || {
  git clone --depth 1 https://github.com/kovzol/tarski
  cd tarski
