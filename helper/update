@@ -22,7 +22,6 @@ test -d tarski || {
  if [ "$OS_VARIANT" != "Mac" ]; then
   # Compile tarski statically (on non-Mac systems) and remove debug information:
   sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
-  sed -i 's/\-g//' interpreter/Makefile
   # Compile tarski/QEPCAD statically:
   sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
   sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
