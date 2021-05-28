@@ -8,7 +8,7 @@ We maintain a [feature list](#feature-matrix). Most features are considered unst
 and ready to try by anyone, and close to being integrated into GeoGebra shortly.
 It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well.
 
-Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra).
+Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/team).
 We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
 web page have the following purposes:
 * For end users, we point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
@@ -31,8 +31,8 @@ End users may want to [download one of the most recent releases](https://github.
 The web version is available online at [autogeo.online](https://autgeo.online) and usually updated on every new release.
 This version can be downloaded and run offline as well at [autgeo.online/off](https://autgeo.online/off).
 
-Please note that the web version cannot solve any problems in real geometry at the moment.
-For this purpose you need to download the desktop version.
+Please note that the web version cannot solve any problems in real geometry at the moment (that is, proving inequalities,
+for instance). For this purpose you need to download the desktop version.
 
 ## Try the latest unstable version: Prerequisites, compilation, running and deployment
 
@@ -43,20 +43,18 @@ This section can be technically challenging. If you are not familiar with progra
 You may decide to compile GeoGebra Discovery on your own.
 
 If you do so, you will need a typical Linux or Mac system to make the software work. The provided scripts were tested on Ubuntu Linux 18.04, 19.10 and 20.04 (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). On a typical Ubuntu installation you need the packages `build-essential`, `libreadline-dev` and `libssl-dev` installed, in addition.
-The latest version also works on Mac OS 10.15 Catalina, see the required steps below.
+The latest version also works on Mac OS 11 Big Sur, see the required steps below.
 
 ### Classic 5
 
 * Type `./get-build-tools` to download some prerequisites including an appropriate
-Java Development Kit on Ubuntu 18.04 or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
+Java Development Kit on Ubuntu Linux or on Mac. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
 (The current version automatically downloads and compiles [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
 It requires the [readline](https://tiswww.case.edu/php/chet/readline/rltop.html) and [openssl](https://www.openssl.org/)
-libraries, as mentioned above.)
-* Run `./build5` to build GeoGebra Discovery. This will also build
-[RealGeom](https://github.com/kovzol/realgeom).
-* Enter `./run5` to start the software. It will start RealGeom as well. On a Raspberry Pi (or, if Mathematica is available locally) RealGeom will connect to Mathematica automatically:
+libraries, as mentioned above. In addition, the [RealGeom](https://github.com/kovzol/realgeom) system will be built.)
+* Run `./build5` to build the complete GeoGebra Discovery system.
+* Enter `./run5` to start the software. It will start RealGeom as well in a separate window. On a Raspberry Pi (or, if Mathematica or WolframScript is available locally) RealGeom will connect to Mathematica automatically:
 To override this behavior you may want to use `./run5 --realgeomws=remoteurl:http\://localhost\:8765,cas:tarski` if you prefer to use Tarski instead.
-Note that the **Prove** command cannot prove inequalities in Mathematica mode yet.
 * The command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
 Mac users should use the command line `./deploy5 -j`.
@@ -97,7 +95,7 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech,
-Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar and Jonathan Yu for their support.
+Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar, Jonathan Yu, Keiichi Tsujimoto and Christopher W. Brown for their support.
 
 ## Mailing list
 
@@ -122,7 +120,7 @@ This table is ordered by maturity.
 | Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Proving inequalities | no | prototype | ![prototype](images/red.png) Substantial code cleanup | 
+| Proving inequalities | no | yes | ![prototype](images/red.png) Use Tarski as a dynamic library | 
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
@@ -149,11 +147,13 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 * [Prove/ProveDetails test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover/html/all.html)
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/art-plotter/html/all.html)
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/compare/html/all.html)
+* [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
 
 ### All outputs
 * [Prove/ProveDetails test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/)
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/)
+* [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
 
 ## References
 
@@ -161,6 +161,7 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 
 * [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215-220)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
 * [Z. Kovács, J. H. Yu: Towards Automated Discovery of Geometrical Theorems in GeoGebra, 2020](https://arxiv.org/abs/2007.12447)
+* [Z. Kovács, T. Recio: GeoGebra Reasoning Tools for Humans and for Automatons, 2020](https://www.researchgate.net/publication/347256855_GeoGebra_Reasoning_Tools_for_Humans_and_for_Automatons)
 * [Z. Kovács: Discovering geometry via the Discover command in GeoGebra Discovery, REMATEC 16(37), p. 14-25, 2021](https://www.researchgate.net/publication/348598407_Discovering_geometry_via_the_Discover_command_in_GeoGebra_Discovery)
 
 ### Relation command
