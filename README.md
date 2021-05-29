@@ -148,12 +148,14 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/art-plotter/html/all.html)
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/compare/html/all.html)
 * [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
+* [Prove test (inequalities)](https://prover-test.geogebra.org/job/GeoGebra_Discovery-proverrgtest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover-rg/html/all.html)
 
 ### All outputs
 * [Prove/ProveDetails test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
 * [LocusEquation/Envelope test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-art-plottertest/)
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/)
 * [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
+* [Prove test (inequalities)](https://prover-test.geogebra.org/job/GeoGebra_Discovery-proverrgtest/)
 
 ## References
 
