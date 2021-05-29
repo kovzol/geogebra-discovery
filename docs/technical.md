@@ -151,6 +151,10 @@ deterministic. Therefore TreeMap should be used instead of HashMap, and
 TreeSet instead of HashSet. In some occurrences there are already changes
 according to this, but not everywhere (yet).
 
+The same has been done for the `NDGCondition` class in the prover.
+This ensures alphabetical ordering of the conditions, it is useful
+on deterministic lists.
+
 ### [Geometric discovery](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-14) (proposed by Tim Brzezinski)
 
 This feature is present for a long time, but enabled only
@@ -165,3 +169,8 @@ These are added in GeoGebra Discovery only. See, among others, `ToolBar`
 ### New commands: Compare, IncircleCenter, Discover
 
 These are added in GeoGebra Discovery only.
+
+### Caption algebra mode
+
+`GeoElement.setCaptionBotanaVars()` and `.addCaptionBotanaPolynomial` had to
+be updated and the geo required an `update()`.
