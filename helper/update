@@ -29,7 +29,7 @@ test -d tarski || {
  cd ..
  }
 cd tarski
-git pull || (git stash save; git pull; git stash pop)
+git pull || (git stash save; git pull; git stash pop) || echo "WARNING: Tarski cannot be updated automatically, please consider deleting the folder realgeom/tarski and rebuilding GeoGebra Discovery."
 cd ..
 
 cd ../fork/geogebra
