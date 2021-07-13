@@ -71,7 +71,7 @@ if [ "$1" = win ]; then
  # cp bin/msys/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
  # Use the MSYS2/CLANG64 build:
  cp bin/clang64/tarski.exe dist/$PACKAGE_NAME/realgeom/bin
- cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap}.dll dist/$PACKAGE_NAME/realgeom/bin
+ cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
