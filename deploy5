@@ -4,7 +4,7 @@ MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
 MYPATH=`dirname "$MYBASENAME"`
 
 . helper/common
-. helper/qepcad
+# . helper/qepcad
 
 BUNDLE=0
 
@@ -52,7 +52,7 @@ if [ "$1" = win ]; then
  echo "@echo Welcome to $SOFTWARE_NAME
 @echo Starting realgeom server...
 @cd realgeom
-@set \"qe=%cd%\"
+@rem set \"qe=%cd%\"
 @cd bin
 @start \"realgeom\" realgeom -s -g
 @cd ..\\..
@@ -66,8 +66,12 @@ if [ "$1" = win ]; then
 @call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:tarski,timeout:10 %*
 @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
- cp bin/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
- cp bin/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
+ # Use the MSYS2/MSYS build (obsolete):
+ # cp bin/msys/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
+ # cp bin/msys/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
+ # Use the MSYS2/CLANG64 build:
+ cp bin/clang64/tarski.exe dist/$PACKAGE_NAME/realgeom/bin
+ cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap}.dll dist/$PACKAGE_NAME/realgeom/bin
  # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
@@ -92,13 +96,14 @@ test -d realgeom && {
   cp realgeom/build/install/realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
   fi
  # End of copying
- mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
- cp $qe/bin/qepcad dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
+ # mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
+ # cp $qe/bin/qepcad dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
  cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
  }
 mkdir -p dist/$PACKAGE_NAME/helper
-cp helper/{detect,qepcad,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
+# cp helper/{detect,qepcad,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
+cp helper/{detect,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
@@ -135,7 +140,7 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
-. \"\$MYPATH\"/helper/qepcad
+# . \"\$MYPATH\"/helper/qepcad
 . \"\$MYPATH\"/helper/tarski
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 . \"\$MYPATH\"/helper/start-realgeom

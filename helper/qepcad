@@ -1,4 +1,6 @@
 #!/bin/bash
+# This script is obsolete since QEPCAD is directly called in Tarski via (qepcad-api-call).
+
 set -e
 # We assume that MYPATH is correctly set.
 

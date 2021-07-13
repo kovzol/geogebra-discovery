@@ -6,7 +6,7 @@ if [ "$MYPATH" = "" ]; then
 
 # This script can be called from anywhere if MYPATH is correctly set.
 . "$MYPATH"/helper/detect
-. "$MYPATH"/helper/qepcad
+# . "$MYPATH"/helper/qepcad
 . "$MYPATH"/helper/tarski
 
 # This will be used later.
@@ -32,7 +32,7 @@ attempt() {
  if [ "$OS_VARIANT" = "Mac" ]; then
   echo "#!/bin/bash
    export JAVA_HOME=\"$JAVA_HOME\"
-   export qe=\"$qe\"
+   # export qe=\"$qe\"
    export PATH=\"$PATH\"
    cd \"$MYPATH\"
    cd \"$FOLDER\"
