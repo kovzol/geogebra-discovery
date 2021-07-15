@@ -4,8 +4,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
  export OS_VARIANT=Mac
  export OS_VERSION="$OSTYPE"
 else
- export OS_VARIANT=`lsb_release -i | cut -f2`
- export OS_VERSION=`lsb_release -r | cut -f2`
+ UNAME_S=`uname -s`
+ if [[ "$UNAME_S" == *"_NT-"* ]]; then
+  OS_VARIANT=Windows
+  OS_VERSION=$UNAME_S
+ else
+  export OS_VARIANT=`lsb_release -i | cut -f2`
+  export OS_VERSION=`lsb_release -r | cut -f2`
+  fi
  fi
 export MATHEMATICA=`which mathematica`
 export TERMINAL=`which lxterminal`

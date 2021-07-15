@@ -4,15 +4,26 @@ set -e
 if [ "$OS_VARIANT" = Raspbian ]; then
  JDK_REL=/usr/lib/jvm/java-11-openjdk-armhf
  export GRADLE_OPTIONS="-Dorg.gradle.jvmargs=-Xmx2000m -DXX:MaxMetaspaceSize=2000m"
-else
- PWD=`pwd`
- if [ "$OS_VARIANT" != Mac ]; then
-  JDK_REL="$PWD/buildtools/jbr"
- else
-  JDK_REL="$PWD/buildtools/jbrsdk/Contents/Home"
-  fi
- fi
-test -x "$JDK_REL/bin/java"
+ test -x "$JDK_REL/bin/java"
+else # non-Raspbian
+ if [ "$OS_VARIANT" = Windows ]; then
+  # JAVA=`find /c/Program\ Files\/OpenJDK/* | sort | head -1`
+  JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
+  if [ "$JAVA" = "" ]; then
+   echo "No Java found. Consider installing it via choco (openjdk)."
+   exit 1
+   fi # no Java on Windows
+  JDK_REL="$JAVA"
+ else # non-Windows and non-Raspbian
+  PWD=`pwd`
+  if [ "$OS_VARIANT" != Mac ]; then
+   JDK_REL="$PWD/buildtools/jbr" # Mac
+  else
+   JDK_REL="$PWD/buildtools/jbrsdk/Contents/Home" # non-Mac
+   fi
+  test -x "$JDK_REL/bin/java"
+  fi # non-Windows
+ fi # non-Raspbian
 export JAVA_HOME="$JDK_REL"
 
 GEOGEBRACONSTANTS_FILE=fork/geogebra/common/src/main/java/org/geogebra/common/GeoGebraConstants.java

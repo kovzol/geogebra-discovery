@@ -11,11 +11,20 @@ if [ "$OS_VARIANT" = Mac ]; then
  # JDK_URL=https://bintray.com/jetbrains/intellij-jbr/download_file?file_path=$JDK_TGZ
  JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
  JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
-else 
+ fi 
+if [ "$OS_VARIANT" = Linux ]; then
  # Linux (Ubuntu 18.04)
  test -x buildtools/jbr/bin/java && exit 0
  JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
  JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
+ fi
+if [ "$OS_VARIANT" = Windows ]; then
+ JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
+ if [ "$JAVA" = "" ]; then
+  echo "No Java found. Consider installing it via choco (openjdk)."
+  exit 1
+  fi
+ exit 0
  fi
 mkdir -p buildtools
 cd buildtools
