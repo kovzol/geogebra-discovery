@@ -12,7 +12,7 @@ if [ "$OS_VARIANT" = Mac ]; then
  JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
  JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
  fi 
-if [ "$OS_VARIANT" = Linux ]; then
+if [ "$OS_VARIANT" = Ubuntu ]; then
  # Linux (Ubuntu 18.04)
  test -x buildtools/jbr/bin/java && exit 0
  JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
