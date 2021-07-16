@@ -11,6 +11,9 @@ BROWSER=sensible-browser
 if [ "$OS_VARIANT" = Windows ]; then
  BROWSER=start
  fi
+if [ "$OS_VARIANT" = Mac ]; then
+ BROWSER=open
+ fi
 
 WARDIR=fork/geogebra/web/war
 test -r $WARDIR/web3d/web3d.nocache.js
