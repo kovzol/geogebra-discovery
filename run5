@@ -34,7 +34,7 @@ $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CA
 echo "GeoGebra session ended."
 
 if [ "$OS_VARIANT" = Windows ]; then
- echo "Please close RealGeom session manually by closing its window."
+ echo "Please stop RealGeom session manually by closing its window."
  exit 0
  fi
 

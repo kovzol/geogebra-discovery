@@ -101,6 +101,7 @@ on an accidental reboot.)
   This can be set with a command like `cd /c/Users/<username>/geogebra-discovery` where `<username>` stands for you username on Windows.
 * Install [Microsoft's Java 11](https://www.microsoft.com/openjdk). It is safe to use the Windows x64 .msi version.
 * Type `./build5` in the MSYS2/CLANG64 window to build GeoGebra Discovery.
+* Type `./run5` to test if GeoGebra Discovery runs properly.
 
 ### Classic 6
 

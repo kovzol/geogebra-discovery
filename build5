@@ -5,7 +5,6 @@ MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
 MYPATH=`dirname "$MYBASENAME"`
 
 . helper/common
-# . helper/qepcad
 . helper/update
 
 # Compile GeoGebra
@@ -15,8 +14,7 @@ cd ../..
 # Compile Tarski:
 cd realgeom/tarski
 ./build.sh
-strip interpreter/bin/tarski* # * for Windows
-# strip qesource/source/qepcad
+strip interpreter/bin/tarski* # * for Windows (.exe)
 cd ../..
 
 # Compile RealGeom:

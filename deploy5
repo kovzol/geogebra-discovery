@@ -4,7 +4,6 @@ MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
 MYPATH=`dirname "$MYBASENAME"`
 
 . helper/common
-# . helper/qepcad
 
 BUNDLE=0
 
@@ -52,7 +51,6 @@ if [ "$1" = win ]; then
  echo "@echo Welcome to $SOFTWARE_NAME
 @echo Starting realgeom server...
 @cd realgeom
-@rem set \"qe=%cd%\"
 @cd bin
 @start \"realgeom\" realgeom -s -g
 @cd ..\\..
@@ -96,13 +94,10 @@ test -d realgeom && {
   cp realgeom/build/install/realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
   fi
  # End of copying
- # mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
- # cp $qe/bin/qepcad dist/$PACKAGE_NAME/realgeom/tarski/qesource/bin
  mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
  cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
  }
 mkdir -p dist/$PACKAGE_NAME/helper
-# cp helper/{detect,qepcad,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
 cp helper/{detect,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
@@ -140,7 +135,6 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
-# . \"\$MYPATH\"/helper/qepcad
 . \"\$MYPATH\"/helper/tarski
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 . \"\$MYPATH\"/helper/start-realgeom
