@@ -42,8 +42,12 @@ This section can be technically challenging. If you are not familiar with progra
 
 You may decide to compile GeoGebra Discovery on your own.
 
-If you do so, you will need a typical Linux or Mac system to make the software work. The provided scripts were tested on Ubuntu Linux 18.04, 19.10 and 20.04 (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). On a typical Ubuntu installation you need the packages `build-essential`, `libreadline-dev` and `libssl-dev` installed, in addition.
-The latest version also works on Mac OS 11 Big Sur, see the required steps below.
+If you do so, you will need a typical Linux, Mac or Windows system to make the software work.
+The provided scripts were tested on Ubuntu Linux 18.04, 19.10 and 20.04 (64-bit),
+and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work,
+however you need at least 2 GB of memory for compilation). 
+The latest versions also work on Mac OS 11 Big Sur, see the required steps below.
+Finally, you can use Windows 10 as well to compile and run GeoGebra Discovery.
 
 ### Classic 5
 
@@ -54,12 +58,17 @@ See below the detailed instructions.
 
 #### Steps to build GeoGebra Discovery on Linux
 
+These steps were tested on Ubuntu, and they may not work on other Linux systems.
+On a typical Ubuntu installation you need to install
+the packages `build-essential`, `libreadline-dev` and `libssl-dev` first. Then:
+
 * Open a terminal and type `./get-build-tools` to download some prerequisites including an appropriate
-Java Development Kit on Ubuntu Linux. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) will be used.
+Java Development Kit on Ubuntu Linux. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) may also be used,
+so you can skip this step.
 * Run `./build5` to build the complete GeoGebra Discovery system.
 * Enter `./run5` to start the software. It will start RealGeom as well in a separate window. On a Raspberry Pi (or, if Mathematica or WolframScript is available locally) RealGeom will connect to Mathematica automatically:
 To override this behavior you may want to use `./run5 --realgeomws=remoteurl:http\://localhost\:8765,cas:tarski` if you prefer to use Tarski instead.
-* If you want to make a copy of the program, the command `./deploy5` will create a .zip file that contains all necessary components
+* If you want to make a copy of the program for redistribution, the command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
 Mac users should use the command line `./deploy5 -j`.
 The deployment tool comes with a built-in help that can be invoked by the `-h` option.
@@ -79,14 +88,14 @@ to a different folder that will be not deleted on reboot.) In this case, enter `
 * Type `./get-build-tools` to get Java.
 * Type `./build5` to build GeoGebra Discovery.
 * Type `./run5` to test if GeoGebra Discovery runs properly.
-* If you want to make a copy of the program, type `./deploy5 -j` to create a **.zip** bundle that contains all necessary files for GeoGebra Discovery.
+* If you want to make a copy of the program for redistribution, type `./deploy5 -j` to create a **.zip** bundle that contains all necessary files for GeoGebra Discovery.
 The bundle will be put in the relative folder **dist/**. (In case your working directory is **/tmp/**, you may want
 to copy the **.zip** bundle to another folder, say, your home folder, to avoid deletion of all your created files
 on an accidental reboot.)
 
 #### Steps to build GeoGebra Discovery on Windows 10
 
-* Set *Developer Mode* in Windows.
+* Set **Developer Mode** in Windows.
 * Open a Powershell window as administrator. [Install Chocolatey](https://chocolatey.org/install).
   Install MSYS2 by typing `choco install msys2` in the Powershell prompt.
 * Create a system environment variable `MSYS` with the content `winsymlinks:nativestrict`.
@@ -96,7 +105,7 @@ on an accidental reboot.)
   and press ENTER three times. Do not close this window yet.
 * Install [Git for Windows](https://gitforwindows.org) (version 2.32.0(2) should work).
   Use the default settings during the installation, but enable symbolic links (this option is disabled by default).
-* Open *Git Bash* and type `git clone https://github.com/kovzol/geogebra-discovery`.
+* Open **Git Bash** and type `git clone https://github.com/kovzol/geogebra-discovery`.
 * Go back to the MSYS2/CLANG64 window and change your working directory to see the folder from the previous step.
   This can be set with a command like `cd /c/Users/<username>/geogebra-discovery` where `<username>` stands for you username on Windows.
 * Install [Microsoft's Java 11](https://www.microsoft.com/openjdk). It is safe to use the Windows x64 .msi version.
