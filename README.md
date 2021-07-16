@@ -70,8 +70,7 @@ so you can skip this step.
 To override this behavior you may want to use `./run5 --realgeomws=remoteurl:http\://localhost\:8765,cas:tarski` if you prefer to use Tarski instead.
 * If you want to make a copy of the program for redistribution, the command `./deploy5` will create a .zip file that contains all necessary components
 to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
-Mac users should use the command line `./deploy5 -j`.
-The deployment tool comes with a built-in help that can be invoked by the `-h` option.
+(The deployment tool comes with a built-in help that can be invoked by the `-h` option.)
 
 #### Steps to build GeoGebra Discovery on macOS
 
@@ -110,16 +109,17 @@ on an accidental reboot.)
   This can be set with a command like `cd /c/Users/<username>/geogebra-discovery` where `<username>` stands for you username on Windows.
 * Install [Microsoft's Java 11](https://www.microsoft.com/openjdk). It is safe to use the Windows x64 .msi version.
 * Type `./build5` in the MSYS2/CLANG64 window to build GeoGebra Discovery.
-* Type `./run5` to test if GeoGebra Discovery runs properly.
+* Type `./run5` to test if GeoGebra Discovery runs properly. (At the moment there is no direct way to create
+  the distribution .zip file under Windows. Use a different platform to create the package.)
 
 ### Classic 6
 
 * Type `./get-build-tools` to download the prerequisites (only on earlier Linux systems and Mac).
 * Run `./build6` to build GeoGebra Discovery. (Due to lack of memory this will not work
 on Raspberry Pi.)
-* Enter `./run6` to start the software.
-* The command `./deploy6` creates a .zip file that contains all necessary components
-to run the program. (This step will not work on Windows.)
+* Enter `./run6` to start the software. A web browser window should appear and GeoGebra Discovery starts.
+* Lastly, the command `./deploy6` creates a .zip file that contains all necessary components
+to run the program. This can be necessary if you want to redistribute the software. (This last step will not work on Windows.)
 
 ## Authors
 
