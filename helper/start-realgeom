@@ -47,7 +47,7 @@ attempt() {
    cd "$MYPATH"
    cd "$FOLDER"
    start "realgeom" realgeom -s -g
-   sleep 10 # hope for the best
+   sleep 10 # hope for the best (FIXME)
    return 0 # hope for the best
   else # Linux
    if [ "$TERMINAL" = "" ]; then
