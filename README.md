@@ -114,12 +114,12 @@ on an accidental reboot.)
 
 ### Classic 6
 
-* Type `./get-build-tools` to download the prerequisites.
+* Type `./get-build-tools` to download the prerequisites (only on earlier Linux systems and Mac).
 * Run `./build6` to build GeoGebra Discovery. (Due to lack of memory this will not work
 on Raspberry Pi.)
 * Enter `./run6` to start the software.
 * The command `./deploy6` creates a .zip file that contains all necessary components
-to run the program.
+to run the program. (This step will not work on Windows.)
 
 ## Authors
 
