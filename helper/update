@@ -1,25 +1,29 @@
 #!/bin/bash
 
 . helper/detect
+GIT=git
+if [ "$OS_VARIANT" = Windows ]; then
+ GIT="/c/Program Files/Git/bin/git.exe"
+ fi
 
 echo "Downloading/updating GeoGebra fork..."
 mkdir -p fork
 cd fork
-test -d geogebra || git clone --depth 1 https://github.com/kovzol/geogebra
+test -d geogebra || "$GIT" clone --depth 1 https://github.com/kovzol/geogebra
 cd geogebra
-git pull
+"$GIT" pull
 cd ../..
 
 echo "Downloading/updating realgeom..."
-test -d realgeom || git clone --depth 1 https://github.com/kovzol/realgeom
+test -d realgeom || "$GIT" clone --depth 1 https://github.com/kovzol/realgeom
 cd realgeom
-git pull
+"$GIT" pull
 
 echo "Downloading/updating Tarski..."
 test -d tarski || {
- git clone --depth 1 https://github.com/kovzol/tarski
+ "$GIT" clone --depth 1 https://github.com/kovzol/tarski
  cd tarski
- if [ "$OS_VARIANT" != "Mac" ]; then
+ if [ "$OS_VARIANT" != "Mac" -a "$OS_VARIANT" != "Windows" ]; then
   # Compile tarski statically (on non-Mac systems) and remove debug information:
   sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
   # Compile tarski/QEPCAD statically:
@@ -29,7 +33,7 @@ test -d tarski || {
  cd ..
  }
 cd tarski
-git pull || (git stash save; git pull; git stash pop) || echo "WARNING: Tarski cannot be updated automatically, please consider deleting the folder realgeom/tarski and rebuilding GeoGebra Discovery."
+"$GIT" pull || ("$GIT" stash save; "$GIT" pull; "$GIT" stash pop) || echo "WARNING: Tarski cannot be updated automatically, please consider deleting the folder realgeom/tarski and rebuilding GeoGebra Discovery."
 cd ..
 
 cd ../fork/geogebra

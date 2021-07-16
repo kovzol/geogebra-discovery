@@ -15,7 +15,7 @@ cd ../..
 # Compile Tarski:
 cd realgeom/tarski
 ./build.sh
-strip interpreter/bin/tarski
+strip interpreter/bin/tarski* # * for Windows
 # strip qesource/source/qepcad
 cd ../..
 
