@@ -41,14 +41,24 @@ attempt() {
   open start-realgeom.command
   sleep 2
   REALGEOM_PID=`pgrep -n bash`
- else
-  if [ "$TERMINAL" = "" ]; then
-   echo "No terminal found. Please install xterm or a compatible one"
-   exit 1
+ else # non-Mac
+  if [ "$OS_VARIANT" = Windows ]; then
+   export PATH
+   cd "$MYPATH"
+   cd "$FOLDER"
+   start "realgeom" realgeom -s -g
+   sleep 10 # hope for the best
+   return 0 # hope for the best
+  else # Linux
+   if [ "$TERMINAL" = "" ]; then
+    echo "No terminal found. Please install xterm or a compatible one"
+    exit 1
+    fi
+   $TERMINAL -e "export PATH=\"$PATH\"; cd \"$MYPATH\"; cd \"$FOLDER\"; ./realgeom -s -g" 2>/dev/null &
+   REALGEOM_PID=$!
    fi
-  $TERMINAL -e "export PATH=\"$PATH\"; cd \"$MYPATH\"; cd \"$FOLDER\"; ./realgeom -s -g" 2>/dev/null &
-  REALGEOM_PID=$!
-  fi
+  fi # Linux
+ # Mac and Linux
  while ! nc -z localhost 8765 && kill -0 $REALGEOM_PID ; do sleep 1; echo -n "."; done
  nc -z localhost 8765 || {
   echo "No realgeom server can be found, expect problems with RealGeomWS"
