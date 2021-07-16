@@ -14,6 +14,8 @@ else
  if [ "$OS_VARIANT" != Raspbian ]; then
   if [ "$OS_VARIANT" != Windows ]; then
    export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbr`
+   else
+    export JAVA_HOME=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
    fi
   fi
  fi

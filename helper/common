@@ -10,7 +10,7 @@ else # non-Raspbian
   # JAVA=`find /c/Program\ Files\/OpenJDK/* | sort | head -1`
   JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
   if [ "$JAVA" = "" ]; then
-   echo "No Java found. Consider installing it via choco (openjdk)."
+   echo "No Java found. Consider installing it."
    exit 1
    fi # no Java on Windows
   JDK_REL="$JAVA"
