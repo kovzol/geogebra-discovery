@@ -1,5 +1,17 @@
 #!/bin/bash
 set -e
+
+# This script can be called from anywhere.
+MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
+MYPATH=`dirname "$MYBASENAME"`
+. "$MYPATH"/helper/detect
+
+BROWSER=sensible-browser
+
+if [ "$OS_VARIANT" = Windows ]; then
+ BROWSER=start
+ fi
+
 WARDIR=fork/geogebra/web/war
 test -r $WARDIR/web3d/web3d.nocache.js
-sensible-browser $WARDIR/app.html
+$BROWSER $WARDIR/app.html
