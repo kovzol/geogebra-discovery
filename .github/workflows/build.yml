@@ -28,3 +28,39 @@ jobs:
       run: ./get-build-tools
     - name: build5
       run: ./build5
+    - name: build6
+      run: ./build6
+
+  windows-clang64:
+
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+    - uses: actions/checkout@v2
+    - name: prerequisites
+      uses: msys2/setup-msys2@v2
+      with:
+        msystem: CLANG64
+        update: true
+        install: >-
+          base-devel
+          gcc
+          libreadline-devel
+          libcrypt-devel
+          openssl-devel
+          zlib-devel
+          swig
+          mingw-w64-clang-x86_64-toolchain
+          mingw-w64-clang-x86_64-swig
+    - name: install-git
+      run: choco install git
+      shell: cmd
+    - name: install-ms-openjdk
+      run: choco install microsoft-openjdk --version 11.0.10.9
+      shell: cmd
+    - name: build5
+      run: ./build5
+    - name: build6
+      run: ./build6
