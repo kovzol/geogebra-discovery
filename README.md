@@ -10,7 +10,7 @@ It is planned that each feature, after made stable, will be added to the officia
 
 Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/team).
 We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
-web page have the following purposes:
+web page has the following purposes:
 * For end users, we point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
 * For end users, we explain the additions of GeoGebra Discovery compared to the official version of GeoGebra by short descriptions.
 * For researchers, we provide a list of web references (research papers, links, benchmarks) for the additions.
