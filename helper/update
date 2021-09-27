@@ -20,20 +20,9 @@ cd realgeom
 "$GIT" pull
 
 echo "Downloading/updating Tarski..."
-test -d tarski || {
- "$GIT" clone --depth 1 https://github.com/kovzol/tarski
- cd tarski
- if [ "$OS_VARIANT" != "Mac" -a "$OS_VARIANT" != "Windows" ]; then
-  # Compile tarski statically (on non-Mac systems) and remove debug information:
-  sed -i '/\-lrt/ s/$/ -lpthread -ltinfo -static/' interpreter/Makefile
-  # Compile tarski/QEPCAD statically:
-  sed -i '/^FLAGS/ s/$/ -static/' qesource/Makefile
-  sed -i 's/\-lrt/-lrt -lpthread -ltinfo /' qesource/source/Makefile
-  fi
- cd ..
- }
+test -d tarski || "$GIT" clone --depth 1 https://github.com/kovzol/tarski
 cd tarski
-"$GIT" pull || ("$GIT" stash save; "$GIT" pull; "$GIT" stash pop) || echo "WARNING: Tarski cannot be updated automatically, please consider deleting the folder realgeom/tarski and rebuilding GeoGebra Discovery."
+"$GIT" pull
 cd ..
 
 cd ../fork/geogebra

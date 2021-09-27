@@ -13,7 +13,7 @@ cd ../..
 
 # Compile Tarski:
 cd realgeom/tarski
-./build.sh
+STATIC=1 ./build.sh
 strip interpreter/bin/tarski* # * for Windows (.exe)
 cd ../..
 
