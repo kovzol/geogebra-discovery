@@ -70,6 +70,7 @@ if [ "$1" = win ]; then
  # Use the MSYS2/CLANG64 build:
  cp bin/clang64/tarski.exe dist/$PACKAGE_NAME/realgeom/bin
  cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/realgeom/bin
+ cp fork/geogebra/desktop/lib/tarski.dll dist/$PACKAGE_NAME/geogebra/desktop/lib
  # Copy installed version of realgeom in the .zip
  cd realgeom
  ./gradlew installDist
@@ -117,12 +118,14 @@ else
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
    rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
+  cp fork/geogebra/desktop/lib/libtarski.jnilib dist/$PACKAGE_NAME/geogebra/desktop/lib
   ZIPNAME=$PACKAGE_NAME-Mac
  else
   for i in windows mac i586 arm libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
    rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
+  cp fork/geogebra/desktop/lib/libtarski.so dist/$PACKAGE_NAME/geogebra/desktop/lib
   ZIPNAME=$PACKAGE_NAME-Linux64
   fi
  fi
@@ -135,21 +138,28 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
-. \"\$MYPATH\"/helper/tarski
+# Old settings (will be removed soon):
+# . \"\$MYPATH\"/helper/tarski
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
-. \"\$MYPATH\"/helper/start-realgeom
+# Old settings (will be removed soon):
+# . \"\$MYPATH\"/helper/start-realgeom
 echo -n \"Launching GeoGebra...\"
 echo
-if [ \"\$MATHEMATICA\" = \"\" ]; then
- CAS=tarski
-else
- CAS=mathematica
- fi
-\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS,timeout:10 \"\$@\"
+# New settings:
+export JAVA_OPTS=\"-Djava.library.path=\\\"\$MYPATH\\\"/geogebra/desktop/lib\"
+\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=enable:false \"\$@\"
+# Old settings (will be removed soon):
+# if [ \"\$MATHEMATICA\" = \"\" ]; then
+#  CAS=tarski
+# else
+#  CAS=mathematica
+#  fi
+# \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS,timeout:10 \"\$@\"
 echo \"GeoGebra session ended.\"
-echo \"Stopping RealGeom session...\"
-kill_descendant_processes \$REALGEOM_PID
-kill_descendant_processes \$\$" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+# Old settings (will be removed soon):
+# echo \"Stopping RealGeom session...\"
+# kill_descendant_processes \$REALGEOM_PID
+# kill_descendant_processes \$\$" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 
