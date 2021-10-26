@@ -49,20 +49,22 @@ if [ "$1" = win ]; then
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@echo Welcome to $SOFTWARE_NAME
-@echo Starting realgeom server...
-@cd realgeom
-@cd bin
-@start \"realgeom\" realgeom -s -g
-@cd ..\\..
-:c
-@netstat /a /n | findstr 8765 | findstr LISTENING
-@if %ERRORLEVEL%==0 goto :ggstart
-@ping 127.0.0.1 -n 2 > nul
-@goto :c
-:ggstart
+@rem @echo Starting realgeom server...
+@rem @cd realgeom
+@rem @cd bin
+@rem @start \"realgeom\" realgeom -s -g
+@rem @cd ..\\..
+@rem :c
+@rem @netstat /a /n | findstr 8765 | findstr LISTENING
+@rem @if %ERRORLEVEL%==0 goto :ggstart
+@rem @ping 127.0.0.1 -n 2 > nul
+@rem @goto :c
+@rem :ggstart
 @echo Starting GeoGebra...
-@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:tarski,timeout:10 %*
-@taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+@rem @call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:tarski,timeout:10 %*
+@set JAVA_OPTS=\"-Djava.library.path=%cd%\\geogebra\\desktop\\lib\"
+@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=enable:false %*
+@rem @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  mkdir -p dist/$PACKAGE_NAME/realgeom/bin
  # Use the MSYS2/MSYS build (obsolete):
  # cp bin/msys/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
@@ -70,6 +72,7 @@ if [ "$1" = win ]; then
  # Use the MSYS2/CLANG64 build:
  cp bin/clang64/tarski.exe dist/$PACKAGE_NAME/realgeom/bin
  cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/realgeom/bin
+ cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/
  cp fork/geogebra/desktop/lib/tarski.dll dist/$PACKAGE_NAME/geogebra/desktop/lib
  # Copy installed version of realgeom in the .zip
  cd realgeom
