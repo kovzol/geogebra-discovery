@@ -29,6 +29,7 @@ if [ "$MATHEMATICA" = "" ] ; then
 else
  CAS=mathematica
  fi
+export JAVA_OPTS="-Djava.library.path=\"$MYPATH\"/fork/geogebra/desktop/lib"
 $MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS,timeout:10 "$@"
 
 echo "GeoGebra session ended."
