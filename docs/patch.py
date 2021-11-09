@@ -47,7 +47,7 @@ def add_property(properties_property_id, category_id, version, key):
         query = "INSERT INTO properties_property (id, parent_id, category_id, version, comment, key, creation_date, modification_date, max_length, ticket) VALUES "
         query += "(" + str(properties_property_id) + ", NULL, " + str(category_id) + ", '" + str(version) + "', "
         query += "'created by a patch via patch.py', " + "'" + key + "', " + "DATE('now'), DATE('now'), NULL, NULL)"
-        print query
+        print(query)
         c.execute(query)
 
 def add_translation(property_id, locale_id, text, author_id):
@@ -58,7 +58,7 @@ def add_translation(property_id, locale_id, text, author_id):
         query = "INSERT INTO properties_translation (id, property_id, locale_id, text, comment, creation_date, modification_date, author_id) VALUES "
         query += "(" + str(properties_translation_id) + ", " + str(property_id) + ", " + str(locale_id) + ", " + "'" + text + "', "
         query += "'created by a patch via patch.py', DATE('now'), DATE('now'), " + str(author_id) + ")"
-        print query
+        print(query)
         c.execute(query)
 
 def add_command(properties_property_id, key):
@@ -72,11 +72,11 @@ def cleanup():
         c = conn.cursor()
         global start_properties_translation_id
         query = "DELETE from properties_translation WHERE id > " + str(start_properties_translation_id)
-        print query
+        print(query)
         c.execute(query)
         global start_properties_property_d
         query = "DELETE from properties_property WHERE id > " + str(start_properties_property_id)
-        print query
+        print(query)
         c.execute(query)
 
 if __name__ == "__main__":
@@ -126,6 +126,9 @@ if __name__ == "__main__":
     LET_A_BE_THE_REGULAR_POLYGON_BCD = next_property_id()
     LET_A_BE_THE_REGULAR_BGON_VERTICES_C = next_property_id()
     DENOTE_THE_EXPRESSION_A_BY_B = next_property_id()
+
+    REALQUANTIFIERELIMINATION = next_property_id()
+    REALQUANTIFIERELIMINATION_SYNTAX = next_property_id()
 
     # Languages
     EN = 1
@@ -294,3 +297,10 @@ if __name__ == "__main__":
     add_translation(LET_A_BE_THE_REGULAR_POLYGON_BCD, EN, 'Let %0 be the regular %3-gon over the segment %1, %2.', ZK)
     add_translation(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, EN, 'Let %0 be the regular %1-gon with vertices %2.', ZK)
     add_translation(DENOTE_THE_EXPRESSION_A_BY_B, EN, 'Denote the expression %0 by %1.', ZK)
+
+    add_command(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
+    add_command(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
+    add_translation(REALQUANTIFIERELIMINATION, EN, 'RealQuantifierElimination', ZK)
+    add_translation(REALQUANTIFIERELIMINATION, DE, 'ReelleQuantorenelimination', ZK)
+    add_translation(REALQUANTIFIERELIMINATION_SYNTAX, EN, '[ <Expression> ]', ZK)
+    add_translation(REALQUANTIFIERELIMINATION_SYNTAX, DE, '[ <Ausdruck> ]', ZK)

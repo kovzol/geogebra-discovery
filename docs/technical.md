@@ -26,6 +26,8 @@ native packages, so we need the same version of Giac uniformly.
 GeoGebra's official translation system is a closed source application
 that maintains a database of translation strings. Here we store a copy of
 a new script, [patch.py](patch.py), to add extra entries to the database.
+Also, temporarily here is a copy of [properties/views.py](views.py)
+that catches an unwanted exception.
 
 ## Giac's thread on Linux
 
