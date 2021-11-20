@@ -8,7 +8,7 @@ MYPATH=`dirname "$MYBASENAME"`
 . helper/update
 
 # Compile GeoGebra
-./gradlew $GRADLE_OPTIONS :desktop:installDist
+./gradlew $GRADLE_OPTIONS :desktop:unzip :desktop:installDist
 cd ../..
 
 # Compile RealGeom:
