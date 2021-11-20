@@ -135,7 +135,7 @@ This table is ordered by maturity.
 |:-------	|:---------:	|:-------------------:	|:---------: |
 | Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/green.png) Scheduled for merging into GeoGebra |
 | Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Proving inequalities | no | yes | ![prototype](images/orange.png) GeoGebra Team: approve/update | 
+| Proving inequalities | no | [yes](https://matek.hu/zoltan/blog-20211028.php) | ![prototype](images/orange.png) GeoGebra Team: approve/update | 
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
