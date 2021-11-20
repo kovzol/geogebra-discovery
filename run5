@@ -21,26 +21,27 @@ else
  fi
 
 export MYPATH
-. "$MYPATH"/helper/start-realgeom
-
-echo -n "Launching GeoGebra..."
+REALGEOMWS=""
 if [ "$MATHEMATICA" = "" ] ; then
  CAS=tarski
 else
  CAS=mathematica
  fi
-export JAVA_OPTS="-Djava.library.path=\"$MYPATH\"/fork/geogebra/desktop/lib"
-$MYPATH/$BINDIR/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS,timeout:10 "$@"
-
-echo "GeoGebra session ended."
-
-if [ "$OS_VARIANT" = Windows ]; then
- echo "Please stop RealGeom session manually by closing its window."
- exit 0
+# realgeom will be started only on Rasbian:
+if [ "$OS_VARIANT" = Raspbian ]; then
+ . "$MYPATH"/helper/start-realgeom
+ REALGEOMWS="--realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS,timeout:10"
  fi
 
-echo "Stopping RealGeom session..."
+if [ "$REALGEOMWS" != "" ]; then
+ echo -n "Launching GeoGebra..."
+ fi
+export JAVA_OPTS="-Djava.library.path=\"$MYPATH\"/fork/geogebra/desktop/build"
+$MYPATH/$BINDIR/desktop $REALGEOMWS "$@"
 
-kill_descendant_processes $REALGEOM_PID
-kill_descendant_processes $$
-
+if [ "$REALGEOMWS" != "" ]; then
+ echo "GeoGebra session ended."
+ echo "Stopping RealGeom session..."
+ kill_descendant_processes $REALGEOM_PID
+ kill_descendant_processes $$
+ fi

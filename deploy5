@@ -49,60 +49,18 @@ if [ "$1" = win ]; then
   done
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@echo Welcome to $SOFTWARE_NAME
-@rem @echo Starting realgeom server...
-@rem @cd realgeom
-@rem @cd bin
-@rem @start \"realgeom\" realgeom -s -g
-@rem @cd ..\\..
-@rem :c
-@rem @netstat /a /n | findstr 8765 | findstr LISTENING
-@rem @if %ERRORLEVEL%==0 goto :ggstart
-@rem @ping 127.0.0.1 -n 2 > nul
-@rem @goto :c
-@rem :ggstart
-@echo Starting GeoGebra...
-@rem @call geogebra\\desktop\\bin\\desktop.bat --realgeomws=remoteurl:http\\://localhost\\:8765,cas:tarski,timeout:10 %*
 @set JAVA_OPTS=\"-Djava.library.path=%cd%\\geogebra\\desktop\\lib\"
-@call geogebra\\desktop\\bin\\desktop.bat --realgeomws=enable:false %*
-@rem @taskkill /FI \"WindowTitle eq realgeom*\" /T /F" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
- mkdir -p dist/$PACKAGE_NAME/realgeom/bin
- # Use the MSYS2/MSYS build (obsolete):
- # cp bin/msys/{qepcad,tarski}.exe dist/$PACKAGE_NAME/realgeom/bin
- # cp bin/msys/msys-{crypto-1.1,ncursesw6,stdc++-6,2.0,gcc_s-seh-1,readline8,z}.dll dist/$PACKAGE_NAME/realgeom/bin
+@call geogebra\\desktop\\bin\\desktop.bat %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  # Use the MSYS2/CLANG64 build:
- cp bin/clang64/tarski.exe dist/$PACKAGE_NAME/realgeom/bin
- cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/realgeom/bin
- cp bin/clang64/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME/
- cp fork/geogebra/desktop/lib/tarski.dll dist/$PACKAGE_NAME/geogebra/desktop/lib
- # Copy installed version of realgeom in the .zip
- cd realgeom
- ./gradlew installDist
- rsync -ur build/install/realgeom ../dist/$PACKAGE_NAME
- cd ..
- rm dist/$PACKAGE_NAME/realgeom/bin/realgeom
- rm dist/$PACKAGE_NAME/realgeom/lib/{*linux*,*macosx*}
+ cp fork/geogebra/desktop/build/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME
+ cp fork/geogebra/desktop/build/tarski.dll dist/$PACKAGE_NAME/geogebra/desktop/lib
  # End of copying
  ZIPNAME=$PACKAGE_NAME-Windows
 
 else
 # Non-cross-platform deployment
-test -d realgeom && {
- # Copy installed version of realgeom in the .zip
- cd realgeom
- ./gradlew installDist
- rsync -ur build/install/realgeom ../dist/$PACKAGE_NAME
- cd ..
- rm dist/$PACKAGE_NAME/realgeom/bin/realgeom.bat
- rm dist/$PACKAGE_NAME/realgeom/lib/*windows*
- if [ "$OS_VARIANT" != Mac ]; then
-  cp realgeom/build/install/realgeom/lib/*.so dist/$PACKAGE_NAME/realgeom/lib
-  fi
- # End of copying
- mkdir -p dist/$PACKAGE_NAME/realgeom/tarski/bin
- cp realgeom/tarski/bin/tarski dist/$PACKAGE_NAME/realgeom/tarski/bin
- }
 mkdir -p dist/$PACKAGE_NAME/helper
-cp helper/{detect,start-realgeom,tarski} dist/$PACKAGE_NAME/helper
+cp helper/detect dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
@@ -112,23 +70,20 @@ if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
 if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
-  rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
   done
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
  if [ "$OS_VARIANT" = Mac ]; then
   for i in windows linux i586 amd64 libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
-   rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
-  cp fork/geogebra/desktop/lib/libtarski.jnilib dist/$PACKAGE_NAME/geogebra/desktop/lib
+  cp fork/geogebra/desktop/build/libtarski.jnilib dist/$PACKAGE_NAME/geogebra/desktop/lib
   ZIPNAME=$PACKAGE_NAME-Mac
  else
   for i in windows mac i586 arm libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
-   rm -f dist/$PACKAGE_NAME/realgeom/lib/*$i*.jar
    done
-  cp fork/geogebra/desktop/lib/libtarski.so dist/$PACKAGE_NAME/geogebra/desktop/lib
+  cp fork/geogebra/desktop/build/libtarski.so dist/$PACKAGE_NAME/geogebra/desktop/lib
   ZIPNAME=$PACKAGE_NAME-Linux64
   fi
  fi
@@ -141,32 +96,16 @@ MYPATH=\`dirname \"\$MYBASENAME\"\`
 
 echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
-# Old settings (will be removed soon):
-# . \"\$MYPATH\"/helper/tarski
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
-# Old settings (will be removed soon):
-# . \"\$MYPATH\"/helper/start-realgeom
-echo -n \"Launching GeoGebra...\"
 echo
 # New settings:
 export JAVA_OPTS=\"-Djava.library.path=\\\"\$MYPATH\\\"/geogebra/desktop/lib\"
-\"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=enable:false \"\$@\"
-# Old settings (will be removed soon):
-# if [ \"\$MATHEMATICA\" = \"\" ]; then
-#  CAS=tarski
-# else
-#  CAS=mathematica
-#  fi
-# \"\$MYPATH\"/geogebra/desktop/bin/desktop --realgeomws=remoteurl:http\\://localhost\\:8765,cas:\$CAS,timeout:10 \"\$@\"
-echo \"GeoGebra session ended.\"
-# Old settings (will be removed soon):
-# echo \"Stopping RealGeom session...\"
-# kill_descendant_processes \$REALGEOM_PID
-# kill_descendant_processes \$\$" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+\"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 
 # Common parts in all types of deployments
+rm dist/$PACKAGE_NAME/geogebra/desktop/lib/tarski-*.zip
 if [ $BUNDLE = 1 ]; then
  ZIPNAME=$ZIPNAME-withJava
  fi
