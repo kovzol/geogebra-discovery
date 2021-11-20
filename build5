@@ -11,16 +11,6 @@ MYPATH=`dirname "$MYBASENAME"`
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 cd ../..
 
-# Compile Tarski:
-cd realgeom/tarski
-if [ "$OS_VARIANT" != "Mac" -a "$OS_VARIANT" != "Windows" ]; then
- STATIC=1 ./build.sh # On Linux we want a statically linked executable.
-else
- ./build.sh # By default a dynamically linked executable will be provided.
- fi
-strip interpreter/bin/tarski* # * for Windows (.exe)
-cd ../..
-
 # Compile RealGeom:
 cd realgeom
 ./gradlew $GRADLE_OPTIONS installDist
