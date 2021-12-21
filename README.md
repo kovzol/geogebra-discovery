@@ -31,9 +31,6 @@ End users may want to [download one of the most recent releases](https://github.
 The web version is available online at [autogeo.online](https://autgeo.online) and usually updated on every new release.
 This version can be downloaded and run offline as well at [autgeo.online/off](https://autgeo.online/off).
 
-Please note that the web version cannot solve any problems in real geometry at the moment (that is, proving inequalities,
-for instance). For this purpose you need to download the desktop version.
-
 ## Try the latest unstable version: Prerequisites, compilation, running and deployment
 
 This section can be technically challenging. If you are not familiar with program development, it is safer to use a stable release (see above).
@@ -43,7 +40,7 @@ This section can be technically challenging. If you are not familiar with progra
 You may decide to compile GeoGebra Discovery on your own.
 
 If you do so, you will need a typical Linux, Mac or Windows system to make the software work.
-The provided scripts were tested on Ubuntu Linux 18.04, 19.10 and 20.04 (64-bit),
+The provided scripts were tested on Ubuntu Linux 20.04 and above (64-bit),
 and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work,
 however you need at least 2 GB of memory for compilation). 
 The latest versions also work on Mac OS 11 Big Sur, see the required steps below.
@@ -51,7 +48,7 @@ Finally, you can use Windows 10 as well to compile and run GeoGebra Discovery.
 
 ### Classic 5
 
-The current version automatically downloads a release version of [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.29.
+The current version automatically downloads a release version of [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.30.
 In addition, the [RealGeom](https://github.com/kovzol/realgeom) system will be built, but not packaged or used, only when it is requested by the user
 (or, if the platform is the Raspberry Pi system). See below the detailed instructions.
 
