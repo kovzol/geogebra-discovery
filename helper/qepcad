@@ -1,9 +1,0 @@
-#!/bin/bash
-# This script is obsolete since QEPCAD is directly called in Tarski via (qepcad-api-call).
-
-set -e
-# We assume that MYPATH is correctly set.
-
-qe="$MYPATH/realgeom/tarski/qesource"
-test -x "$qe/bin/qepcad" && export PATH="$PATH:$qe/bin"
-export qe
