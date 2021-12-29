@@ -55,8 +55,10 @@ if [ "$OS_VARIANT" = "Windows" ]; then
  # End of copying
  if [[ "$OS_VERSION" == *"MINGW32"* ]]; then
   WINARCH=32
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*amd64*.jar
  else
   WINARCH=64
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*i586*.jar
   fi
  ZIPNAME=$PACKAGE_NAME-Windows$WINARCH
 

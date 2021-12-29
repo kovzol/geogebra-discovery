@@ -8,6 +8,7 @@ MYPATH=`dirname "$MYBASENAME"`
 . helper/update
 
 # Compile GeoGebra
+rm -f desktop/build/*.dll # On Windows some cleanup is forced
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
 cd ../..
 
