@@ -7,8 +7,14 @@ if [ "$OS_VARIANT" = Raspbian ]; then
  test -x "$JDK_REL/bin/java"
 else # non-Raspbian
  if [ "$OS_VARIANT" = Windows ]; then
-  # JAVA=`find /c/Program\ Files\/OpenJDK/* | sort | head -1`
-  JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
+  # If a 32-bit toolchain is started, we go for running a 32-bit Java:
+  if [[ "$OS_VERSION" == *"MINGW32"* ]]; then
+   JAVA=`find /c/Program\ Files\ \(x86\)\/Java/* | sort | grep jdk | head -1`
+  else
+   # ...otherwise we use a 64-bit version.
+   # JAVA=`find /c/Program\ Files\/OpenJDK/* | sort | head -1`
+   JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
+  fi
   if [ "$JAVA" = "" ]; then
    echo "No Java found. Consider installing it."
    exit 1

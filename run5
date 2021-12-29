@@ -14,8 +14,15 @@ else
  if [ "$OS_VARIANT" != Raspbian ]; then
   if [ "$OS_VARIANT" != Windows ]; then
    export JAVA_HOME=`perl -MCwd -e 'print Cwd::abs_path shift' buildtools/jbr`
+  else
+   # If a 32-bit toolchain is started, we go for running a 32-bit Java:
+   if [[ "$OS_VERSION" == *"MINGW32"* ]]; then
+    export JAVA_HOME=`find /c/Program\ Files\ \(x86\)\/Java/* | sort | grep jdk | head -1`
    else
+    # ...otherwise we use a 64-bit version.
+    # export JAVA_HOME=`find /c/Program\ Files\/OpenJDK/* | sort | head -1`
     export JAVA_HOME=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
+    fi
    fi
   fi
  fi
