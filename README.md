@@ -62,7 +62,7 @@ so you can skip this step.
 * Run `./build5` to build the complete GeoGebra Discovery system.
 * Enter `./run5` to start the software.
 * If you want to make a copy of the program for redistribution, the command `./deploy5` will create a .zip file that contains all necessary components
-to run the program. In case you need a .zip file for Windows users, enter `./deploy5 win`.
+to run the program.
 (The deployment tool comes with a built-in help that can be invoked by the `-h` option.)
 
 #### Steps to build GeoGebra Discovery on macOS
@@ -80,15 +80,23 @@ on an accidental reboot.)
 
 #### Steps to build GeoGebra Discovery on Windows 10
 
+On Windows we support both 64 and 32-bit builds. However, 32-bit builds are considered experimental.
 * Set **Developer Mode** in Windows.
-* Install [Microsoft's Java 11](https://www.microsoft.com/openjdk). It is safe to use the Windows x64 .msi version.
+* Open a Powershell window as administrator. [Install Chocolatey](https://chocolatey.org/install).
+  Install MSYS2 by typing `choco install msys2` in the Powershell prompt.
+* If you plan to compile GeoGebra Discovery for 64-bit systems,
+  start MSYS2/CLANG64 by starting the executable `clang64` in `C:\tools\msys64\` (we assume this is the correct installation folder).
+  Alternatively, you may use MSYS2/CLANG32 if you want to create a 32-bit package.
+* Install [Microsoft's Java 11](https://www.microsoft.com/openjdk) if you want a 64-bit build. It is safe to use the Windows x64 .msi version.
+  Alternatively, you can download a different Java JDK for a 32-bit build. Oracle's Java 1.8 has been successfully tested.
 * Install [Git for Windows](https://gitforwindows.org) (version 2.32.0(2) should work).
   Use the default settings during the installation, but enable symbolic links (this option is disabled by default).
 * Open **Git Bash** and type `git clone https://github.com/kovzol/geogebra-discovery`.
-* Type `cd geogebra-discovery`.
+* Go back to the MSYS2/CLANG64 window and change your working directory to see the folder from the previous step.
+  This can be set with a command like `cd /c/Users/<username>/geogebra-discovery` where `<username>` stands for you username on Windows.
 * Type `./build5` to build the program.
-* Type `./run5` to test if GeoGebra Discovery runs properly. (At the moment there is no direct way to create
-  the distribution .zip file under Windows. Use a different platform to create the package.)
+* Type `./run5` to test if GeoGebra Discovery runs properly.
+* Run `./deploy5` to create a **.zip** bundle for redistribution.
 
 #### Force running realgeom
 

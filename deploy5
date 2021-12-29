@@ -8,14 +8,11 @@ MYPATH=`dirname "$MYBASENAME"`
 BUNDLE=0
 
 usage() {
- echo "$0 - creates a GeoGebra Discovery Classic 5 package"
- echo "Usage: $0 [options] [scenario]"
+ echo "$0 - creates a GeoGebra Discovery Classic 5 package for the current native platform"
+ echo "Usage: $0 [options]"
  echo " where [options] can be:"
  echo "  -h          this help"
  echo "  -j          add Java Runtime Environment from \"$JAVA_HOME\" to the bundle"
- echo " [scenario] can be:"
- echo "  win         create Windows package"
- echo "By default the scenario is to create a Linux package."
  exit 0
  }
 
@@ -34,7 +31,7 @@ while getopts "jh" OPT; do
  esac
 done
 
-# Put name of the filters into $@
+# Put name of the filters into $@ (unused)
 shift $((OPTIND-1))
 
 
@@ -42,8 +39,9 @@ test -x fork/geogebra/desktop/build/install/desktop/bin/desktop
 rm -fr dist/$PACKAGE_NAME
 mkdir -p dist/$PACKAGE_NAME/geogebra
 rsync -ur fork/geogebra/desktop/build/install/desktop dist/$PACKAGE_NAME/geogebra
-# Cross-platform deployment (from Linux to Windows only)
-if [ "$1" = win ]; then
+
+# Platform dependent parts
+if [ "$OS_VARIANT" = "Windows" ]; then
  for i in linux mac; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
   done
@@ -51,11 +49,16 @@ if [ "$1" = win ]; then
  echo "@echo Welcome to $SOFTWARE_NAME
 @set JAVA_OPTS=\"-Djava.library.path=%cd%\\geogebra\\desktop\\lib\"
 @call geogebra\\desktop\\bin\\desktop.bat %*" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
- # Use the MSYS2/CLANG64 build:
- cp fork/geogebra/desktop/build/lib{crypto-1_1-x64,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME
+ # Use the MSYS2/CLANG* build:
+ cp fork/geogebra/desktop/build/lib{crypto-1_1*,c++,unwind,readline8,termcap-0}.dll dist/$PACKAGE_NAME
  cp fork/geogebra/desktop/build/tarski.dll dist/$PACKAGE_NAME/geogebra/desktop/lib
  # End of copying
- ZIPNAME=$PACKAGE_NAME-Windows
+ if [[ "$OS_VERSION" == *"MINGW32"* ]]; then
+  WINARCH=32
+ else
+  WINARCH=64
+  fi
+ ZIPNAME=$PACKAGE_NAME-Windows$WINARCH
 
 else
 # Non-cross-platform deployment
