@@ -19,10 +19,4 @@ test -d realgeom || "$GIT" clone --depth 1 https://github.com/kovzol/realgeom
 cd realgeom
 "$GIT" pull
 
-# echo "Downloading/updating Tarski..."
-# test -d tarski || "$GIT" clone --depth 1 https://github.com/kovzol/tarski
-# cd tarski
-# "$GIT" pull
-# cd ..
-
 cd ../fork/geogebra
