@@ -7,6 +7,10 @@ MYPATH=`dirname "$MYBASENAME"`
 . helper/common
 . helper/update
 
+if [ "$OS_VARIANT" = Windows ]; then
+ export TERM=dumb # ...otherwise Gradle produces garbled output
+ fi
+
 # Compile GeoGebra
 rm -f desktop/build/*.dll # On Windows some cleanup is forced
 ./gradlew $GRADLE_OPTIONS :desktop:installDist
