@@ -96,7 +96,8 @@ On Windows we support both 64 and 32-bit builds. However, 32-bit builds are cons
   This can be set with a command like `cd /c/Users/<username>/geogebra-discovery` where `<username>` stands for you username on Windows.
 * Type `./build5` to build the program.
 * Type `./run5` to test if GeoGebra Discovery runs properly.
-* Run `./deploy5` to create a **.zip** bundle for redistribution.
+* In case you want to create a redistribution package, you need to install two more tools in the MSYS2 subsystem.
+  Type `pacman -S rsync zip` first. Then run `./deploy5` to create a **.zip** bundle for redistribution.
 
 #### Force running realgeom
 
