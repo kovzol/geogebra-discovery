@@ -190,21 +190,24 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 
 ## References
 
+* [Z. Kovács, T. Recio, M. P. Vélez: GeoGebra Discovery in Context (ADG 2021: Automated Deduction in Geometry, p. 141-147, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.16)
+* [Z. Kovács, T. Recio, M. P. Vélez: Automated Reasoning Tools in GeoGebra Discovery (ACM Communications in Computer Algebra 55(2), p. 39–43, 2021)](https://dl.acm.org/doi/10.1145/3493492.3493495)
+
 ### Discover command
 
-* [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215-220)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
+* [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215-220, 2018)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
 * [Z. Kovács, J. H. Yu: Towards Automated Discovery of Geometrical Theorems in GeoGebra, 2020](https://arxiv.org/abs/2007.12447)
 * [Z. Kovács, T. Recio: GeoGebra Reasoning Tools for Humans and for Automatons, 2020](https://www.researchgate.net/publication/347256855_GeoGebra_Reasoning_Tools_for_Humans_and_for_Automatons)
 * [Z. Kovács: Discovering geometry via the Discover command in GeoGebra Discovery, REMATEC 16(37), p. 14-25, 2021](https://www.researchgate.net/publication/348598407_Discovering_geometry_via_the_Discover_command_in_GeoGebra_Discovery)
 
 ### Relation command
-* [Z. Kovács: The Relation Tool in GeoGebra 5 (ADG 2014: Automated Deduction in Geometry, p. 53-71)](https://link.springer.com/chapter/10.1007/978-3-319-21362-0_4)
+* [Z. Kovács: The Relation Tool in GeoGebra 5 (ADG 2014: Automated Deduction in Geometry, p. 53-71, 2015)](https://link.springer.com/chapter/10.1007/978-3-319-21362-0_4)
 
 ### Prove/ProveDetails commands
 
 * [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39-59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
 
 ### Compare command
-
 * [C. Abar, Z. Kovács, T. Recio, R. Vajda: Conectando Mathematica e GeoGebra para explorar construções geométricas planas, 2019](https://www.researchgate.net/publication/337499551_Conectando_Mathematica_e_GeoGebra_para_explorar_construcoes_geometricas_planas)
 * [R. Vajda, Z. Kovács: GeoGebra and the realgeom Reasoning Tool, 2020](https://www.researchgate.net/publication/345246253_GeoGebra_and_the_realgeom_Reasoning_Tool)
+* [C.W. Brown, Z. Kovács, R. Vajda: Supporting Proving and Discovering Geometric Inequalities in GeoGebra by using Tarski (ADG 2021: Automated Deduction in Geometry, p. 156-166, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.18)
