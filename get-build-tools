@@ -12,7 +12,7 @@ if [ "$OS_VARIANT" = Mac ]; then
  JDK_TGZ=jbrsdk-11_0_6-osx-x64-b795.3.tar.gz
  JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
  fi 
-if [ "$OS_VARIANT" = Ubuntu ]; then
+if [ "$OS_VARIANT" = Ubuntu -o "$OS_VARIANT" = Linuxmint ]; then
  # Linux (Ubuntu 18.04)
  test -x buildtools/jbr/bin/java && exit 0
  JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
@@ -28,5 +28,9 @@ if [ "$OS_VARIANT" = Windows ]; then
  fi
 mkdir -p buildtools
 cd buildtools
+if [ "$JDK_URL" = "" -o "$JDK_TGZ" = "" ]; then
+ echo "System detection failed, sorry."
+ exit 1
+ fi
 wget -c -N $JDK_URL -O $JDK_TGZ || curl -o $JDK_TGZ -O -L $JDK_URL
 tar xzf $JDK_TGZ
