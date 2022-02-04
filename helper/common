@@ -23,11 +23,15 @@ else # non-Raspbian
  else # non-Windows and non-Raspbian
   PWD=`pwd`
   if [ "$OS_VARIANT" != Mac ]; then
-   JDK_REL="$PWD/buildtools/jbr" # Mac
+   JDK_REL="$PWD/buildtools/jbr" # non-Mac
   else
-   JDK_REL="$PWD/buildtools/jbrsdk/Contents/Home" # non-Mac
+   JDK_REL="$PWD/buildtools/jbrsdk/Contents/Home" # Mac
    fi
-  test -x "$JDK_REL/bin/java"
+  test -x "$JDK_REL/bin/java" || {
+   # Fallback to an installed JDK
+   JDK_REL=/usr/lib/jvm/default-java
+    test -x "$JDK_REL/bin/java"
+   }
   fi # non-Windows
  fi # non-Raspbian
 export JAVA_HOME="$JDK_REL"

@@ -15,8 +15,13 @@ if [ "$OS_VARIANT" = Mac ]; then
 if [ "$OS_VARIANT" = Ubuntu -o "$OS_VARIANT" = Linuxmint ]; then
  # Linux (Ubuntu 18.04)
  test -x buildtools/jbr/bin/java && exit 0
- JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
- JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
+ if [ `arch` = i686 ]; then
+  echo "No 32 bit JDK can be automatically downloaded, sorry. Try your system's default."
+  exit 1
+ else
+  JDK_TGZ=jbr-11_0_4-linux-x64.tar.gz
+  JDK_URL=http://dev.geogebra.org/download/installer/jdk/$JDK_TGZ
+  fi
  fi
 if [ "$OS_VARIANT" = Windows ]; then
  JAVA=`find /c/Program\ Files\/Microsoft/jdk* | sort | head -1`
