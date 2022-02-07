@@ -22,9 +22,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: prerequisites1
-      run: brew install readline openssl
-    - name: prerequisites2
+    - name: prerequisites
       run: ./get-build-tools
     - name: build5
       run: ./build5
@@ -46,14 +44,6 @@ jobs:
         update: true
         install: >-
           base-devel
-          gcc
-          libreadline-devel
-          libcrypt-devel
-          openssl-devel
-          zlib-devel
-          swig
-          mingw-w64-clang-x86_64-toolchain
-          mingw-w64-clang-x86_64-swig
     - name: install-git
       run: choco install git
       shell: cmd
