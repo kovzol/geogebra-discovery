@@ -1,0 +1,52 @@
+name: geogebra-discovery
+architectures:
+  - build-on: amd64
+base: core20
+version: '5.0.641.0'
+summary: An experimental version of GeoGebra
+description: |
+  GeoGebra Discovery is an experimental version of GeoGebra.
+  It contains some bleeding edge features of GeoGebra that are
+  under heavy development and therefore not intended for every day use yet,
+  so they are not included in the official GeoGebra version.
+
+grade: stable
+
+# If this is changed to strict, some features (3D, save/load) do not work:
+confinement: classic
+
+apps:
+  geogebra-discovery:
+    command: bin/GeoGebra-Discovery
+    plugs:
+      - x11
+      - home
+      - network
+      - desktop
+      - desktop-legacy
+      - opengl
+      - wayland
+
+parts:
+  geogebra-discovery:
+    source: https://github.com/kovzol/geogebra-discovery.git
+    build-packages: [wget, rsync, lsb-release, zip]
+    stage-packages:
+      - libfreetype6
+      - libpng16-16
+      - libpango-1.0-0
+      - libxext6
+      - libxrender1
+      - libgtk-3-0
+      - libxtst6
+      - libgl1
+      - libgtk2.0-0
+      - libasound2
+      - lsb-release
+    plugin: dump
+    override-build: |
+      ./get-build-tools
+      ./build5 && ./deploy5 -j && mkdir -p ../install/bin && cp -a dist/GeoGebra-Discovery-*/* ../install/bin
+    stage:
+      - bin
+      - usr
