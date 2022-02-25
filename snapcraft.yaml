@@ -18,14 +18,16 @@ confinement: classic
 apps:
   geogebra-discovery:
     command: bin/GeoGebra-Discovery
-    plugs:
-      - x11
-      - home
-      - network
-      - desktop
-      - desktop-legacy
-      - opengl
-      - wayland
+
+# Only for strict mode:
+#     plugs:
+#       - x11
+#       - home
+#       - network
+#       - desktop
+#       - desktop-legacy
+#       - opengl
+#       - wayland
 
 parts:
   geogebra-discovery:
