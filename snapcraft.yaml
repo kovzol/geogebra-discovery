@@ -13,21 +13,22 @@ description: |
 grade: stable
 
 # If this is changed to strict, some features (3D, save/load) do not work:
-confinement: classic
+# confinement: classic
+confinement: strict
 
 apps:
   geogebra-discovery:
     command: bin/GeoGebra-Discovery
 
 # Only for strict mode:
-#     plugs:
-#       - x11
-#       - home
-#       - network
-#       - desktop
-#       - desktop-legacy
-#       - opengl
-#       - wayland
+    plugs:
+      - x11
+      - home
+      - network
+      - desktop
+      - desktop-legacy
+      - opengl
+      - wayland
 
 parts:
   geogebra-discovery:
