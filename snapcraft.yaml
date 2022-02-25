@@ -12,15 +12,15 @@ description: |
 
 grade: stable
 
-# If this is changed to strict, some features (3D, save/load) do not work:
-# confinement: classic
+# If this is changed to classic, some non-working features (3D, save/load) do work:
 confinement: strict
+# confinement: classic
 
 apps:
   geogebra-discovery:
     command: bin/GeoGebra-Discovery
-
-# Only for strict mode:
+    environment:
+      JAVA_HOME: $SNAP/usr/lib/jvm/default-java
     plugs:
       - x11
       - home
@@ -33,7 +33,7 @@ apps:
 parts:
   geogebra-discovery:
     source: https://github.com/kovzol/geogebra-discovery.git
-    build-packages: [wget, rsync, lsb-release, zip]
+    build-packages: [wget, rsync, lsb-release, zip, default-jdk]
     stage-packages:
       - libfreetype6
       - libpng16-16
@@ -46,10 +46,10 @@ parts:
       - libgtk2.0-0
       - libasound2
       - lsb-release
+      - default-jre
     plugin: dump
     override-build: |
-      ./get-build-tools
-      ./build5 && ./deploy5 -j && mkdir -p ../install/bin && cp -a dist/GeoGebra-Discovery-*/* ../install/bin
+      ./build5 && ./deploy5 && mkdir -p ../install/bin && cp -a dist/GeoGebra-Discovery-*/* ../install/bin
     stage:
       - bin
       - usr
