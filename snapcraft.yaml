@@ -12,7 +12,7 @@ description: |
 
 grade: stable
 
-# If this is changed to classic, some non-working features (save/load) do work:
+# If this is changed to classic, some non-working features (e.g. saving preferences) do work:
 confinement: strict
 # confinement: classic
 
@@ -22,6 +22,8 @@ apps:
     environment:
       JAVA_HOME: $SNAP/usr/lib/jvm/java-16-openjdk-amd64
       LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
+      LC_ALL: C.UTF-8
+      LANG: C.UTF-8
     plugs:
       - x11
       - home
