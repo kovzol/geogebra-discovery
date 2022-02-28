@@ -26,6 +26,10 @@ End users may want to [download one of the most recent releases](https://github.
 (or **GeoGebra-Discovery** on non-Windows systems). A short video [tutorial](https://www.youtube.com/watch?v=S1upzsdcW10) is also available.
 * In case the program does not start, you need to [install Java RE](https://www.java.com/en/download/).
 
+For Linux users, the simplest way is to get GeoGebra Discovery from the Snap Store:
+
+[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/geogebra-discovery)
+
 ### Web version (Classic 6)
 
 The web version is available online at [autogeo.online](https://autgeo.online) and usually updated on every new release.
