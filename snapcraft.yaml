@@ -12,7 +12,7 @@ description: |
 
 grade: stable
 
-# If this is changed to classic, some non-working features (3D, save/load) do work:
+# If this is changed to classic, some non-working features (save/load) do work:
 confinement: strict
 # confinement: classic
 
@@ -20,7 +20,8 @@ apps:
   geogebra-discovery:
     command: bin/GeoGebra-Discovery
     environment:
-      JAVA_HOME: $SNAP/usr/lib/jvm/default-java
+      JAVA_HOME: $SNAP/usr/lib/jvm/java-16-openjdk-amd64
+      LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
     plugs:
       - x11
       - home
@@ -43,10 +44,11 @@ parts:
       - libgtk-3-0
       - libxtst6
       - libgl1
+      - libgl1-mesa-dri
       - libgtk2.0-0
       - libasound2
       - lsb-release
-      - default-jre
+      - openjdk-16-jre
     plugin: dump
     override-build: |
       ./build5 && ./deploy5 && mkdir -p ../install/bin && cp -a dist/GeoGebra-Discovery-*/* ../install/bin
