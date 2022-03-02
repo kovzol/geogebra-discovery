@@ -99,7 +99,7 @@ echo \"Welcome to $SOFTWARE_NAME\"
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
 echo
 # New settings:
-export JAVA_OPTS=\"-Djava.library.path=\\\"\$MYPATH\\\"/geogebra/desktop/lib\"
+export JAVA_OPTS=\"\$JAVA_OPTS -Djava.library.path=\\\"\$MYPATH\\\"/geogebra/desktop/lib\"
 \"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
