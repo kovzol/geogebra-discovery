@@ -12,15 +12,14 @@ description: |
 
 grade: stable
 
-# If this is changed to classic, some non-working features (e.g. saving preferences) do work:
 confinement: strict
-# confinement: classic
 
 apps:
   geogebra-discovery:
     command: bin/GeoGebra-Discovery
     environment:
       JAVA_HOME: $SNAP/usr/lib/jvm/java-16-openjdk-amd64
+      JAVA_OPTS: -Djava.util.prefs.userRoot="$SNAP_USER_DATA"
       LIBGL_DRIVERS_PATH: $SNAP/usr/lib/x86_64-linux-gnu/dri
       LC_ALL: C.UTF-8
       LANG: C.UTF-8
