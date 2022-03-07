@@ -156,6 +156,7 @@ This table is ordered by maturity.
 | Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Prenex formulas | no | [prototype](https://matek.hu/zoltan/blog-20220212.php) | ![prototype](images/red.png) Fix some issues |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
