@@ -56,7 +56,7 @@ if [ "$OS_VARIANT" = "Windows" ]; then
   WINARCH=64
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*i586*.jar
   fi
- cp bin/clang$WINARCH/lib{crypto-1_1*,c++,unwind}.dll dist/$PACKAGE_NAME
+ # cp bin/clang$WINARCH/lib{crypto-1_1*,c++,unwind}.dll dist/$PACKAGE_NAME
  ZIPNAME=$PACKAGE_NAME-Windows$WINARCH
 
 else
