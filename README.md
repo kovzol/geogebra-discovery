@@ -157,6 +157,8 @@ This table is ordered by maturity.
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Prenex formulas | no | [prototype](https://matek.hu/zoltan/blog-20220212.php) | ![prototype](images/red.png) Fix some issues |
+| Stepwise discovery	| no | prototype	| ![prototype](images/red.png) Fix some issues (e.g. undo), add web implementation |
+| Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
