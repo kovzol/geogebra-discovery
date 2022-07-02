@@ -37,7 +37,7 @@ else
 # realgeom will be started only on Rasbian:
 if [ "$OS_VARIANT" = Raspbian ]; then
  . "$MYPATH"/helper/start-realgeom
- REALGEOMWS="--realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS,timeout:10"
+ REALGEOMWS="--realgeomws=remoteurl:http\\://localhost\\:8765,cas:$CAS,timeout:10,enable:true"
  fi
 
 if [ "$REALGEOMWS" != "" ]; then
