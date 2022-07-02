@@ -111,7 +111,7 @@ These are the steps you need to achieve this:
 
 * Build the program (see above).
 * Run `helper/realgeom` to start the realgeom server. It will run in a separate terminal.
-* Start GeoGebra Discovery by using the command line `./run5 --realgeomws=remoteurl:http\://localhost\:8765,cas:mathematica,timeout:10`
+* Start GeoGebra Discovery by using the command line `./run5 --realgeomws=remoteurl:enable:true,http\://localhost\:8765,cas:mathematica,timeout:10`
 for example.
 
 ### Classic 6
