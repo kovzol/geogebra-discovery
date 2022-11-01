@@ -144,9 +144,11 @@ This table is ordered by maturity.
 | Feature | GeoGebra 	  | GeoGebra Discovery    | Next step  |
 |:-------	|:---------:	|:-------------------:	|:---------: |
 | Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/green.png) Scheduled for merging into GeoGebra |
+| Stepwise discovery	| no | [yes](https://matek.hu/zoltan/stepwise/csgg.pdf) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Proving inequalities | no | [yes](https://matek.hu/zoltan/blog-20211028.php) | ![prototype](images/orange.png) GeoGebra Team: approve/update | 
+| Proving inequalities | no | [yes](https://matek.hu/zoltan/blog-20211028.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | RealQuantifierElimination command | no | [yes](https://matek.hu/zoltan/demo-20211118.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Prenex formulas | no | [yes](https://matek.hu/zoltan/blog-20220212.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
@@ -156,8 +158,6 @@ This table is ordered by maturity.
 | Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Prenex formulas | no | [prototype](https://matek.hu/zoltan/blog-20220212.php) | ![prototype](images/red.png) Fix some issues |
-| Stepwise discovery	| no | prototype	| ![prototype](images/red.png) Fix some issues (e.g. undo), add web implementation |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
