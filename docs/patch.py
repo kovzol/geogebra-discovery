@@ -130,6 +130,15 @@ if __name__ == "__main__":
     REALQUANTIFIERELIMINATION = next_property_id()
     REALQUANTIFIERELIMINATION_SYNTAX = next_property_id()
 
+    STEPWISEDISCOVERY = next_property_id()
+    STEPWISEDISCOVERY_SYNTAX = next_property_id()
+    STEPWISEDISCOVERY_INFORMATION = next_property_id()
+    STEPWISEDISCOVERY_ENABLED = next_property_id()
+    STEPWISEDISCOVERY_DISABLED = next_property_id()
+    STEPWISEDISCOVERY_STYLEBAR = next_property_id()
+
+    EXPORT_AS_LATEX = next_property_id()
+
     # Languages
     EN = 1
     DE = 6
@@ -304,3 +313,33 @@ if __name__ == "__main__":
     add_translation(REALQUANTIFIERELIMINATION, DE, 'ReelleQuantorenelimination', ZK)
     add_translation(REALQUANTIFIERELIMINATION_SYNTAX, EN, '[ <Expression> ]', ZK)
     add_translation(REALQUANTIFIERELIMINATION_SYNTAX, DE, '[ <Ausdruck> ]', ZK)
+
+    add_command(STEPWISEDISCOVERY, 'StepwiseDiscovery')
+    add_command(STEPWISEDISCOVERY_SYNTAX, 'StepwiseDiscovery.Syntax')
+    add_translation(STEPWISEDISCOVERY, EN, 'StepwiseDiscovery', ZK)
+    add_translation(STEPWISEDISCOVERY, DE, 'SchrittweisesEntdecken', ZK)
+    add_translation(STEPWISEDISCOVERY, HU, 'FelfedezésLépésenként', ZK)
+    add_translation(STEPWISEDISCOVERY_SYNTAX, EN, "[ ]\n[ <Boolean> ]", ZK)
+    add_translation(STEPWISEDISCOVERY_SYNTAX, DE, "[ ]\n[ <Wahrheitswert> ]", ZK)
+    add_translation(STEPWISEDISCOVERY_SYNTAX, HU, "[ ]\n[ <Logikai érték> ]", ZK)
+    add_menu(STEPWISEDISCOVERY_INFORMATION, 'Information')
+    add_translation(STEPWISEDISCOVERY_INFORMATION, EN, 'Information', ZK)
+    add_translation(STEPWISEDISCOVERY_INFORMATION, DE, 'Information', ZK)
+    add_translation(STEPWISEDISCOVERY_INFORMATION, HU, 'Információ', ZK)
+    add_menu(STEPWISEDISCOVERY_ENABLED, 'StepwiseDiscoveryEnabled')
+    add_translation(STEPWISEDISCOVERY_ENABLED, EN, 'The stepwise discovery mode is enabled.', ZK)
+    add_translation(STEPWISEDISCOVERY_ENABLED, DE, 'Schrittweises Entdecken ist eingeschaltet.', ZK)
+    add_translation(STEPWISEDISCOVERY_ENABLED, HU, 'A lépésenkénti felfedezés mód bekapcsolva.', ZK)
+    add_menu(STEPWISEDISCOVERY_DISABLED, 'StepwiseDiscoveryDisabled')
+    add_translation(STEPWISEDISCOVERY_DISABLED, EN, 'The stepwise discovery mode is disabled.', ZK)
+    add_translation(STEPWISEDISCOVERY_DISABLED, DE, 'Schrittweises Entdecken ist ausgeschaltet.', ZK)
+    add_translation(STEPWISEDISCOVERY_DISABLED, HU, 'A lépésenkénti felfedezés mód kikapcsolva.', ZK)
+    add_menu(STEPWISEDISCOVERY_STYLEBAR, 'stylebar.Discover')
+    add_translation(STEPWISEDISCOVERY_STYLEBAR, EN, 'Switch stepwise discovery on or off', ZK)
+    add_translation(STEPWISEDISCOVERY_STYLEBAR, DE, 'Schrittweises Entdecken ein- oder ausschalten', ZK)
+    add_translation(STEPWISEDISCOVERY_STYLEBAR, HU, 'Lépésenkénti felfedezés mód be- vagy kikapcsolása', ZK)
+
+    add_menu(EXPORT_AS_LATEX, 'ExportAsLaTeX')
+    add_translation(EXPORT_AS_LATEX, EN, 'Export as LaTeX', ZK)
+    add_translation(EXPORT_AS_LATEX, DE, 'Export als LaTeX', ZK)
+    add_translation(EXPORT_AS_LATEX, HU, 'Exportálás LaTeX-ként', ZK)
