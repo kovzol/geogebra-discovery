@@ -1,5 +1,3 @@
-# GeoGebra Discovery
-
 GeoGebra Discovery is an experimental version of [GeoGebra](https://www.geogebra.org). It contains some
 bleeding edge features of GeoGebra that are under heavy development and therefore not intended for every day use yet,
 so they are not included in the official GeoGebra version.
