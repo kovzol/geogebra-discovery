@@ -1,10 +1,15 @@
 GeoGebra Discovery is an experimental version of [GeoGebra](https://www.geogebra.org). It contains some
 bleeding edge features of GeoGebra that are under heavy development and therefore not intended for every day use yet,
 so they are not included in the official GeoGebra version.
+Also, in some cases, there is no consensus on whether to include certain
+elements in GeoGebra or to leave them out (for example, because they are
+too specific for a particular audience).
 
-We maintain a [feature list](#feature-matrix). Most features are considered unstable, but a couple of them are mature
-and ready to try by anyone, and close to being integrated into GeoGebra shortly.
-It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well.
+We maintain a [feature list](#feature-matrix). Some features are considered unstable, but many of them are mature
+and ready to try by anyone, and technically close to be able to being integrated into GeoGebra shortly.
+It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well,
+but the GeoGebra Team may decide to leave some features out for technical, practical or didactical reasons.
+Anyway, we are doing our best and are open for discussion.
 
 Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/team).
 We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
@@ -156,8 +161,12 @@ This table is ordered by maturity.
 | Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Jan27) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Prenex formulas | no | [prototype](https://matek.hu/zoltan/blog-20220212.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Stepwise discovery	| no | prototype	| ![prototype](images/red.png) Fix some issues |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
+| Plot2D command | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Jan27) | ![prototype](images/red.png) Fix bugs |
 
 ### Features that have already been merged
 
