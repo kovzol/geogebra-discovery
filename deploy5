@@ -64,10 +64,6 @@ mkdir -p dist/$PACKAGE_NAME/helper
 cp helper/detect dist/$PACKAGE_NAME/helper
 rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
-if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
- mkdir dist/$PACKAGE_NAME/jre
- rsync -ur "$JAVA_HOME"/* dist/$PACKAGE_NAME/jre
- fi
 if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
@@ -102,7 +98,9 @@ chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 
 # Common parts in all types of deployments
-if [ $BUNDLE = 1 ]; then
+if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
+ mkdir dist/$PACKAGE_NAME/jre
+ rsync -ur "$JAVA_HOME"/* dist/$PACKAGE_NAME/jre
  ZIPNAME=$ZIPNAME-withJava
  fi
 ZIPNAME=$ZIPNAME.zip
