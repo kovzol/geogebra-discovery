@@ -1,12 +1,15 @@
-# GeoGebra Discovery
-
 GeoGebra Discovery is an experimental version of [GeoGebra](https://www.geogebra.org). It contains some
 bleeding edge features of GeoGebra that are under heavy development and therefore not intended for every day use yet,
 so they are not included in the official GeoGebra version.
+Also, in some cases, there is no consensus on whether to include certain
+elements in GeoGebra or to leave them out (for example, because they are
+too specific for a particular audience).
 
-We maintain a [feature list](#feature-matrix). Most features are considered unstable, but a couple of them are mature
-and ready to try by anyone, and close to being integrated into GeoGebra shortly.
-It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well.
+We maintain a [feature list](#feature-matrix). Some features are considered unstable, but many of them are mature
+and ready to try by anyone, and technically close to be able to being integrated into GeoGebra shortly.
+It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well,
+but the GeoGebra Team may decide to leave some features out for technical, practical or didactical reasons.
+Anyway, we are doing our best and are open for discussion.
 
 Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/team).
 We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this
@@ -153,13 +156,18 @@ This table is ordered by maturity.
 | Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Dilate command | only numerical | [with prover support](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Feb01) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Java OpenGL | 2.2 | 2.4 | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Jan27) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Prenex formulas | no | [yes](https://matek.hu/zoltan/blog-20220212.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
+| Stepwise discovery	| no | prototype	| ![prototype](images/red.png) Fix some issues |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
+| Plot2D command | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Jan27) | ![prototype](images/red.png) Fix bugs |
 
 ### Features that have already been merged
 
@@ -197,24 +205,27 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 
 ## References
 
-* [Z. Kovács, T. Recio, M. P. Vélez: GeoGebra Discovery in Context (ADG 2021: Automated Deduction in Geometry, p. 141-147, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.16)
+* [Z. Kovács, T. Recio, M. P. Vélez: GeoGebra Discovery in Context (ADG 2021: Automated Deduction in Geometry, p. 141–147, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.16)
 * [Z. Kovács, T. Recio, M. P. Vélez: Automated Reasoning Tools in GeoGebra Discovery (ACM Communications in Computer Algebra 55(2), p. 39–43, 2021)](https://dl.acm.org/doi/10.1145/3493492.3493495)
+* [Z. Kovács, T. Recio, M. P. Vélez: Automated Reasoning Tools with GeoGebra: What Are They? What Are They Good For? (Mathematics Education in the Age of Artificial Intelligence, p. 23–44, 2022)](http://dx.doi.org/10.1007/978-3-030-86909-0_2)
 
 ### Discover command
-
-* [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215-220, 2018)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
+* [F. Botana, Z. Kovács, T. Recio: Towards an Automated Geometer (AISC 2018: Artificial Intelligence and Symbolic Computation, p. 215–220, 2018)](https://link.springer.com/chapter/10.1007/978-3-319-99957-9_15)
 * [Z. Kovács, J. H. Yu: Towards Automated Discovery of Geometrical Theorems in GeoGebra, 2020](https://arxiv.org/abs/2007.12447)
 * [Z. Kovács, T. Recio: GeoGebra Reasoning Tools for Humans and for Automatons, 2020](https://www.researchgate.net/publication/347256855_GeoGebra_Reasoning_Tools_for_Humans_and_for_Automatons)
-* [Z. Kovács: Discovering geometry via the Discover command in GeoGebra Discovery, REMATEC 16(37), p. 14-25, 2021](https://www.researchgate.net/publication/348598407_Discovering_geometry_via_the_Discover_command_in_GeoGebra_Discovery)
+* [Z. Kovács: Discovering geometry via the Discover command in GeoGebra Discovery, REMATEC 16(37), p. 14–25, 2021](https://www.researchgate.net/publication/348598407_Discovering_geometry_via_the_Discover_command_in_GeoGebra_Discovery)
+* [Z. Kovács, J. H. Yu: Stepwise discovery of mathematical knowledge in GeoGebra, 2022](https://www.researchgate.net/publication/367022755_Stepwise_discovery_of_mathematical_knowledge_in_GeoGebra)
 
 ### Relation command
-* [Z. Kovács: The Relation Tool in GeoGebra 5 (ADG 2014: Automated Deduction in Geometry, p. 53-71, 2015)](https://link.springer.com/chapter/10.1007/978-3-319-21362-0_4)
+* [Z. Kovács: The Relation Tool in GeoGebra 5 (ADG 2014: Automated Deduction in Geometry, p. 53–71, 2015)](https://link.springer.com/chapter/10.1007/978-3-319-21362-0_4)
 
 ### Prove/ProveDetails commands
-
-* [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39-59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
+* [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39–59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
 
 ### Compare command
 * [C. Abar, Z. Kovács, T. Recio, R. Vajda: Conectando Mathematica e GeoGebra para explorar construções geométricas planas, 2019](https://www.researchgate.net/publication/337499551_Conectando_Mathematica_e_GeoGebra_para_explorar_construcoes_geometricas_planas)
 * [R. Vajda, Z. Kovács: GeoGebra and the realgeom Reasoning Tool, 2020](https://www.researchgate.net/publication/345246253_GeoGebra_and_the_realgeom_Reasoning_Tool)
-* [C.W. Brown, Z. Kovács, R. Vajda: Supporting Proving and Discovering Geometric Inequalities in GeoGebra by using Tarski (ADG 2021: Automated Deduction in Geometry, p. 156-166, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.18)
+* [C.W. Brown, Z. Kovács, R. Vajda: Supporting Proving and Discovering Geometric Inequalities in GeoGebra by using Tarski (ADG 2021: Automated Deduction in Geometry, p. 156–166, 2021)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2021.18)
+
+### RealQuantifierElimination command
+* [Z. Kovács, T. Recio: Real quantifier elimination in the classroom, 2022](https://www.researchgate.net/publication/366177699_Real_quantifier_elimination_in_the_classroom)
