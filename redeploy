@@ -1,0 +1,54 @@
+#!/bin/bash
+# This script can be called from anywhere.
+TMPFOLDER=/tmp/redeploy
+
+MYBASENAME=`perl -MCwd -e 'print Cwd::abs_path shift' "$0"`
+MYPATH=`dirname "$MYBASENAME"`
+
+. helper/common
+
+
+usage() {
+ echo "$0 - creates all current GeoGebra Discovery packages for all platforms based on previous packages"
+ echo "Usage: $0 <previous>"
+ exit 0
+ }
+
+if [ $# != 1 ]; then
+ usage
+ fi
+
+PREVIOUS="$1"
+
+NEWFOLDER=GeoGebra-Discovery-$GGB_VERSION-$TODAY
+OLDFOLDER=GeoGebra-Discovery-$GGB_VERSION-$PREVIOUS
+DEPLOYED=dist/$NEWFOLDER
+test -x $DEPLOYED || {
+ echo "No current version is deployed yet."
+ exit 1
+ } && {
+ echo "Found deployed version in $DEPLOYED"
+ }
+
+for i in dist/GeoGebra-Discovery-$GGB_VERSION-$PREVIOUS*.zip; do
+ NEWFILE=`echo $i | sed s/$PREVIOUS/$TODAY/`
+ test -r $NEWFILE && {
+  echo "$NEWFILE already exists, skipping"
+  } || {
+  rm -fr $TMPFOLDER
+  mkdir -p $TMPFOLDER
+  unzip -q $i -d $TMPFOLDER
+  mv $TMPFOLDER/$OLDFOLDER $TMPFOLDER/$NEWFOLDER
+  for j in common-jre common desktop editor-desktop giac-jni impl renderer-desktop tarski-jni; do
+   cp $DEPLOYED/geogebra/desktop/lib/$j.jar $TMPFOLDER/$NEWFOLDER/geogebra/desktop/lib
+   done
+  pushd $TMPFOLDER >/dev/null
+  mkdir dist
+  zip -q -9r $NEWFILE $NEWFOLDER
+  popd >/dev/null
+  mv $TMPFOLDER/$NEWFILE $NEWFILE
+  echo "$NEWFILE created"
+  }
+ done
+
+rm -fr $TMPFOLDER
