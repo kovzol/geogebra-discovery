@@ -163,9 +163,9 @@ This table is ordered by maturity.
 | Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Prenex formulas | no | [yes](https://matek.hu/zoltan/blog-20220212.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
+| ShowProof command | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023May13) | ![prototype](images/red.png) Implement syzygy computation in Giac |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
