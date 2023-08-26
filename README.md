@@ -165,7 +165,7 @@ This table is ordered by maturity.
 | Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
-| ShowProof command | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023May13) | ![prototype](images/red.png) Implement syzygy computation in Giac |
+| ShowProof command | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023May13) | ![prototype](images/red.png) Handle all cases nicely |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
@@ -194,6 +194,8 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/compare/html/all.html)
 * [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
 * [Prove test (inequalities)](https://prover-test.geogebra.org/job/GeoGebra_Discovery-proverrgtest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover-rg/html/all.html)
+* [ShowProof test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-showprooftest/lastSuccessfulBuild/artifact/fork/geogebra/test/scripts/benchmark/prover/html/all.html)
+
 
 ### All outputs
 * [Prove/ProveDetails test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-provertest/)
@@ -201,6 +203,8 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 * [Compare test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-comparetest/)
 * [Discover test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-discovertest/)
 * [Prove test (inequalities)](https://prover-test.geogebra.org/job/GeoGebra_Discovery-proverrgtest/)
+* [ShowProof test](https://prover-test.geogebra.org/job/GeoGebra_Discovery-showprooftest/)
+
 
 ## References
 
