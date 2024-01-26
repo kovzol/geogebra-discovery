@@ -57,7 +57,7 @@ if [ "$OS_VARIANT" = "Windows" ]; then
   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*amd64*.jar
  else
   WINARCH=64
-  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*i586*.jar
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*i586*.jar || true
   fi
  ZIPNAME=$PACKAGE_NAME-Windows$WINARCH
 
@@ -69,18 +69,18 @@ rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop.bat
 
 if [ "$OS_VARIANT" = Raspbian ]; then
  for i in windows mac i586 amd64 libpxcc zspace; do
-  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+  rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar || true
   done
  ZIPNAME=$PACKAGE_NAME-RaspberryPi
 else
  if [ "$OS_VARIANT" = Mac ]; then
   for i in windows linux i586 amd64 libpxcc zspace; do
-   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar || true
    done
   ZIPNAME=$PACKAGE_NAME-Mac
  else
   for i in windows mac i586 arm libpxcc zspace; do
-   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar
+   rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar || true
    done
   ZIPNAME=$PACKAGE_NAME-Linux64
   fi
