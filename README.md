@@ -220,6 +220,8 @@ The [benchmarking system](https://prover-test.geogebra.org/) collects results an
 
 ### Prove/ProveDetails commands
 * [F. Botana, M. Hohenwarter, P. Janičić, Z. Kovács, I. Petrović, T. Recio, S. Weitzhofer: Automated Theorem Proving in GeoGebra: Current Achievements (Journal of Automated Reasoning 55, p. 39–59, 2015)](https://link.springer.com/article/10.1007/s10817-015-9326-4)
+* [Z. Kovács, T. Recio, M.P. Vélez: Detecting truth, just on parts (Revista Matemática Complutense 32, p. 451–474, 2018)](https://link.springer.com/article/10.1007/s13163-018-0286-1)
+* [Z. Kovács, T. Recio, L.F. Tabera, M.P. Vélez: Dealing with Degeneracies in Automated Theorem Proving in Geometry (Mathematics 9.16, p. 1964, 2021)](https://www.mdpi.com/2227-7390/9/16/1964)
 
 ### Compare command
 * [C. Abar, Z. Kovács, T. Recio, R. Vajda: Conectando Mathematica e GeoGebra para explorar construções geométricas planas, 2019](https://www.researchgate.net/publication/337499551_Conectando_Mathematica_e_GeoGebra_para_explorar_construcoes_geometricas_planas)
