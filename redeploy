@@ -42,6 +42,8 @@ for i in dist/GeoGebra-Discovery-$GGB_VERSION-$PREVIOUS*.zip; do
   for j in common-jre common desktop editor-desktop giac-jni impl renderer-desktop tarski-jni; do
    cp $DEPLOYED/geogebra/desktop/lib/$j.jar $TMPFOLDER/$NEWFOLDER/geogebra/desktop/lib
    done
+  sed -i "s/$PREVIOUS/$TODAY/g" $TMPFOLDER/$NEWFOLDER/GeoGebra-Discovery.bat || true
+  sed -i "s/$PREVIOUS/$TODAY/g" $TMPFOLDER/$NEWFOLDER/GeoGebra-Discovery || true
   pushd $TMPFOLDER >/dev/null
   mkdir dist
   zip -q -9r $NEWFILE $NEWFOLDER
