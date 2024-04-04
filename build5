@@ -22,7 +22,7 @@ cd realgeom
 LIBDIR=lib
 if [ "$OS_VARIANT" = Raspbian ]; then
  # FIXME: This is hardcoded.
- LIBDIR=/opt/Wolfram/WolframEngine/12.0/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-ARM
+ LIBDIR=/opt/Wolfram/WolframEngine/13.1/SystemFiles/Links/JLink/SystemFiles/Libraries/Linux-ARM
  fi
 cp $LIBDIR/*.so build/install/realgeom/lib
 cd ..
