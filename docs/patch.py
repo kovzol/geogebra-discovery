@@ -376,6 +376,8 @@ if __name__ == "__main__":
     add_menu(PROOF_PREPARATION_SEEMS_DIFFICULT, 'ProofPreparationSeemsDifficult')
     add_translation(SHOWPROOF, EN, 'ShowProof', ZK)
     add_translation(SHOWPROOF, HU, 'BizonyításLépései', ZK)
+    add_translation(SHOWPROOF_SYNTAX, EN, '[ <Boolean Expression> ]', ZK)
+    add_translation(SHOWPROOF_SYNTAX, HU, '[ <Logikai kifejezés> ]', ZK)
     add_translation(PROVE_THAT_A, EN, 'Prove that %0.', ZK)
     add_translation(PROVE_THAT_A, HU, 'Bízonyítsuk be, hogy %0.', ZK)
     add_translation(LET_A_BE_ARBITRARY_POINTS, EN, 'Let %0 be arbitrary points.', ZK)
