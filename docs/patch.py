@@ -162,6 +162,7 @@ if __name__ == "__main__":
     CONTRADICTION_THIS_PROVES = next_property_id()
     DIFFICULTY_A = next_property_id()
     PROOF_PREPARATION_SEEMS_DIFFICULT = next_property_id()
+    FORCING_NON_COLLINEARITY = next_property_id()
 
     REALQUANTIFIERELIMINATION = next_property_id()
     REALQUANTIFIERELIMINATION_SYNTAX = next_property_id()
@@ -374,6 +375,7 @@ if __name__ == "__main__":
     add_menu(CONTRADICTION_THIS_PROVES, 'ContradictionThisProves')
     add_menu(DIFFICULTY_A, 'DifficultyA')
     add_menu(PROOF_PREPARATION_SEEMS_DIFFICULT, 'ProofPreparationSeemsDifficult')
+    add_menu(FORCING_NON_COLLINEARITY, 'ForcingNonCollinearity')
     add_translation(SHOWPROOF, EN, 'ShowProof', ZK)
     add_translation(SHOWPROOF, HU, 'BizonyításLépései', ZK)
     add_translation(SHOWPROOF_SYNTAX, EN, '[ <Boolean Expression> ]', ZK)
@@ -460,6 +462,8 @@ if __name__ == "__main__":
     add_translation(DIFFICULTY_A, HU, 'Az állítás nehézségi foka: %0.', ZK)
     add_translation(PROOF_PREPARATION_SEEMS_DIFFICULT, EN, 'The preparation of the proof seems computationally too difficult, sorry.', ZK)
     add_translation(PROOF_PREPARATION_SEEMS_DIFFICULT, HU, 'A bizonyítás lépéseinek előkészítése sajnos túl számításigényes.', ZK)
+    add_translation(FORCING_NON_COLLINEARITY, EN, 'Forcing non-collinearity for certain point triplets:', ZK)
+    add_translation(FORCING_NON_COLLINEARITY, HU, 'Bizonyos háromszögek nem lehetnek elfajulóak:', ZK)
 
     add_command(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     add_command(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
