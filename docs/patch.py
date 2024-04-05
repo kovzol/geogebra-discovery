@@ -451,7 +451,7 @@ if __name__ == "__main__":
     add_translation(LET_DEPENDENT_POINT_A_DENOTED_BY_B, DE, 'Beschriften wir den abhängigen Punkt %0 mit %1.', ZK)
     add_translation(OBJECT_A_INTRODUCES, EN, 'Object %0 introduces the following extra variables:', ZK)
     add_translation(OBJECT_A_INTRODUCES, HU, 'A(z) %0 objektumhoz a következő további változókra lesz szükség:', ZK)
-    add_translation(OBJECT_A_INTRODUCES, DE, 'Fürs Objekt %0 werden folgende Variablen notwendig:', ZK)
+    add_translation(OBJECT_A_INTRODUCES, DE, 'Fürs Objekt %0 sind folgende Variablen notwendig:', ZK)
     add_translation(COMMAND_A_NOT_FULLY_IMPLEMENTED, EN, 'Command %0 is not fully implemented in the prover.', ZK)
     add_translation(COMMAND_A_NOT_FULLY_IMPLEMENTED, HU, 'A(z) %0 parancs nem áll teljesen rendelkezésre a bizonyító alrendszerben.', ZK)
     add_translation(COMMAND_A_NOT_FULLY_IMPLEMENTED, DE, 'Befehl %0 ist nicht vollständig unterstützt.', ZK)
