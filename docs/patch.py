@@ -142,6 +142,7 @@ if __name__ == "__main__":
     CONSIDERING_DEFINITION_A = next_property_id()
     LET_FREE_POINT_A_DENOTED_BY_B = next_property_id()
     ONLY_FIRST_FIXED_BECAUSE_A_ON_B = next_property_id()
+    ONLY_FIRST_FIXED_EXPRESSION = next_property_id()
     LET_DEPENDENT_POINT_A_DENOTED_BY_B = next_property_id()
     OBJECT_A_INTRODUCES = next_property_id()
     COMMAND_A_NOT_FULLY_IMPLEMENTED = next_property_id()
@@ -356,6 +357,7 @@ if __name__ == "__main__":
     add_menu(CONSIDERING_DEFINITION_A, 'ConsideringDefinitionA')
     add_menu(LET_FREE_POINT_A_DENOTED_BY_B, 'LetFreePointADenotedByB')
     add_menu(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, 'OnlyFirstFixedBecauseAOnB')
+    add_menu(ONLY_FIRST_FIXED_EXPRESSION, 'OnlyFirstFixedExpression')
     add_menu(LET_DEPENDENT_POINT_A_DENOTED_BY_B, 'LetDependentPointADenotedByB')
     add_menu(OBJECT_A_INTRODUCES, 'ObjectAIntroduces')
     add_menu(COMMAND_A_NOT_FULLY_IMPLEMENTED, 'CommandANotFullyImplemented')
@@ -508,6 +510,9 @@ if __name__ == "__main__":
     add_translation(FORCING_NON_COLLINEARITY, EN, 'Forcing non-collinearity for certain point triplets:', ZK)
     add_translation(FORCING_NON_COLLINEARITY, HU, 'Bizonyos háromszögek nem lehetnek elfajulóak:', ZK)
     add_translation(FORCING_NON_COLLINEARITY, DE, 'Manche Dreiecke dürfen nicht entartet sein:', ZK)
+    add_translation(ONLY_FIRST_FIXED_EXPRESSION, EN, 'Only the first free point can be fixed, because the thesis is an expression.', ZK)
+    add_translation(ONLY_FIRST_FIXED_EXPRESSION, HU, 'Csak az első pont rögzíthető, mert a bizonyítandó állítás egy kifejezés.', ZK)
+    add_translation(ONLY_FIRST_FIXED_EXPRESSION, DE, 'Nur der erste Punkt kann fixiert werden, weil die Konsequenz ein Ausdruck ist.', ZK)
 
     add_translation(SHOWPROOF, ES, 'VerDemo', TR)
     add_translation(SHOWPROOF_SYNTAX, ES, '[ <Expresión Booleana> ]', TR)
@@ -553,6 +558,7 @@ if __name__ == "__main__":
     add_translation(DIFFICULTY_A, ES, 'La proposición tiene dificultad de grado %0.', TR)
     add_translation(PROOF_PREPARATION_SEEMS_DIFFICULT, ES, 'Perdón, la preparación de la demostración parece ser, computacionalmente, demasiado difícil.', TR)
     add_translation(FORCING_NON_COLLINEARITY, ES, 'Forzar la no colinealidad para determinadas tripletas de puntos.', ZK)
+    add_translation(ONLY_FIRST_FIXED_EXPRESSION, ES, 'Sólo se puede fijar el primer punto libre, porque la tesis es una expresión.', ZK)
 
     add_command(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     add_command(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
