@@ -175,6 +175,7 @@ if __name__ == "__main__":
     DIFFICULTY_A = n()
     PROOF_PREPARATION_SEEMS_DIFFICULT = n()
     FORCING_NON_COLLINEARITY = n()
+    THESIS_A_IN_ALGEBRAIC_FORM = n()
 
     REALQUANTIFIERELIMINATION = n()
     REALQUANTIFIERELIMINATION_SYNTAX = n()
@@ -196,6 +197,9 @@ if __name__ == "__main__":
     A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_FOOT_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C = n()
     A_VALUE_OF_MIDPOINT_OF_B = n()
     A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES = n()
+
+    VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST = n()
+    PLEASE_OPEN_THE_CAS_VIEW_FIRST = n()
 
     # Languages
     EN = 1
@@ -396,11 +400,14 @@ if __name__ == "__main__":
     m(DIFFICULTY_A, 'DifficultyA')
     m(PROOF_PREPARATION_SEEMS_DIFFICULT, 'ProofPreparationSeemsDifficult')
     m(FORCING_NON_COLLINEARITY, 'ForcingNonCollinearity')
+    m(THESIS_A_IN_ALGEBRAIC_FORM, 'ThesisAInAlgebraicForm')
     m(A_VALUE_OF_CENTER_OF_B, 'AValueOfCenterOfB')
     m(A_VALUE_OF_A_POINT_OF_B, 'AValueOfAPointOfB')
     m(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_FOOT_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, 'AValueOfAnImplicitlyIntroducedFootPointForOrthogonalLineAtBToC')
     m(A_VALUE_OF_MIDPOINT_OF_B, 'AValueOfMidpointOfB')
     m(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, 'AValueOfRotationOfPointBAroundTheMidpointOfCByDDegrees')
+    m(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, 'VariableAIsAlreadyDefinedPleaseRemoveItFirst')
+    m(PLEASE_OPEN_THE_CAS_VIEW_FIRST, 'PleaseOpenTheCASViewFirst')
     #
     t(SHOWPROOF, EN, 'ShowProof', ZK)
     t(SHOWPROOF, HU, 'BizonyításLépései', ZK)
@@ -533,6 +540,9 @@ if __name__ == "__main__":
     t(FORCING_NON_COLLINEARITY, EN, 'Forcing non-collinearity for certain point triplets:', ZK)
     t(FORCING_NON_COLLINEARITY, HU, 'Bizonyos háromszögek nem lehetnek elfajulóak:', ZK)
     t(FORCING_NON_COLLINEARITY, DE, 'Manche Dreiecke dürfen nicht entartet sein:', ZK)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, EN, 'Thesis: %0, in algebraic form:', ZK)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, DE, 'Konsequenz: %0, in algebraischer Form:', ZK)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, HU, 'Következmény: %0, algebrai formában:', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, EN, 'Only the first free point can be fixed, because the thesis is an expression.', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, HU, 'Csak az első pont rögzíthető, mert a bizonyítandó állítás egy kifejezés.', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, DE, 'Nur der erste Punkt kann fixiert werden, weil die Konsequenz ein Ausdruck ist.', ZK)
@@ -551,6 +561,12 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, EN, '%0 value of rotation of point %1 around the midpoint of %2 by %3 degrees', ZK)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, DE, '%0-Koordinate der Drehung des Punktes %1 um Mittelpunkt von %2 um %3 Grad', ZK)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, HU, '%1 %0-koordinátája, miután %2 felezőpontja körül %3 fokkal elforgattuk', ZK)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, EN, 'Variable %0 is already defined. Please remove it first.', ZK)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, DE, 'Variable %0 wurde bereits definiert. Sie muss erst gelöscht werden.', ZK)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, HU, 'A(z) %0 változó már létezik. Először törölni kell.', ZK)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, EN, 'Please open the CAS View first.', ZK)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, DE, 'Bitte öffne die CAS-Ansicht zunächst.', ZK)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, HU, 'Nyisd meg előbb a CAS - komputeralgebra ablakot!', ZK)
     #
     t(SHOWPROOF, ES, 'VerDemo', TR)
     t(SHOWPROOF_SYNTAX, ES, '[ <Expresión Booleana> ]', TR)
@@ -597,9 +613,10 @@ if __name__ == "__main__":
     t(PROOF_PREPARATION_SEEMS_DIFFICULT, ES, 'Perdón, la preparación de la demostración parece ser, computacionalmente, demasiado difícil.', TR)
     t(FORCING_NON_COLLINEARITY, ES, 'Forzar la no colinealidad para determinadas tripletas de puntos.', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, ES, 'Sólo se puede fijar el primer punto libre, porque la tesis es una expresión.', ZK)
-    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_FOOT_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, ES, 'La coordenada %0 del pie implicitamente introducido de la recta ortogonal a %1 por %2', TR)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_FOOT_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, ES, 'La coordenada %0 del pie implicitamente introducido de la recta ortogonal a %2 por %1', TR)
     t(A_VALUE_OF_MIDPOINT_OF_B, ES, 'La coordenada %0 del punto medio de %1', TR)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, ES, 'La coordenada %0 del punto resultante del giro de %3 grados del punto %1 alrededor del punto medio de %2', TR)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, ES, 'Tesis: %0, en forma algebraica:', TR)
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
