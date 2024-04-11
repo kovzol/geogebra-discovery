@@ -56,6 +56,7 @@ def add_translation(property_id, locale_id, text, author_id):
         global properties_translation_id
         properties_translation_id += 1
         query = "INSERT INTO properties_translation (id, property_id, locale_id, text, comment, creation_date, modification_date, author_id) VALUES "
+        text = text.replace("'", "''")
         query += "(" + str(properties_translation_id) + ", " + str(property_id) + ", " + str(locale_id) + ", " + "'" + text + "', "
         query += "'created by a patch via patch.py', DATE('now'), DATE('now'), " + str(author_id) + ")"
         print(query)
@@ -205,11 +206,13 @@ if __name__ == "__main__":
     EN = 1
     DE = 6
     ES = 9
+    FR = 14
     HU = 16
 
     # Authors
     ZK = 34 # Zoltán Kovács
     TR = 34 # Tomás Recio
+    BP = 197 # Bernard Parisse
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -617,6 +620,60 @@ if __name__ == "__main__":
     t(A_VALUE_OF_MIDPOINT_OF_B, ES, 'La coordenada %0 del punto medio de %1', TR)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, ES, 'La coordenada %0 del punto resultante del giro de %3 grados del punto %1 alrededor del punto medio de %2', TR)
     t(THESIS_A_IN_ALGEBRAIC_FORM, ES, 'Tesis: %0, en forma algebraica:', TR)
+    #
+    t(SHOWPROOF, FR, 'AfficherPreuve', BP)
+    t(SHOWPROOF_SYNTAX, FR, '[ <Expression booléeenne> ]', BP)
+    t(PROVE_THAT_A, FR, 'Montrons %0.', BP)
+    t(LET_A_BE_ARBITRARY_POINTS, FR, 'Soit %0 des points arbitraires.', BP)
+    t(LET_A_BE_THE_B, FR, 'Soit %0 le/la %1.', BP)
+    t(LET_A_BE_A_B, FR, 'Soit %0 un/une %1.', BP)
+    t(LET_A_BE_THE_REGULAR_POLYGON_BCD, FR, 'Soit %0 le polygone régulier %3 sur le segment %1, %2.', BP)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, FR, 'Soit %0 le polygone régulier %1 ayant pour sommets %2.', BP)
+    t(DENOTE_THE_EXPRESSION_A_BY_B, FR, 'Notons %1 l\'expression %0.', BP)
+    t(PROOF_UNKNOWN, FR, 'L\'énoncé n\'a pas pu être prouvé ni réfuté.', BP)
+    t(STATEMENT_ALWAYS_TRUE, FR, 'L\'énoncé est toujours vrai.', BP)
+    t(TRUE_ON_PARTS, FR, 'L\'énoncé est vrai sur certaines parties, faux sur d\'autres.', BP)
+    t(TRUE_UNDER_NONDEGENERACY_CONDITIONS, FR, 'Certaines parties de l\'énoncé sont vraies, d\'autres fausses.', BP)
+    t(STATEMENT_FALSE, FR, 'L\'énoncé est faux.', BP)
+    t(STATEMENT_TRIVIAL, FR, 'L\'énoncé est trivial.', BP)
+    t(PROVE_BY_CONTRADICTION, FR, 'Preuve par l\'absurde.', BP)
+    t(NO_FULL_PROOF, FR, 'Certaines étapes sont prouvées, mais le logiciel n\'est pas capable pour le moment de prouver l\'énoncé au complet.', BP)
+    t(NO_FULL_PRESENTATION, FR, 'En arrière-plan, toutes les étapes sont vérifiées, mais une présentation complète n\'est pas encore implémentée.', BP)
+    t(TRY_NEWER_VERSION, FR, 'Veuillez essayer une version plus récente de GeoGebra Discovery si possible.', BP)
+    t(UNSUPPORTED_AXES_FIXED_SLOPE_LINES, FR, 'Les énoncés contenant des axes ou des droites de pente fixée par l\'utilisateur ne sont pas pris en charge.', BP)
+    t(CONSIDERING_DEFINITION_A, FR, 'En considérant la définition %0 :', BP)
+    t(LET_FREE_POINT_A_DENOTED_BY_B, FR, 'Notons %1 le point libre %0.', BP)
+    t(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, FR, 'Seul le premier point libre peut être fixé, car %0 est sur la droite %1.', BP)
+    t(LET_DEPENDENT_POINT_A_DENOTED_BY_B, FR, 'Notons %1 le point dépendant %0.', BP)
+    t(OBJECT_A_INTRODUCES, FR, 'L\'objet %0 introduit les variables supplémentaires suivantes :', BP)
+    t(COMMAND_A_NOT_FULLY_IMPLEMENTED, FR, 'La commande %0 n\'est pas entièrement implémentée dans l\'assistant logiciel de preuve.', BP)
+    t(COMMAND_A_NOT_IMPLEMENTED, FR, 'La commande %0 n\'est pas implémentée dans l\'assistant logiciel de preuve.', BP)
+    t(THESIS_EQS_NON_DENIED, FR, 'Equations des assertions (celles dont on ne prend pas la négation) :', BP)
+    t(THESIS_EQ_DENIED, FR, 'Négation de l\'assertion menant à une contradiction :', BP)
+    t(DUMMY_VAR_NEG, FR, 'variable factice pour exprimer la négation', BP)
+    t(STATEMENT_A_NOT_FULLY_IMPLEMENTED, FR, 'L\'énoncé %0 n\'est pas entièrement implémenté dans l\'assistant logiciel de preuve.', BP)
+    t(STATEMENT_A_NOT_IMPLEMENTED, FR, 'L\'énoncé %0 n\'est pas implémenté dans l\'assistant logiciel de preuve.', BP)
+    t(WLOG_COORDINATES, FR, 'Sans perte de généralité, certaines coordonnées peuvent être fixées :', BP)
+    t(CANNOT_DECIDE_ALGEBRAIC_DIFFICULTIES, FR, 'Désolé, le programme ne peut pas décider en raison de la complexité des calculs.', BP)
+    t(WEAKENING_TRUE, FR, 'Une version faible de l\'énoncé est vraie', BP)
+    t(STATEMENT_TRUE_NDG, FR, 'L\'énoncé est probablement vrai sous certaines conditions de non-dégénérescence :', BP)
+    t(AFTER_SUBS, FR, 'Après substitutions :', BP)
+    t(STATEMENT_TRUE_NDG_UNREADABLE, FR, 'L\'énoncé est vrai sous certaines conditions de non-dégénérescence (elles ne peuvent pas être exprimées en termes géométriques simples) :', BP)
+    t(ALL_HYPOS_NEG_THESIS, FR, 'Les hypothèses et la négation de l\'assertion, après substitutions :', BP)
+    t(NOW_CONSIDER, FR, 'Maintenant, nous considérons l\'équation suivante :', BP)
+    t(CONTRADICTION_THIS_PROVES, FR, 'Contradiction ! Cela prouve l\'énoncé original.', BP)
+    t(DIFFICULTY_A, FR, 'On associe à l\'énoncé un polynôme de degré %0', BP)
+    t(PROOF_PREPARATION_SEEMS_DIFFICULT, FR, 'La préparation de la preuve semble trop difficile à calculer, désolé.', BP)
+    t(FORCING_NON_COLLINEARITY, FR, 'Forcer la non-colinéarité.', BP)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, FR, 'Assertion : %0 sous forme algébrique', ZK)
+    t(ONLY_FIRST_FIXED_EXPRESSION, FR, 'Seul le premier point libre peut être fixé, car l\'assertion est une expression.', BP)
+    t(A_VALUE_OF_CENTER_OF_B, FR, '%0 valeur du centre de %1', ZK)
+    t(A_VALUE_OF_A_POINT_OF_B, FR, '%0 valeur d\'un point de %1', ZK)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_FOOT_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, FR, '%0 valeur du pied de la droite orthogonale en %1 à %2 (introduit implicitement)', BP)
+    t(A_VALUE_OF_MIDPOINT_OF_B, FR, '%0 valeur du milieu de %1', ZK)
+    t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, FR, '%0 valeur de l\'image du point %1 par la rotation de centre le milieu de %2 et d\'angle %3 degrés', BP)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, FR, 'La variable %0 est déjà définie. Veuillez d\'abord la supprimer.', ZK)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, FR, 'Veuillez ouvrir d\'abord la vue CAS.', ZK)
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
