@@ -125,8 +125,8 @@ This table is ordered by maturity.
 | Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
 | Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| ShowProof command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/red.png) Add some missing descriptions |
-| Export CAS View | no | [HTML, Mathematica, Maple and Giac](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | [work in progress](images/red.png) Perform general testing |
+| ShowProof command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Add some missing descriptions |
+| Export CAS View | no | [HTML, Mathematica, Maple and Giac](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Perform general testing |
 | Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 | Automatic LaTeX captions | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Oct06) | ![prototype](images/red.png) Add support for the web version |
