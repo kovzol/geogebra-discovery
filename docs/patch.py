@@ -202,17 +202,22 @@ if __name__ == "__main__":
     VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST = n()
     PLEASE_OPEN_THE_CAS_VIEW_FIRST = n()
 
+    PROVER_TIMEOUT = n()
+    GEOGEBRA_CANNOT_CHECK = n()
+
     # Languages
     EN = 1
     DE = 6
     ES = 9
     FR = 14
+    HE = 20
     HU = 16
 
     # Authors
     ZK = 34 # Zoltán Kovács
     TR = 34 # Tomás Recio
     BP = 197 # Bernard Parisse
+    ND = 34 # Noah Dana-Picard
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -411,6 +416,8 @@ if __name__ == "__main__":
     m(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, 'AValueOfRotationOfPointBAroundTheMidpointOfCByDDegrees')
     m(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, 'VariableAIsAlreadyDefinedPleaseRemoveItFirst')
     m(PLEASE_OPEN_THE_CAS_VIEW_FIRST, 'PleaseOpenTheCASViewFirst')
+    m(PROVER_TIMEOUT, 'ProverTimeout') # ES, FR, HE
+    m(GEOGEBRA_CANNOT_CHECK, 'GeoGebraCannotCheck') # ES, FR, HE
     #
     t(SHOWPROOF, EN, 'ShowProof', ZK)
     t(SHOWPROOF, HU, 'BizonyításLépései', ZK)
@@ -570,6 +577,12 @@ if __name__ == "__main__":
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, EN, 'Please open the CAS View first.', ZK)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, DE, 'Bitte öffne die CAS-Ansicht zunächst.', ZK)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, HU, 'Nyisd meg előbb a CAS - komputeralgebra ablakot!', ZK)
+    t(PROVER_TIMEOUT, EN, 'The prover subsystem has timed out, sorry.', ZK)
+    t(PROVER_TIMEOUT, DE, 'Leider ist beim Prüfer-Subsystem eine Zeitüberschreitung aufgetreten.', ZK)
+    t(PROVER_TIMEOUT, HU, 'A bizonyító alrendszerben időtúllépés történt.', ZK)
+    t(GEOGEBRA_CANNOT_CHECK, EN, 'GeoGebra cannot check that this is equivalent to 1=0, but it can be calculated in another computer algebra system.', ZK)
+    t(GEOGEBRA_CANNOT_CHECK, HU, 'A GeoGebra nem tudja ellenőrizni, hogy ez az 1=0-val ekvivalens, de más komputeralgebra szoftver képes rá.', ZK)
+    t(GEOGEBRA_CANNOT_CHECK, DE, 'GeoGebra kann nicht überprüfen, dass dies äquivalent zu 1=0 ist, aber es kann in einem anderen Computeralgebrasystem berechnet werden.', ZK)
     #
     t(SHOWPROOF, ES, 'VerDemo', TR)
     t(SHOWPROOF_SYNTAX, ES, '[ <Expresión Booleana> ]', TR)
@@ -674,6 +687,60 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, FR, '%0 valeur de l\'image du point %1 par la rotation de centre le milieu de %2 et d\'angle %3 degrés', BP)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, FR, 'La variable %0 est déjà définie. Veuillez d\'abord la supprimer.', ZK)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, FR, 'Veuillez ouvrir d\'abord la vue CAS.', ZK)
+    #
+    t(SHOWPROOF, HE, 'הצג הוכחה', ND)
+    t(SHOWPROOF_SYNTAX, HE, '[ <ביטוי בוליאני> ]', ND)
+    t(PROVE_THAT_A, HE, 'נוכיח כי %0.', ND)
+    t(LET_A_BE_ARBITRARY_POINTS, HE, 'תהיינה %0 נקודות שרירותיות.', ND)
+    t(LET_A_BE_THE_B, HE, '. נציב %0 במקום %1', ND)
+    t(LET_A_BE_A_B, HE, 'תהי %0 אחד מ %1.', ND)
+    t(LET_A_BE_THE_REGULAR_POLYGON_BCD, HE, 'יהי %0 המצולע המשוכלל %3 הבנוי על הקטע %1, %2.', ND)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, HE, 'יהי %0 המצולע המשוכלל %1 עם קודקודים  %2.', ND)
+    t(DENOTE_THE_EXPRESSION_A_BY_B, HE, 'נסמן את הביטוי %0 ב-%1.', ND)
+    t(PROOF_UNKNOWN, HE, 'כרגע אי אפשר להוכיח או להפריך את הטענה.', ND)
+    t(STATEMENT_ALWAYS_TRUE, HE, 'הטענה תמיד נכונה.', ND)
+    t(TRUE_ON_PARTS, HE, 'הטענה נכונה בחלקים מסוימים ולא נכונה בחלקים אחרים.', ND)
+    t(TRUE_UNDER_NONDEGENERACY_CONDITIONS, HE, 'חלקים של הטענה נכונים, חלקים אחרים לא.', ND)
+    t(STATEMENT_FALSE, HE, 'הטענה שקרית.', ND)
+    t(STATEMENT_TRIVIAL, HE, 'הטענה טריוויאלית.', ND)
+    t(PROVE_BY_CONTRADICTION, HE, 'נהוכחה על דרך השלילה.', ND)
+    t(NO_FULL_PROOF, HE, 'כרגע לא ניתן לספק הוכחה מלאה, אך רק כמה שלבים.', ND)
+    t(NO_FULL_PRESENTATION, HE, 'ברקע, כל השלבים מאומתים, אך ההצגה המלאה עדיין לא מיושמת.', ND)
+    t(TRY_NEWER_VERSION, HE, 'GeoGebra Discovery אם אפשר, נא לנסות גירסה חדשה יותר של', ND)
+    t(UNSUPPORTED_AXES_FIXED_SLOPE_LINES, HE, 'הטענות המכילות צירים או קווים עם שפוע נתון לא נלקחות בחשבון.', ND)
+    t(CONSIDERING_DEFINITION_A, HE, 'בהתייחס להגדרה %0:', ND)
+    t(LET_FREE_POINT_A_DENOTED_BY_B, HE, 'נסמן ב %1 את הנקודה החופשית %0.', ND)
+    t(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, HE, 'רק הנקודה החופשית הראשונה יכולה להיות קבועה, מאחר ש-%0 נמצאת על הישר %1.', ND)
+    t(LET_DEPENDENT_POINT_A_DENOTED_BY_B, HE, 'נסמן %1 את הנקודה התלויה %0.', ND)
+    t(OBJECT_A_INTRODUCES, HE, 'האוביקט %0 מכניס את המשתנים הנוספים הבאים:', ND)
+    t(COMMAND_A_NOT_FULLY_IMPLEMENTED, HE, 'הפקודה %0 אינה מוטמעת באופן מלא בתכנה התומכת בהוכחה.', ND)
+    t(COMMAND_A_NOT_IMPLEMENTED, HE, 'הפקודה %0 אינה מוטמעת באופן חלקי בתכנה.', ND)
+    t(THESIS_EQS_NON_DENIED, HE, 'משוואות התיזה (אלה שלא לוקחים בחשון את השלילה):', ND)
+    t(THESIS_EQ_DENIED, HE, 'משוואת הטענה המביאה לסתירה:', ND)
+    t(DUMMY_VAR_NEG, HE, 'משתנה דמי כדי לבטא שלילה' , ND)
+    t(STATEMENT_A_NOT_FULLY_IMPLEMENTED, HE, 'הטענה %0 אינה מוטמעת באופן מלא במחשב.', ND)
+    t(STATEMENT_A_NOT_IMPLEMENTED, HE, 'הטענה %0 אינה מוטמעת בתכנה.', ND)
+    t(WLOG_COORDINATES, HE, 'בלי הגבלת הכלליות, ניתן לקבוע חלק מהקואורדינטות:', ND)
+    t(CANNOT_DECIDE_ALGEBRAIC_DIFFICULTIES, HE, 'מצטערים, התוכנה לא יכולה להחליט בשל קשיים אלגבריים.', ND)
+    t(WEAKENING_TRUE, HE, 'גירסה חלשה יותר של הטענה היא נכונה.', ND)
+    t(STATEMENT_TRUE_NDG, HE, 'הטענה יכולה להיות נחשבת אמיתית תחת תנאים של אי-נוון מסוימים:', ND)
+    t(AFTER_SUBS, HE, 'לאחר הצבות:', ND)
+    t(STATEMENT_TRUE_NDG_UNREADABLE, HE, 'הטענה אמיתית בתנאים מסוימים של אי-ניוון (אין להם ביטוי במונחים גיאומטריים פשוטים):', ND)
+    t(ALL_HYPOS_NEG_THESIS, HE, 'ההנחות ושלילת הטענה, אחרי הצבות:', ND)
+    t(NOW_CONSIDER, HE, 'כעת מתייחסים למשוואה הבאה:', ND)
+    t(CONTRADICTION_THIS_PROVES, HE, 'סתירה! זה מוכיח את הטענה המקורית.', ND)
+    t(DIFFICULTY_A, HE,'מצרפים לטענה פולינום ממעלה %0.', ND)
+    t(PROOF_PREPARATION_SEEMS_DIFFICULT, HE, 'הכנת ההוכחה נראית מסובכת מדי, מצטערים.', ND)
+    t(FORCING_NON_COLLINEARITY, HE, 'לחייב אי-קולינאריות', ND)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, HE, 'טענה %0, בצורה אלגברית', ND)
+    t(ONLY_FIRST_FIXED_EXPRESSION, HE, 'רק הנקודה החופשית הראשונה יכולה להיות קבועה, מאחר שהטענה היא ביטוי אלגברי.', ND)
+    t(A_VALUE_OF_CENTER_OF_B, HE, '%0 הוא שיעור של מרכז ה-%1', ND)
+    t(A_VALUE_OF_A_POINT_OF_B, HE, '%0 הוא שיעור של נקודה ב-%1', ND)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, HE, '%0 הוא שיעור של הנקודה השניה על הישר מאונך ב %1 ל %2 (נכנס בצורה סתומה)', ND)
+    t(A_VALUE_OF_MIDPOINT_OF_B, HE, '%0 הוא שיעור של נקודת האמצע של %1', ND)
+    t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, HE, '%0 הוא שיעור של התמונה של הנקודה %1 בסיבוב שמרכזו באמצע של %2 עם זוית %3 מעלות',ND)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, HE, 'המשתנה %0 כבר הוגדר. נא להסיר אותו.', ND)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, HE, 'נא לפתוח תחילה את תצוגת החישוב האלגברי', ND)
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
