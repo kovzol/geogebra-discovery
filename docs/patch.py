@@ -212,12 +212,14 @@ if __name__ == "__main__":
     FR = 14
     HE = 20
     HU = 16
+    AR = 40
 
     # Authors
     ZK = 34 # Zoltán Kovács
     TR = 34 # Tomás Recio
     BP = 197 # Bernard Parisse
     ND = 34 # Noah Dana-Picard
+    HK = 445 # Houssam Kasti
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -741,6 +743,60 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, HE, '%0 הוא שיעור של התמונה של הנקודה %1 בסיבוב שמרכזו באמצע של %2 עם זוית %3 מעלות',ND)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, HE, 'המשתנה %0 כבר הוגדר. נא להסיר אותו.', ND)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, HE, 'נא לפתוח תחילה את תצוגת החישוב האלגברי', ND)
+    #
+    t(SHOWPROOF, AR, 'أظهرالدليل', HK)
+    t(SHOWPROOF_SYNTAX, AR, '[ <تعبير منطقي> ]', HK)
+    t(PROVE_THAT_A, AR, 'أثبت أن %0', HK)
+    t(LET_A_BE_ARBITRARY_POINTS, AR, 'دع %0 تكون نقاطًا عشوائيه', HK)
+    t(LET_A_BE_THE_B, AR, 'دع %0 يكون ال %1', HK)
+    t(LET_A_BE_A_B, AR, 'دع %0 يكون %1', HK)
+    t(LET_A_BE_THE_REGULAR_POLYGON_BCD, AR, 'اجعل %0 هو %3 مضلع منتظم فوق القطعة المستقيمة %1، %2', HK)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, AR, 'دع %0 تكون %1مضلع منتظم من رؤوس %2', HK)
+    t(DENOTE_THE_EXPRESSION_A_BY_B, AR, 'Denote the expression %0 by %1.', HK)
+    t(PROOF_UNKNOWN, AR, 'لا يمكن إثبات هذه العبارة أو نفيها', HK)
+    t(STATEMENT_ALWAYS_TRUE, AR, 'العبارة صحيحة دائما', HK)
+    t(TRUE_ON_PARTS, AR, 'العبارة صحيحة في بعض الأجزاء، وخاطئه في بعض الأجزاء', HK)
+    t(TRUE_UNDER_NONDEGENERACY_CONDITIONS, AR, 'العبارة صحيحة في ظل بعض الظروف غير الانحطاطية (انظر أدناه)', HK)
+    t(STATEMENT_FALSE, AR, 'العبارة غير صحيحة', HK)
+    t(STATEMENT_TRIVIAL, AR, 'العبارة بديهيه', HK)
+    t(PROVE_BY_CONTRADICTION, AR, 'علينا أن نثبت ذلك من خلال التناقض', HK)
+    t(NO_FULL_PROOF, AR, 'في الوقت الحالي، لا يمكن تقديم إثبات كامل، ولكن فقط بعض الخطوات', HK)
+    t(NO_FULL_PRESENTATION, AR, 'في الخلفية، يتم التحقق من جميع الخطوات، ولكن لم يتم تنفيذ العرض الكامل بعد', HK)
+    t(TRY_NEWER_VERSION, AR, 'إن أمكن يرجى تجربة إصدار أحدث من جوجبرة ديسكفري', HK)
+    t(UNSUPPORTED_AXES_FIXED_SLOPE_LINES, AR, 'البيانات التي تحتوي على محاور أو خطوط انحدار ثابتة غير مدعوم', HK)
+    t(CONSIDERING_DEFINITION_A, AR, 'مع الأخذ في الاعتبار التعريف %0', HK)
+    t(LET_FREE_POINT_A_DENOTED_BY_B, AR, 'دع النقطة الحرة %0 يُشار إليها بـ %1', HK)
+    t(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, AR, 'يمكن إصلاح النقطة الحرة الأولى فقط، لأن %0 يقع على المسار الخطي %1', HK)
+    t(LET_DEPENDENT_POINT_A_DENOTED_BY_B, AR, 'دع النقطة التابعة %0 يُشار إليها بـ %1', HK)
+    t(OBJECT_A_INTRODUCES, AR, 'يقدم الكائن %0 المتغيرات الإضافية التالية:', HK)
+    t(COMMAND_A_NOT_FULLY_IMPLEMENTED, AR, 'لم يتم تنفيذ الأمر %0 بشكل كامل في المُعامل', HK)
+    t(COMMAND_A_NOT_IMPLEMENTED, AR, 'لم يتم تنفيذ الأمر %0 في المبرهنة', HK)
+    t(THESIS_EQS_NON_DENIED, AR, 'معادلات الأطروحة (غير المرفوضة):', HK)
+    t(THESIS_EQ_DENIED, AR, 'اختزال الأطروحة إلى العبث (بيان مرفوض):', HK)
+    t(DUMMY_VAR_NEG, AR, 'متغير وهمي للتعبير عن النفي', HK)
+    t(STATEMENT_A_NOT_FULLY_IMPLEMENTED, AR, 'لم يتم تنفيذ البيان %0 بشكل كامل في المُعامل', HK)
+    t(STATEMENT_A_NOT_IMPLEMENTED, AR, 'لم يتم تنفيذ البيان %0 في المُعامل', HK)
+    t(WLOG_COORDINATES, AR, 'دون فقدان العمومية، يمكن إصلاح بعض الإحداثيات:', HK)
+    t(CANNOT_DECIDE_ALGEBRAIC_DIFFICULTIES, AR, 'عذرًا، لا يمكن للبرنامج أن يقرر بسبب الصعوبات الجبرية', HK)
+    t(WEAKENING_TRUE, AR, 'تضعيف البيان صحيح', HK)
+    t(STATEMENT_TRUE_NDG, AR, 'يمكن الشك في صحة العبارة في ظل بعض الظروف غير الانحطاطية:', HK)
+    t(AFTER_SUBS, AR, 'بعد الاستبدال:', HK)
+    t(STATEMENT_TRUE_NDG_UNREADABLE, AR, 'العبارة صحيحة في ظل بعض الظروف غير الانحطاطية (لا يمكن التعبير عنها بمصطلحات هندسية بسيطة):', HK)
+    t(ALL_HYPOS_NEG_THESIS, AR, 'جميع الفرضيات والأطروحة النافية بعد الاستبدالات:', HK)
+    t(NOW_CONSIDER, AR, 'الآن نعتبر المعادلة التالية:', HK)
+    t(CONTRADICTION_THIS_PROVES, AR, 'تناقض! وهذا يثبت البيان الأساسي', HK)
+    t(DIFFICULTY_A, AR, 'البيان لديه صعوبة %0 درجة', HK)
+    t(PROOF_PREPARATION_SEEMS_DIFFICULT, AR, 'يبدو أن إعداد الدليل صعب للغاية من الناحية الحسابية، آسف', HK)
+    t(FORCING_NON_COLLINEARITY, AR, 'فرض عدم الخطية المتداخلة لنقاط ثلاثية معينة:', HK)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, AR, 'بيان: %0، في الصورة الجبرية:', HK)
+    t(ONLY_FIRST_FIXED_EXPRESSION, AR, 'يمكن إصلاح النقطة الحرة الأولى فقط، لأن الأطروحة عبارة عن تعبير', HK)
+    t(A_VALUE_OF_CENTER_OF_B, AR, 'قيمة %0 لمركز %1', HK)
+    t(A_VALUE_OF_A_POINT_OF_B, AR, 'قيمة %0 للنقطة %1', HK)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, AR, 'ققيمة %0 للنقطة الثانية المقدمة ضمنيًا للخط المتعامد عند %1 إلى %2', HK)
+    t(A_VALUE_OF_MIDPOINT_OF_B, AR, 'قيمة %0 لنقطة المنتصف %1', HK)
+    t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, AR, 'قيمة %0 لدوران النقطة %1 حول نقطة منتصف %2 بمقدار %3 درجة', HK)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, AR, 'تم تعريف المتغير %0 بالفعل. يرجى إزالته أولا', HK)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, AR, 'يرجى فتح عرض CAS أولاً', HK)
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
