@@ -215,14 +215,16 @@ if __name__ == "__main__":
     HU = 16
     AR = 40
     TRK = 37
+    IT = 19
 
     # Authors
     ZK = 34 # Zoltán Kovács
-    TR = 34 # Tomás Recio
+    TR = 34 # Tomás Recio (fake)
     BP = 197 # Bernard Parisse
-    ND = 34 # Noah Dana-Picard
+    ND = 34 # Noah Dana-Picard (fake)
     HK = 445 # Houssam Kasti
-    SG = 34 # Selen Galic
+    SG = 34 # Selen Galic (fake)
+    SR = 6 # Simona Riva
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -861,7 +863,60 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, TRK, '%1 noktasının %2 orta noktası etrafında %3 derece dönmesinin %0 değeri', SG)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, TRK, '%0 değişkeni önceden tanımlanmıştır. İlk olarak bunu siliniz.', SG)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, TRK, 'İlk olarak CAS görünümünü açınız.', SG)
-
+    #
+    t(SHOWPROOF, IT, 'MostraDimostrazione', SR)
+    t(SHOWPROOF_SYNTAX, IT, '[ <Espressione booleana> ]', SR)
+    t(PROVE_THAT_A, IT, 'Dimostra che %0.', SR)
+    t(LET_A_BE_ARBITRARY_POINTS, IT, 'Siano %0 punti arbitrari.', SR)
+    t(LET_A_BE_THE_B, IT, 'Sia %0 il %1.', SR)
+    t(LET_A_BE_A_B, IT, 'Sia %0 un %1.', SR)
+    t(LET_A_BE_THE_REGULAR_POLYGON_BCD, IT, 'Sia %0 il %3-gono regolare costruito sul segmento %1, %2.', SR)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, IT, 'Sia %0 il %1-gono regolare di vertici %2.', SR)
+    t(DENOTE_THE_EXPRESSION_A_BY_B, IT, 'Indica l\'espressione %0 come %1.', SR)
+    t(PROOF_UNKNOWN, IT, 'Questa proposizione non ha un valore di verità certo.', SR)
+    t(STATEMENT_ALWAYS_TRUE, IT, 'Questa proposizione è sempre vera.', SR)
+    t(TRUE_ON_PARTS, IT, 'Questa proposizione è parzialmente vera e parzialmente falsa.', SR)
+    t(TRUE_UNDER_NONDEGENERACY_CONDITIONS, IT, 'Questa proposizione è vera per casi non degeneri (vedere di seguito).', SR)
+    t(STATEMENT_FALSE, IT, 'Questa proposizione è falsa.', SR)
+    t(STATEMENT_TRIVIAL, IT, 'Questa proposizione è banale.', SR)
+    t(PROVE_BY_CONTRADICTION, IT, 'Possiamo dimostrare ciò per contraddizione.', SR)
+    t(NO_FULL_PROOF, IT, 'Al momento non è disponibile una dimostrazione completa, ma solo alcuni passi.', SR)
+    t(NO_FULL_PRESENTATION, IT, 'Tutti i passi sono verificati, ma non è ancora stata implementata una presentazione completa.', SR)
+    t(TRY_NEWER_VERSION, IT, 'Per favore prova se possibile una nuova versione di GeoGebra Discovery.', SR)
+    t(UNSUPPORTED_AXES_FIXED_SLOPE_LINES, IT, 'Le proposizioni che contengono assi o rette con coefficiente angolare costante non sono supportate.', SR)
+    t(CONSIDERING_DEFINITION_A, IT, 'Si consideri la definizione %0:', SR)
+    t(LET_FREE_POINT_A_DENOTED_BY_B, IT, 'Sia il punto libero %0 indicato da %1.', SR)
+    t(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, IT, 'Solo il primo punto libero può essere fissato, perchè %0 è sul percorso lineare %1.', SR)
+    t(LET_DEPENDENT_POINT_A_DENOTED_BY_B, IT, 'Sia il punto dipendente %0 indicato da %1.', SR)
+    t(OBJECT_A_INTRODUCES, IT, 'L\'oggetto %0 introduce le seguenti ulteriori variabili:', SR)
+    t(COMMAND_A_NOT_FULLY_IMPLEMENTED, IT, 'Il comando %0 non è implementato completamente.', SR)
+    t(COMMAND_A_NOT_IMPLEMENTED, IT, 'Il comando %0 non è implementato.', SR)
+    t(THESIS_EQS_NON_DENIED, IT, 'Equazioni della tesi (non-negate):', SR)
+    t(THESIS_EQ_DENIED, IT, 'Tesi per assurdo (negazione della tesi):', SR)
+    t(DUMMY_VAR_NEG, IT, 'variabile ausiliaria che esprime la negazione', SR)
+    t(STATEMENT_A_NOT_FULLY_IMPLEMENTED, IT, 'La proposizione %0 non è implementata completamente.', SR)
+    t(STATEMENT_A_NOT_IMPLEMENTED, IT, 'La proposizione %0 non è implementata.', SR)
+    t(WLOG_COORDINATES, IT, 'Senza perdita di generalità, alcune coordinate possono essere fissate:', SR)
+    t(CANNOT_DECIDE_ALGEBRAIC_DIFFICULTIES, IT, 'Spiacente, il programma non può arrivare a una decisione a causa di difficoltà di tipo algebrico.', SR)
+    t(WEAKENING_TRUE, IT, 'Una versione debole di questa proposizione è vera.', SR)
+    t(STATEMENT_TRUE_NDG, IT, 'Questa proposizione potrebbe essere vera per casi non degeneri:', SR)
+    t(AFTER_SUBS, IT, 'Dopo le sostituzioni:', SR)
+    t(STATEMENT_TRUE_NDG_UNREADABLE, IT, 'Questa proposizione è vera per casi non degeneri (che non possonon essere espressi in termini geometrici semplici):', SR)
+    t(ALL_HYPOS_NEG_THESIS, IT, 'Tutte le ipotesi e la negazione della tesi dopo le sostituzioni:', SR)
+    t(NOW_CONSIDER, IT, 'Consideriamo ora la seguente equazione:', SR)
+    t(CONTRADICTION_THIS_PROVES, IT, 'Contraddizione! Ciò dimostra la proposizione originale.', SR)
+    t(DIFFICULTY_A, IT, 'Questa proposizione ha una complessità di ordine %0.', SR)
+    t(PROOF_PREPARATION_SEEMS_DIFFICULT, IT, 'Spiacenti, la preparazione della dimostrazione presenta difficoltà di tipo computazionale.', SR)
+    t(FORCING_NON_COLLINEARITY, IT, 'Forzando la non collinearità per certe terne di punti:', SR)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, IT, 'Tesi: %0, in forma algebrica:', SR)
+    t(ONLY_FIRST_FIXED_EXPRESSION, IT, 'Solo il primo punto libero può essere fissato, perchè la tesi è un\'espressione.', SR)
+    t(A_VALUE_OF_CENTER_OF_B, IT, 'valore %0 del centro di %1', SR)
+    t(A_VALUE_OF_A_POINT_OF_B, IT, 'valore %0 di un punto di %1', SR)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, IT, 'valore %0 di un secondo punto introdotto implicitamente per la retta %1 ortogonale a %2', SR)
+    t(A_VALUE_OF_MIDPOINT_OF_B, IT, 'valore %0 del punto medio di %1', SR)
+    t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, IT, 'valore %0 della rotazione del punto %1 di %3 gradi attorno al punto medio di %2', SR)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, IT, 'La variable %0 è già definita. È necessario rimuoverla.', SR)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, IT, 'Aprire la vista CAS prima di procedere.', SR)
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
