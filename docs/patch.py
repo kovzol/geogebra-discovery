@@ -135,6 +135,7 @@ if __name__ == "__main__":
     SHOWPROOF_SYNTAX = n()
     PROVE_THAT_A = n()
     LET_A_BE_ARBITRARY_POINTS = n()
+    LET_A_BE_AN_ARBITRARY_POINT = n()
     LET_A_BE_THE_B = n()
     LET_A_BE_A_B = n()
     LET_A_BE_THE_REGULAR_POLYGON_BCD = n()
@@ -213,6 +214,7 @@ if __name__ == "__main__":
     HE = 20
     HU = 16
     AR = 40
+    TRK = 37
 
     # Authors
     ZK = 34 # Zoltán Kovács
@@ -220,6 +222,7 @@ if __name__ == "__main__":
     BP = 197 # Bernard Parisse
     ND = 34 # Noah Dana-Picard
     HK = 445 # Houssam Kasti
+    SG = 34 # Selen Galic
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -369,6 +372,7 @@ if __name__ == "__main__":
     c(SHOWPROOF_SYNTAX, 'ShowProof.Syntax')
     m(PROVE_THAT_A, 'ProveThatA')
     m(LET_A_BE_ARBITRARY_POINTS, 'LetABeArbitraryPoints')
+    m(LET_A_BE_AN_ARBITRARY_POINT, 'LetABeAnArbitraryPoint') # FR, HE, AR
     m(LET_A_BE_THE_B, 'LetABeTheB')
     m(LET_A_BE_A_B, 'LetABeAB')
     m(LET_A_BE_THE_REGULAR_POLYGON_BCD, 'LetABeTheRegularPolygonBCD')
@@ -418,8 +422,8 @@ if __name__ == "__main__":
     m(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, 'AValueOfRotationOfPointBAroundTheMidpointOfCByDDegrees')
     m(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, 'VariableAIsAlreadyDefinedPleaseRemoveItFirst')
     m(PLEASE_OPEN_THE_CAS_VIEW_FIRST, 'PleaseOpenTheCASViewFirst')
-    m(PROVER_TIMEOUT, 'ProverTimeout') # ES, FR, HE
-    m(GEOGEBRA_CANNOT_CHECK, 'GeoGebraCannotCheck') # ES, FR, HE
+    m(PROVER_TIMEOUT, 'ProverTimeout') # FR, HE, AR
+    m(GEOGEBRA_CANNOT_CHECK, 'GeoGebraCannotCheck') # FR, HE, AR
     #
     t(SHOWPROOF, EN, 'ShowProof', ZK)
     t(SHOWPROOF, HU, 'BizonyításLépései', ZK)
@@ -433,6 +437,9 @@ if __name__ == "__main__":
     t(LET_A_BE_ARBITRARY_POINTS, EN, 'Let %0 be arbitrary points.', ZK)
     t(LET_A_BE_ARBITRARY_POINTS, HU, 'Legyenek %0 tetszőleges pontok.', ZK)
     t(LET_A_BE_ARBITRARY_POINTS, DE, 'Seien %0 beliebige Punkte.', ZK)
+    t(LET_A_BE_AN_ARBITRARY_POINT, EN, 'Let %0 be an arbitrary points.', ZK)
+    t(LET_A_BE_AN_ARBITRARY_POINT, HU, 'Legyen %0 tetszőleges pont.', ZK)
+    t(LET_A_BE_AN_ARBITRARY_POINT, DE, 'Sei %0 ein beliebiger Punkt.', ZK)
     t(LET_A_BE_THE_B, EN, 'Let %0 be the %1.', ZK)
     t(LET_A_BE_THE_B, HU, 'Legyen %0 a(z) %1.', ZK)
     t(LET_A_BE_THE_B, DE, 'Sei %0: %1.', ZK)
@@ -590,6 +597,7 @@ if __name__ == "__main__":
     t(SHOWPROOF_SYNTAX, ES, '[ <Expresión Booleana> ]', TR)
     t(PROVE_THAT_A, ES, 'Demuestra que %0.', TR)
     t(LET_A_BE_ARBITRARY_POINTS, ES, 'Sean %0 puntos arbitrarios.', TR)
+    t(LET_A_BE_AN_ARBITRARY_POINT, ES, 'Sea %0 un punto arbitrario.', TR)
     t(LET_A_BE_THE_B, ES, 'Sea %0: %1.', TR)
     t(LET_A_BE_A_B, ES, 'Sea %0: %1.', TR)
     t(LET_A_BE_THE_REGULAR_POLYGON_BCD, ES, 'Sea %0 el %3-gono regular sobre el segmento %1, %2.', TR)
@@ -635,6 +643,8 @@ if __name__ == "__main__":
     t(A_VALUE_OF_MIDPOINT_OF_B, ES, 'La coordenada %0 del punto medio de %1', TR)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, ES, 'La coordenada %0 del punto resultante del giro de %3 grados del punto %1 alrededor del punto medio de %2', TR)
     t(THESIS_A_IN_ALGEBRAIC_FORM, ES, 'Tesis: %0, en forma algebraica:', TR)
+    t(PROVER_TIMEOUT, ES, 'El subsistema de demostración se ha quedado sin tiempo, lo siento.', TR)
+    t(GEOGEBRA_CANNOT_CHECK, ES, 'GeoGebra no puede verificar que esto es equivalente a 1=0, pero podría realizarse este cálculo en otro sistema de algebra computacional.', TR)
     #
     t(SHOWPROOF, FR, 'AfficherPreuve', BP)
     t(SHOWPROOF_SYNTAX, FR, '[ <Expression booléeenne> ]', BP)
@@ -797,6 +807,61 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, AR, 'قيمة %0 لدوران النقطة %1 حول نقطة منتصف %2 بمقدار %3 درجة', HK)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, AR, 'تم تعريف المتغير %0 بالفعل. يرجى إزالته أولا', HK)
     t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, AR, 'يرجى فتح عرض CAS أولاً', HK)
+    #
+    t(SHOWPROOF, TRK, 'İspatıGöster', SG)
+    t(SHOWPROOF_SYNTAX, TRK, '[ <Boole İfadeleri> ]', SG)
+    t(PROVE_THAT_A, TRK, '%0 olduğunu ispatlayınız.', SG)
+    t(LET_A_BE_ARBITRARY_POINTS, TRK, '%0 ayrık noktalar olsun.', SG)
+    t(LET_A_BE_THE_B, TRK, '%0, %1 olsun.', SG)
+    t(LET_A_BE_A_B, TRK, '%0, bir %1 olsun.', SG)
+    t(LET_A_BE_THE_REGULAR_POLYGON_BCD, TRK, '%0, %1 ve %2 doğru parçalarından geçen düzgün bir %3-gon olsun.', SG)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, TRK, '%0, köşeleri %2 olan düzgün bir %1-gon olsun.', SG)
+    t(DENOTE_THE_EXPRESSION_A_BY_B, TRK, '%0 ifadesini %1 ile gösteriniz.', SG)
+    t(PROOF_UNKNOWN, TRK, 'İfade kanıtlanamadı ve çürütülemedi.', SG)
+    t(STATEMENT_ALWAYS_TRUE, TRK, 'İfade her zaman doğrudur.', SG)
+    t(TRUE_ON_PARTS, TRK, 'İfade bazen doğru bazen yanlıştır.', SG)
+    t(TRUE_UNDER_NONDEGENERACY_CONDITIONS, TRK, 'İfade bazı düşük dereceli olmayan koşullar altında doğrudur (aşağıya bakın).', SG)
+    t(STATEMENT_FALSE, TRK, 'İfade doğrudur.', SG)
+    t(STATEMENT_TRIVIAL, TRK, 'İfade önemsizdir.', SG)
+    t(PROVE_BY_CONTRADICTION, TRK, 'Çelişki bulma yoluyla kanıtladık.', SG)
+    t(NO_FULL_PROOF, TRK, 'Şu anda eksiksiz kanıt sağlanamadı, ancak birkaç adımı kanıtlandı.', SG)
+    t(NO_FULL_PRESENTATION, TRK, 'Tüm adımlar arka planda kontrol edildi ancak tam versiyonu henüz uygulanamaz.', SG)
+    t(TRY_NEWER_VERSION, TRK, 'GeoGebra Discovery\'nin daha yeni bir sürümünü deneyiniz.', SG)
+    t(UNSUPPORTED_AXES_FIXED_SLOPE_LINES, TRK, 'Eksenleri veya sabit eğim çizgilerini içeren ifadeler desteklenmez.', SG)
+    t(CONSIDERING_DEFINITION_A, TRK, '%0 tanımı düşünüldüğünde:', SG)
+    t(LET_FREE_POINT_A_DENOTED_BY_B, TRK, '%0 serbest noktası %1 ile gösterilsin.', SG)
+    t(ONLY_FIRST_FIXED_BECAUSE_A_ON_B, TRK, '%0, %1 ile doğrusal olduğu için yalnızca ilk serbest nokta sabitlenebilir.', SG)
+    t(LET_DEPENDENT_POINT_A_DENOTED_BY_B, TRK, '%0 bağımlı noktası %1 ile gösterilsin.', SG)
+    t(OBJECT_A_INTRODUCES, TRK, '%0 nesnesi aşağıda yer alan ekstra değişkenleri sunar:', SG)
+    t(COMMAND_A_NOT_FULLY_IMPLEMENTED, TRK, '%0 komutu kanıtlama sürecinde tam olarak uygulanamadı.', SG)
+    t(COMMAND_A_NOT_IMPLEMENTED, TRK, '%0 komutu kanıtlama sürecinde uygulanamadı.', SG)
+    t(THESIS_EQS_NON_DENIED, TRK, 'Önerme denklemleri (reddedilmeyenler):', SG)
+    t(THESIS_EQ_DENIED, TRK, 'Thesis reductio ad absurdum (reddedilen ifadeler):', SG)
+    t(DUMMY_VAR_NEG, TRK, 'Olumsuzlamayı ifade eden hatalı kukla değişkenler', SG)
+    t(STATEMENT_A_NOT_FULLY_IMPLEMENTED, TRK, '%0 ifadesi kanıtlama sürecinde tam olarak uygulanamadı.', SG)
+    t(STATEMENT_A_NOT_IMPLEMENTED, TRK, '%0 ifadesi kanıtlama sürecinde uygulanamadı.', SG)
+    t(WLOG_COORDINATES, TRK, 'Genel önerme kaybedilmeden bazı koordinatlar sabitlenebilir:', SG)
+    t(CANNOT_DECIDE_ALGEBRAIC_DIFFICULTIES, TRK, 'Üzgünüz, cebirsel zorluklardan dolayı program karar veremiyor.', SG)
+    t(WEAKENING_TRUE, TRK, 'İfadenin zayıflaması doğrudur.', SG)
+    t(STATEMENT_TRUE_NDG, TRK, 'İfadenin bazı düşük dereceli olmayan koşullar altında doğru olduğundan şüphelenilebilir:', SG)
+    t(AFTER_SUBS, TRK, 'Yerine koyma işleminden sonra:', SG)
+    t(STATEMENT_TRUE_NDG_UNREADABLE, TRK, 'İfade bazı düşük dereceli olmayan koşullar altında doğrudur (basit geometrik terimlerle ifade edilemez):', SG)
+    t(ALL_HYPOS_NEG_THESIS, TRK, 'Yerine koyma işleminden sonra tüm hipotezler ve çürütülen önerme:', SG)
+    t(NOW_CONSIDER, TRK, 'Şimdi aşağıdaki denklemleri ele alalım:', SG)
+    t(CONTRADICTION_THIS_PROVES, TRK, 'Çelişki! Bu esas ifadeyi kanıtlar.', SG)
+    t(DIFFICULTY_A, TRK, 'İfadenin %0 derecesinde zorluğu var.', SG)
+    t(PROOF_PREPARATION_SEEMS_DIFFICULT, TRK, 'Kanıtın hazırlanması hesaplama açısından çok zor görünüyor, üzgünüz.', SG)
+    t(FORCING_NON_COLLINEARITY, TRK, 'Belirli üç noktanın doğrusal olmamasını zorlama:', SG)
+    t(THESIS_A_IN_ALGEBRAIC_FORM, TRK, 'Önerme: %0, cebirsel gösterimde:', SG)
+    t(ONLY_FIRST_FIXED_EXPRESSION, TRK, 'Önerme bir ifade olduğundan yalnızca ilk serbest nokta sabitlenebilir.', SG)
+    t(A_VALUE_OF_CENTER_OF_B, TRK, '%1 merkezinin %0 değeri', SG)
+    t(A_VALUE_OF_A_POINT_OF_B, TRK, '%1 noktasının %0 değeri', SG)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, TRK, '%1 ile %2 arasındaki ortogonal çizgi için doğrudan tanımlanan ikinci noktanın %0 değeri', SG)
+    t(A_VALUE_OF_MIDPOINT_OF_B, TRK, '%1\'in orta noktasının %0 değeri', SG)
+    t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, TRK, '%1 noktasının %2 orta noktası etrafında %3 derece dönmesinin %0 değeri', SG)
+    t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, TRK, '%0 değişkeni önceden tanımlanmıştır. İlk olarak bunu siliniz.', SG)
+    t(PLEASE_OPEN_THE_CAS_VIEW_FIRST, TRK, 'İlk olarak CAS görünümünü açınız.', SG)
+
 
     c(REALQUANTIFIERELIMINATION, 'RealQuantifierElimination')
     c(REALQUANTIFIERELIMINATION_SYNTAX, 'RealQuantifierElimination.Syntax')
