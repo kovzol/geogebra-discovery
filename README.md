@@ -96,6 +96,19 @@ GeoGebra is written by its [authors](https://www.geogebra.org/team).
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
 * Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech, Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar, Jonathan H. Yu, Keiichi Tsujimoto and Christopher W. Brown for their support.
 
+## License
+
+See [GeoGebra's licensing policy](https://www.geogebra.org/license) for
+general information on licensing GeoGebra. Since the developer team of
+GeoGebra Discovery does not provide any commercial support, all
+extensions (including artwork, translations) to GeoGebra are provided
+"as is". In particular, extensions to the source code are licensed to
+you under the terms of the GNU General Public License (version 3 or
+later) as published by the Free Software Foundation, the current text of
+which can be found via this link: https://www.gnu.org/licenses/gpl.html
+("GPL"). Attribution (as required by the GPL) should take the form of
+(at least) a mention of this project page of GeoGebra Discovery.
+
 ## Mailing list
 
 A public list is available at [Google Groups](https://groups.google.com/forum/#!forum/geogebra-discovery).
