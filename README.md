@@ -11,7 +11,7 @@ Technically speaking, GeoGebra Discovery is based on the freely available [GitHu
 
 ## Download a stable release
 
-### Desktop version (Classic 5)
+### Desktop version (Discovery 5)
 
 End users may want to [download one of the most recent releases](https://github.com/kovzol/geogebra/releases). Then:
 
@@ -22,7 +22,7 @@ For Linux users, the simplest way is to get GeoGebra Discovery from the Snap Sto
 
 [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/geogebra-discovery)
 
-### Web version (Classic 6)
+### Web version (Discovery 6)
 
 The web version is available online at [autogeo.online](https://autgeo.online) and usually updated on every new release. This version can be downloaded and run offline as well at [autgeo.online/off](https://autgeo.online/off).
 
@@ -36,7 +36,7 @@ You may decide to compile GeoGebra Discovery on your own.
 
 If you do so, you will need a typical Linux, Mac or Windows system to make the software work. The provided scripts were tested on Ubuntu Linux 20.04 and above (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). The latest versions also work on Mac OS 11 Big Sur, see the required steps below. Finally, you can use Windows 10 as well to compile and run GeoGebra Discovery.
 
-### Classic 5
+### Discovery 5
 
 The current version automatically downloads a release version of [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.37. In addition, the [RealGeom](https://github.com/kovzol/realgeom) system will be built, but not packaged or used, only when it is requested by the user (or, if the platform is the Raspberry Pi system). See below the detailed instructions.
 
@@ -82,7 +82,7 @@ This feature is disabled by default on all system, except on a Raspberry Pi. You
 * Run `helper/realgeom` to start the realgeom server. It will run in a separate terminal.
 * Start GeoGebra Discovery by using the command line `./run5 --realgeomws=enable:true,remoteurl:http\://localhost\:8765,cas:mathematica,timeout:10` for example.
 
-### Classic 6
+### Discovery 6
 
 * Type `./get-build-tools` to download the prerequisites (only on earlier Linux systems and Mac).
 * Run `./build6` to build GeoGebra Discovery. (Due to lack of memory this will not work on Raspberry Pi.)
