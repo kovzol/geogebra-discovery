@@ -178,6 +178,7 @@ if __name__ == "__main__":
     PROOF_PREPARATION_SEEMS_DIFFICULT = n()
     FORCING_NON_COLLINEARITY = n()
     THESIS_A_IN_ALGEBRAIC_FORM = n()
+    STATEMENT_REQUIRES_CONDITIONS = n()
 
     REALQUANTIFIERELIMINATION = n()
     REALQUANTIFIERELIMINATION_SYNTAX = n()
@@ -199,6 +200,8 @@ if __name__ == "__main__":
     A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C = n()
     A_VALUE_OF_MIDPOINT_OF_B = n()
     A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES = n()
+    A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B = n()
+    A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E = n()
 
     VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST = n()
     PLEASE_OPEN_THE_CAS_VIEW_FIRST = n()
@@ -417,11 +420,15 @@ if __name__ == "__main__":
     m(PROOF_PREPARATION_SEEMS_DIFFICULT, 'ProofPreparationSeemsDifficult')
     m(FORCING_NON_COLLINEARITY, 'ForcingNonCollinearity')
     m(THESIS_A_IN_ALGEBRAIC_FORM, 'ThesisAInAlgebraicForm')
+    m(STATEMENT_REQUIRES_CONDITIONS, 'StatementRequiresConditions') # FR, HE, AR
     m(A_VALUE_OF_CENTER_OF_B, 'AValueOfCenterOfB')
     m(A_VALUE_OF_A_POINT_OF_B, 'AValueOfAPointOfB')
     m(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, 'AValueOfAnImplicitlyIntroducedSecondPointForOrthogonalLineAtBToC')
     m(A_VALUE_OF_MIDPOINT_OF_B, 'AValueOfMidpointOfB')
     m(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, 'AValueOfRotationOfPointBAroundTheMidpointOfCByDDegrees')
+    m(A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B, 'AValueOfMidpointOfRhombusAngularBisectorB')
+    m(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, 'AValueOfHelperPointMirrorBCAboutDE')
+
     m(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, 'VariableAIsAlreadyDefinedPleaseRemoveItFirst')
     m(PLEASE_OPEN_THE_CAS_VIEW_FIRST, 'PleaseOpenTheCASViewFirst')
     m(PROVER_TIMEOUT, 'ProverTimeout') # FR, HE, AR
@@ -453,7 +460,7 @@ if __name__ == "__main__":
     t(LET_A_BE_THE_REGULAR_POLYGON_BCD, DE, 'Sei %0 das regelmäßige $3-Eck über der Strecke %1, %2.', ZK)
     t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, EN, 'Let %0 be the regular %1-gon with vertices %2.', ZK)
     t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, HU, 'Legyen %0 szabályos %1-szög a(z) %2 csúcsokkal.', ZK)
-    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, DE, 'Legyen %0 das regelmäßige %1-Eck mit Eckpunkten %2.', ZK)
+    t(LET_A_BE_THE_REGULAR_BGON_VERTICES_C, DE, 'Sei %0 das regelmäßige %1-Eck mit Eckpunkten %2.', ZK)
     t(DENOTE_THE_EXPRESSION_A_BY_B, EN, 'Denote the expression %0 by %1.', ZK)
     t(DENOTE_THE_EXPRESSION_A_BY_B, HU, 'Jelölje %1 a(z) %0 kifejezést.', ZK)
     t(DENOTE_THE_EXPRESSION_A_BY_B, DE, 'Sei der Ausdruck %0 beschriftet mit %1.', ZK)
@@ -564,6 +571,10 @@ if __name__ == "__main__":
     t(THESIS_A_IN_ALGEBRAIC_FORM, EN, 'Thesis: %0, in algebraic form:', ZK)
     t(THESIS_A_IN_ALGEBRAIC_FORM, DE, 'Konsequenz: %0, in algebraischer Form:', ZK)
     t(THESIS_A_IN_ALGEBRAIC_FORM, HU, 'Következmény: %0, algebrai formában:', ZK)
+    t(STATEMENT_REQUIRES_CONDITIONS, EN, 'The statement requires some conditions:', ZK)
+    t(STATEMENT_REQUIRES_CONDITIONS, DE, 'Die Aussage benötigt bestimmte Voraussetzungen:', ZK)
+    t(STATEMENT_REQUIRES_CONDITIONS, HU, 'Az állítás bizonyos feltételek mellett érvényes:', ZK)
+
     t(ONLY_FIRST_FIXED_EXPRESSION, EN, 'Only the first free point can be fixed, because the thesis is an expression.', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, HU, 'Csak az első pont rögzíthető, mert a bizonyítandó állítás egy kifejezés.', ZK)
     t(ONLY_FIRST_FIXED_EXPRESSION, DE, 'Nur der erste Punkt kann fixiert werden, weil die Konsequenz ein Ausdruck ist.', ZK)
@@ -582,6 +593,11 @@ if __name__ == "__main__":
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, EN, '%0 value of rotation of point %1 around the midpoint of %2 by %3 degrees', ZK)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, DE, '%0-Koordinate der Drehung des Punktes %1 um Mittelpunkt von %2 um %3 Grad', ZK)
     t(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, HU, '%1 %0-koordinátája, miután %2 felezőpontja körül %3 fokkal elforgattuk', ZK)
+    t(A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B, EN, '%0 value of midpoint of the rhombus (which the angular bisector %1 will pass through)', ZK) # DE, ...
+    t(A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B, HU, 'Azon rombusz középpontjának %0-koordinátája, amely a(z) %1 szögfelezőre illeszkedik', ZK)
+    t(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, EN, '%0 value of the helper point that is a mirror of (%1,%2) about (%3,%4)', ZK) # DE, ...
+    t(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, HU, 'Egy segédpont %0-koordinátája, amely (%1,%2)-nak/-nek (%3,%4)-ra/-re vonatkozó tükörképe', ZK)
+
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, EN, 'Variable %0 is already defined. Please remove it first.', ZK)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, DE, 'Variable %0 wurde bereits definiert. Sie muss erst gelöscht werden.', ZK)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, HU, 'A(z) %0 változó már létezik. Először törölni kell.', ZK)
@@ -855,6 +871,7 @@ if __name__ == "__main__":
     t(PROOF_PREPARATION_SEEMS_DIFFICULT, TRK, 'Kanıtın hazırlanması hesaplama açısından çok zor görünüyor, üzgünüz.', SG)
     t(FORCING_NON_COLLINEARITY, TRK, 'Belirli üç noktanın doğrusal olmamasını zorlama:', SG)
     t(THESIS_A_IN_ALGEBRAIC_FORM, TRK, 'Önerme: %0, cebirsel gösterimde:', SG)
+    t(STATEMENT_REQUIRES_CONDITIONS, TR, 'İfade bazı koşulları gerektirir:', SG)
     t(ONLY_FIRST_FIXED_EXPRESSION, TRK, 'Önerme bir ifade olduğundan yalnızca ilk serbest nokta sabitlenebilir.', SG)
     t(A_VALUE_OF_CENTER_OF_B, TRK, '%1 merkezinin %0 değeri', SG)
     t(A_VALUE_OF_A_POINT_OF_B, TRK, '%1 noktasının %0 değeri', SG)
