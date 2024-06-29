@@ -586,7 +586,7 @@ if __name__ == "__main__":
     t(A_VALUE_OF_A_POINT_OF_B, HU, '%1 egy pontjának %0-koordinátája', ZK)
     t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, EN, '%0 value of an implicitly introduced second point for orthogonal line at %1 to %2', ZK)
     t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, DE, '%0-Koordinate eines implizit eingeführten zweiten Punktes für senkrechte Gerade an %1 auf %2', ZK)
-    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, HU, 'A %1-ban/-ben %2-ra/-re merőlegesen állított egyenes másik pontjának %0-koordinátája', ZK)
+    t(A_VALUE_OF_AN_IMPLICITLY_INTRODUCED_SECOND_POINT_FOR_ORTHOGONAL_LINE_AT_B_TO_C, HU, 'A(z) %1-ban/-ben %2-ra/-re merőlegesen állított egyenes másik pontjának %0-koordinátája', ZK)
     t(A_VALUE_OF_MIDPOINT_OF_B, EN, '%0 value of midpoint of %1', ZK)
     t(A_VALUE_OF_MIDPOINT_OF_B, DE, '%0-Koordinate des Mittelpunkts von %1', ZK)
     t(A_VALUE_OF_MIDPOINT_OF_B, HU, '%1 felezőpontjának %0-koordinátája', ZK)
