@@ -44,7 +44,10 @@ The current version automatically downloads a release version of [Tarski](https:
 
 These steps were tested on Ubuntu, and they may not work on other Linux systems.
 
-* Open a terminal and type `./get-build-tools` to download some prerequisites including an appropriate Java Development Kit on Ubuntu Linux. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) may also be used, so you can skip this step.
+* Open a terminal.
+* Type `git clone https://github.com/kovzol/geogebra-discovery` to download the source code.
+* Type `cd geogebra-discovery` to change the working directory.
+* Enter `./get-build-tools` to download some prerequisites including an appropriate Java Development Kit on Ubuntu Linux. On Raspberry Pi and on newer Ubuntu systems the default Java 11 (OpenJDK) may also be used, so you can skip this step.
 * Run `./build5` to build the complete GeoGebra Discovery system.
 * Enter `./run5` to start the software.
 * If you want to make a copy of the program for redistribution, the command `./deploy5` will create a .zip file that contains all necessary components to run the program. (The deployment tool comes with a built-in help that can be invoked by the `-h` option.)
