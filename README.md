@@ -3,7 +3,7 @@ Also, in some cases, there is no consensus on whether to include certain element
 
 We maintain a [feature list](#feature-matrix). Some features are considered unstable, but many of them are mature and ready to try by anyone, and technically close to be able to being integrated into GeoGebra shortly. It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well, but the GeoGebra Team may decide to leave some features out for technical, practical or didactical reasons. Anyway, we are doing our best and are open for discussion.
 
-Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/team). We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this web page has the following purposes:
+Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/u/geogebrateam). We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this web page has the following purposes:
 * For end users, we point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
 * For end users, we explain the additions of GeoGebra Discovery compared to the official version of GeoGebra by short descriptions.
 * For researchers, we provide a list of web references (research papers, links, benchmarks) for the additions.
