@@ -227,5 +227,5 @@ The [benchmarking system](https://prover-test.risc.jku.at/) collects results and
 
 ### Envelope command
 * [F. Botana, Z. Kovács: New tools in GeoGebra offering novel opportunities to teach loci and envelopes (arXiv 1605.09153, 2016)](https://www.researchgate.net/publication/303681352_New_tools_in_GeoGebra_offering_novel_opportunities_to_teach_loci_and_envelopes)
-* [Z. Kovács: Achievements and Challenges in Automatic Locus and Envelope Animations in Dynamic Geometry, MCS 13(3), p. 131–141, 2019](https://www.researchgate.net/publication/328912538_Achievements_and_Challenges_in_Automatic_Locus_and_Envelope_Animations_in_Dynamic_Geometry)
+* [Z. Kovács: Achievements and Challenges in Automatic Locus and Envelope Animations in Dynamic Geometry (MCS 13(3), p. 131–141, 2019)](https://www.researchgate.net/publication/328912538_Achievements_and_Challenges_in_Automatic_Locus_and_Envelope_Animations_in_Dynamic_Geometry)
 * [Z. Kovács: Easy (but exact) study of caustics of conics (eJMT 17(3), p. 185–205, 2023)](https://www.researchgate.net/publication/376721673_Easy_but_exact_study_of_caustics_of_conics)
