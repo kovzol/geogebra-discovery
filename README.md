@@ -222,10 +222,10 @@ The [benchmarking system](https://prover-test.risc.jku.at/) collects results and
 * [C. Brown, Z. Kovács, T. Recio: Faithful Real-Time Animation of Parametrized (Semi-) Algebraic Expressions via Cylindrical Algebraic Decomposition (ACM Commun. Comput. Algebra 57.2, p. 43-46, 2023)](https://doi.org/10.1145/3614408.3614413)
 
 ### LocusEquation command
-* [Z. Kovács: Real-time Animated Dynamic Geometry in the Classrooms by Using Fast Gröbner Basis Computations (MCS 11, 351–361)](https://www.researchgate.net/publication/314403276_Real-time_Animated_Dynamic_Geometry_in_the_Classrooms_by_Using_Fast_Grobner_Basis_Computations)
+* [Z. Kovács: Real-time Animated Dynamic Geometry in the Classrooms by Using Fast Gröbner Basis Computations (MCS 11, 351–361, 2017)](https://www.researchgate.net/publication/314403276_Real-time_Animated_Dynamic_Geometry_in_the_Classrooms_by_Using_Fast_Grobner_Basis_Computations)
 * [A. Käferböck, Z. Kovács: The Locus Story of a Rocking Camel in a Medical Center in the City of Freistadt (ADG 2023: Automated Deduction in Geometry, p. 132–141, 2023)](https://cgi.cse.unsw.edu.au/~eptcs/paper.cgi?ADG2023.16)
 
 ### Envelope command
 * [F. Botana, Z. Kovács: New tools in GeoGebra offering novel opportunities to teach loci and envelopes (arXiv 1605.09153, 2016)](https://www.researchgate.net/publication/303681352_New_tools_in_GeoGebra_offering_novel_opportunities_to_teach_loci_and_envelopes)
-* [Z. Kovács: Achievements and Challenges in Automatic Locus and Envelope Animations in Dynamic Geometry, MCS 13(3), p. 131–141](https://www.researchgate.net/publication/328912538_Achievements_and_Challenges_in_Automatic_Locus_and_Envelope_Animations_in_Dynamic_Geometry)
+* [Z. Kovács: Achievements and Challenges in Automatic Locus and Envelope Animations in Dynamic Geometry, MCS 13(3), p. 131–141, 2019](https://www.researchgate.net/publication/328912538_Achievements_and_Challenges_in_Automatic_Locus_and_Envelope_Animations_in_Dynamic_Geometry)
 * [Z. Kovács: Easy (but exact) study of caustics of conics (eJMT 17(3), p. 185–205, 2023)](https://www.researchgate.net/publication/376721673_Easy_but_exact_study_of_caustics_of_conics)
