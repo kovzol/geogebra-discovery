@@ -20,8 +20,12 @@ End users may want to [download one of the most recent releases](https://github.
 
 For Linux users, the simplest way is to get GeoGebra Discovery from Flathub or the Snap Store:
 
-* [![Get it on Flathub](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/details/io.github.kovzol.geogebra-discovery)
-* [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/geogebra-discovery)
+<a href="https://flathub.org/apps/details/io.github.kovzol.geogebra-discovery">
+    <img src="https://flathub.org/api/badge?locale=en" height="60">
+  </a>
+<a href="https://snapcraft.io/geogebra-discovery">
+    <img src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg" height="60">
+  </a>
 
 ### Web version (Discovery 6)
 
