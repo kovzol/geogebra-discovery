@@ -3,7 +3,7 @@ Also, in some cases, there is no consensus on whether to include certain element
 
 We maintain a [feature list](#feature-matrix). Some features are considered unstable, but many of them are mature and ready to try by anyone, and technically close to be able to being integrated into GeoGebra shortly. It is planned that each feature, after made stable, will be added to the official version of GeoGebra as well, but the GeoGebra Team may decide to leave some features out for technical, practical or didactical reasons. Anyway, we are doing our best and are open for discussion.
 
-Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/u/geogebrateam). We maintain a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this web page has the following purposes:
+Technically speaking, GeoGebra Discovery is based on the freely available [GitHub sources of GeoGebra](https://github.com/geogebra/geogebra) which is maintained by the [GeoGebra Team](https://www.geogebra.org/u/geogebrateam). Here we are working on a [fork](https://github.com/kovzol/geogebra) for revision control of the extensions. In addition, this web page has the following purposes:
 * For end users, we point to the software packages that make possible to install and run GeoGebra Discovery on your computer.
 * For end users, we explain the additions of GeoGebra Discovery compared to the official version of GeoGebra by short descriptions.
 * For researchers, we provide a list of web references (research papers, links, benchmarks) for the additions.
@@ -18,9 +18,10 @@ End users may want to [download one of the most recent releases](https://github.
 * To run GeoGebra Discovery, you need to extract the downloaded archive and run the file **GeoGebra-Discovery.bat** (or **GeoGebra-Discovery** on non-Windows systems). A short video [tutorial](https://www.youtube.com/watch?v=S1upzsdcW10) is also available.
 * In case the program does not start, you need to [install Java RE](https://www.java.com/en/download/).
 
-For Linux users, the simplest way is to get GeoGebra Discovery from the Snap Store:
+For Linux users, the simplest way is to get GeoGebra Discovery from Flathub or the Snap Store:
 
-[![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/geogebra-discovery)
+* [![Get it on Flathub](https://flathub.org/api/badge?locale=en)](https://flathub.org/apps/details/io.github.kovzol.geogebra-discovery)
+* [![Get it from the Snap Store](https://snapcraft.io/static/images/badges/en/snap-store-black.svg)](https://snapcraft.io/geogebra-discovery)
 
 ### Web version (Discovery 6)
 
@@ -34,11 +35,11 @@ This section can be technically challenging. If you are not familiar with progra
 
 You may decide to compile GeoGebra Discovery on your own.
 
-If you do so, you will need a typical Linux, Mac or Windows system to make the software work. The provided scripts were tested on Ubuntu Linux 20.04 and above (64-bit), and partially on [Raspbian](http://downloads.raspberrypi.org/raspbian/) Buster (both Raspberry Pi 3 and 4 should work, however you need at least 2 GB of memory for compilation). The latest versions also work on Mac OS 11 Big Sur, see the required steps below. Finally, you can use Windows 10 as well to compile and run GeoGebra Discovery.
+If you do so, you will need a typical Linux, Mac or Windows system to make the software work. The provided scripts were tested on Ubuntu Linux 20.04 and above (64-bit). The latest versions also work on Mac OS 14 Sonoma, see the required steps below. Finally, you can use Windows 10/11 as well to compile and run GeoGebra Discovery.
 
 ### Discovery 5
 
-The current version automatically downloads a release version of [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.37. In addition, the [RealGeom](https://github.com/kovzol/realgeom) system will be built, but not packaged or used, only when it is requested by the user (or, if the platform is the Raspberry Pi system). See below the detailed instructions.
+The current version automatically downloads a release version of [Tarski](https://www.usna.edu/Users/cs/wcbrown/tarski/index.html) 1.37. In addition, the [RealGeom](https://github.com/kovzol/realgeom) system will be built, but not packaged or used, only when it is requested by the user. See below the detailed instructions.
 
 #### Steps to build GeoGebra Discovery on Linux
 
@@ -63,7 +64,7 @@ These steps were tested on Ubuntu, and they may not work on other Linux systems.
 * If you want to make a copy of the program for redistribution, type `./deploy5 -j` to create a **.zip** bundle that contains all necessary files for GeoGebra Discovery. The bundle will be put in the relative folder **dist/**. (In case your working directory is **/tmp/**, you may want to copy the **.zip** bundle to another folder, say, your home folder, to avoid deletion of all your created files
 on an accidental reboot.)
 
-#### Steps to build GeoGebra Discovery on Windows 10
+#### Steps to build GeoGebra Discovery on Windows 10/11
 
 On Windows we support both 64 and 32-bit builds. However, 32-bit builds are considered experimental.
 * Set **Developer Mode** in Windows.
@@ -79,7 +80,7 @@ On Windows we support both 64 and 32-bit builds. However, 32-bit builds are cons
 
 #### Force running realgeom
 
-This feature is disabled by default on all system, except on a Raspberry Pi. You may want to use realgeom if you intend to outsource the real geometry computations to Mathematica. These are the steps you need to achieve this:
+This feature is disabled by default on all system. You may want to use realgeom if you intend to outsource the real geometry computations to Mathematica. These are the steps you need to achieve this:
 
 * Build the program (see above).
 * Run `helper/realgeom` to start the realgeom server. It will run in a separate terminal.
@@ -88,7 +89,7 @@ This feature is disabled by default on all system, except on a Raspberry Pi. You
 ### Discovery 6
 
 * Type `./get-build-tools` to download the prerequisites (only on earlier Linux systems and Mac).
-* Run `./build6` to build GeoGebra Discovery. (Due to lack of memory this will not work on Raspberry Pi.)
+* Run `./build6` to build GeoGebra Discovery.
 * Enter `./run6` to start the software. A web browser window should appear and GeoGebra Discovery starts.
 * Lastly, the command `./deploy6` creates a .zip file that contains all necessary components to run the program. This can be necessary if you want to redistribute the software. (This last step will not work on Windows.)
 
@@ -97,7 +98,7 @@ This feature is disabled by default on all system, except on a Raspberry Pi. You
 GeoGebra is written by its [authors](https://www.geogebra.org/team).
 
 * Maintainer of GeoGebra Discovery is Zoltán Kovács <zoltan@geogebra.org>.
-* Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech, Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar, Jonathan H. Yu, Keiichi Tsujimoto and Christopher W. Brown for their support.
+* Thanks to Tomás Recio, M. Pilar Vélez, Noah Dana-Picard, Róbert Vajda, Antonio Montes, Francisco Botana, Pavel Pech, Carlos Ueno, Manuel Ladra, Pilar Paez, Celina Abar, Jonathan H. Yu, Keiichi Tsujimoto and Christopher W. Brown for their support. There are further people who contributed to this work (but not listed above), thanks to everyone!
 
 ## License
 
@@ -122,30 +123,31 @@ A public list is available at [Google Groups](https://groups.google.com/forum/#!
 
 This table is ordered by maturity.
 
-| Feature | GeoGebra 	  | GeoGebra Discovery    | Next step  |
+| Feature | GeoGebra 	  | GeoGebra Discovery    | Maturity  |
 |:-------	|:---------:	|:-------------------:	|:---------: |
-| Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![approved](images/green.png) Scheduled for merging into GeoGebra |
-| Stepwise discovery	| no | [yes](https://matek.hu/zoltan/stepwise/csgg.pdf) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Proving inequalities | no | [yes](https://matek.hu/zoltan/blog-20211028.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| RealQuantifierElimination command | no | [yes](https://matek.hu/zoltan/demo-20211118.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Prenex formulas | no | [yes](https://matek.hu/zoltan/blog-20220212.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve (discuss [Center(Incircle)](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-53) first) |
-| Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| LocusEquation	tool | no | yes	| ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Dilate command | only numerical | [with prover support](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Feb01) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Raspberry Pi 3D View | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Giac: threads on Linux | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Same color for circles with the same radius | no | yes | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![approve](images/orange.png) GeoGebra Team: approve/update |
-| ShowProof command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Add some missing descriptions |
-| Export CAS View | no | [HTML, Mathematica, Maple and Giac](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Perform general testing |
-| Export Construction Protocol as LaTeX | no | prototype	| ![prototype](images/red.png) Implement CAS/Spreadsheet view, add web implementation |
+| Discover tool/command	| no | [yes](https://matek.hu/zoltan/blog-20201019.php)	| ![stable](images/green.png) |
+| Stepwise discovery	| no | [yes](https://matek.hu/zoltan/stepwise/csgg.pdf) | ![stable](images/green.png) |
+| Compare command | no | [yes](https://matek.hu/zoltan/blog-20210125.php) | ![stable](images/green.png) |
+| Proving inequalities | no | [yes](https://matek.hu/zoltan/blog-20211028.php) | ![stable](images/green.png) |
+| RealQuantifierElimination command | no | [yes](https://matek.hu/zoltan/demo-20211118.php) | ![stable](images/green.png) |
+| Prenex formulas | no | [yes](https://matek.hu/zoltan/blog-20220212.php) | ![stable](images/green.png) |
+| IncircleCenter command | no	| [yes (with prover support)](https://matek.hu/zoltan/blog-20200929.php) | ![stable](images/green.png) |
+| Incircle tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![stable](images/green.png) |
+| IncircleCenter tool | no	| [yes](https://matek.hu/zoltan/blog-20200929.php) | ![stable](images/green.png) |
+| LocusEquation	tool | no | yes	| ![stable](images/green.png) |
+| Dilate command | only numerical | [with prover support](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Feb01) | ![stable](images/green.png) |
+| Envelope tool | no	| [yes](https://matek.hu/zoltan/blog-20201111.php) | ![stable](images/green.png) |
+| Raspberry Pi 3D View | no | yes | ![stable](images/green.png) |
+| Giac: threads on Linux | no | yes | ![stable](images/green.png) |
+| Same color for circles with the same radius | no | yes | ![stable](images/green.png) |
+| Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
+| Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
+| ShowProof command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Translations missing |
+| Export CAS View | no | [HTML, Mathematica, Maple and Giac](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Several commands missing |
+| CNI prover | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2025Nov01) ![unstable](images/orange.png) Subscripted labels yet unsupported |
+| Export Construction Protocol as LaTeX | no | prototype | ![prototype](images/red.png) Working prototype |
+| Automatic LaTeX captions | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Oct06) | ![prototype](images/red.png) Support required for the web version |
 | ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
-| Automatic LaTeX captions | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Oct06) | ![prototype](images/red.png) Add support for the web version |
 
 ### Features that have already been merged
 
