@@ -142,12 +142,12 @@ This table is ordered by maturity.
 | Same color for circles with the same radius | no | yes | ![stable](images/green.png) |
 | Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
 | Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
+| CNI prover | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2025Nov01) | ![work in progress](images/wip.png) Subscripted labels yet unsupported |
 | ShowProof command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Translations missing |
 | Export CAS View | no | [HTML, Mathematica, Maple and Giac](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2024Apr15) | ![work in progress](images/wip.png) Several commands missing |
-| CNI prover | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2025Nov01) ![unstable](images/orange.png) Subscripted labels yet unsupported |
 | Export Construction Protocol as LaTeX | no | prototype | ![prototype](images/red.png) Working prototype |
 | Automatic LaTeX captions | no | [prototype](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Oct06) | ![prototype](images/red.png) Support required for the web version |
-| ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Fix [bugs](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60) and make [improvements](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
+| ApplyMap command | no | [prototype](https://matek.hu/zoltan/blog-20210126.php) | ![prototype](images/red.png) Bugs [1](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-60), [2](https://geogebra-prover.myjetbrains.com/youtrack/issue/TP-58) |
 
 ### Features that have already been merged
 
