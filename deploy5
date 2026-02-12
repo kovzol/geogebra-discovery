@@ -79,7 +79,7 @@ else
    done
   ZIPNAME=$PACKAGE_NAME-Mac
  else
-  for i in windows mac i586 arm libpxcc zspace; do
+  for i in windows mac i586 aarch64 libpxcc zspace; do
    rm -f dist/$PACKAGE_NAME/geogebra/desktop/lib/*$i*.jar || true
    done
   ZIPNAME=$PACKAGE_NAME-Linux64
