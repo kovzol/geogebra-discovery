@@ -21,6 +21,9 @@ a manual compilation of Giac is needed for the ARM architecture.
 For some reason, Gradle cannot handle different versions for
 native packages, so we need the same version of Giac uniformly.
 
+As of February 2026, ARM support has been dropped. Instead, 64-bit
+Raspberry Pi support is introduced (aarch64 architecture).
+
 ## Localization of new features
 
 GeoGebra's official translation system is a closed source application
@@ -42,7 +45,7 @@ GeoGebra has been disabled in `GeoGebraFrame`.
 
 ## Version info in Desktop 5
 
-`GeoGebraMenuBar.showAboutDialog()` contains the code the show
+`GeoGebraMenuBar.showAboutDialog()` contains the code to the show
 the current version of GeoGebra Discovery.
 
 `GeoGebraConstants` contains the recent version info.
@@ -50,8 +53,8 @@ the current version of GeoGebra Discovery.
 ## Splash screen in the web version
 
 Tomás Recio did an enormous work on popularizing GeoGebra Discovery.
-So the splash screen includes his photo and some acknowledgments
-in the web version.
+So the splash screen included his photo and some acknowledgments
+in the web version. Later, this has been removed.
 
 Here there are some technical extensions to fix the amount of time to
 show the splash screen. This does not work well in official GeoGebra.
@@ -89,6 +92,9 @@ For the long term, we would like to integrate RealGeom inside GeoGebra
 and outsource computations to a DLL version of Tarski/QEPCAD (or
 SMT-RAT).
 
+As of February 2026, the Tarski system has been integrated om GeoGebra
+Discovery.
+
 ### Better handling of `:` in the command line options
 
 The character `:` is used to separate an option name and its value.
@@ -101,6 +107,9 @@ in such cases, in the value part. See `AppD` and search for `_COLON_`.
 GeoGebra Discovery requires to have access to the CAS immediately.
 This is currently ensured by forcing an initial CAS call
 in `AppW.initCoreObjects()`.
+
+Automatic startup of Tarski has been disabled in the desktop version
+to save initialization time.
 
 ### Frame title
 
@@ -168,7 +177,7 @@ These are added in GeoGebra Discovery only. See, among others, `ToolBar`
 (to set the default toolbar), `GGWToolBar`, `ToolbarSvgResources` and
 `ToolbarResources`. 
 
-### New commands: Compare, IncircleCenter, Discover
+### New commands: Compare, IncircleCenter, Discover, Plot2D, ShowProof
 
 These are added in GeoGebra Discovery only.
 
