@@ -48,7 +48,7 @@ if [ "$OS_VARIANT" = "Windows" ]; then
  rm -f dist/$PACKAGE_NAME/geogebra/desktop/bin/desktop
  echo "@set \"BASEDIR=%~dp0\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  if [ $BUNDLE = 1 -a "$JAVA_HOME" != "" ]; then
-  echo "@set \"JAVA_HOME=%BASEDIR%jre\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
+  echo "@set \"JAVA_HOME=%BASEDIR%jre\"" >> dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
   fi
  echo "@call \"%BASEDIR%geogebra\\desktop\\bin\\desktop.bat\" %*" >> dist/$PACKAGE_NAME/GeoGebra-Discovery.bat
  # Use the MSYS2/CLANG* build:
