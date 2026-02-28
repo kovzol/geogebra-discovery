@@ -240,6 +240,10 @@ if __name__ == "__main__":
     CNI_THESIS_STILL_DIV = n()
     CNI_THESIS_CANNOT_BE_EXPRESSED_DIV = n()
 
+    DESCRIBESTATEMENT = n()
+    DESCRIBESTATEMENT_SYNTAX = n()
+
+
     # Languages
     EN = 1
     DE = 6
@@ -1302,3 +1306,14 @@ if __name__ == "__main__":
     t(PLOT2D, ZH, '二维绘图', XCP)
     t(PLOT2D_SYNTAX, ZH, '[ <函数> ]', XCP)
     #t(SHOWPROOF_SYNTAX, ZH, '[ <布尔值> ]', XCP)
+
+    c(DESCRIBESTATEMENT, 'DescribeStatement')
+    c(DESCRIBESTATEMENT_SYNTAX, 'DescribeStatement.Syntax')
+    t(DESCRIBESTATEMENT, EN, 'DescribeStatement', ZK)
+    t(DESCRIBESTATEMENT, HU, 'ÁllításLeírása', ZK)
+    t(DESCRIBESTATEMENT, DE, 'AussageBeschreibung', ZK)
+    t(DESCRIBESTATEMENT, ES, 'DescribeEnunciado', MPV)
+    t(DESCRIBESTATEMENT_SYNTAX, EN, '[ <Boolean Expression> ]', ZK)
+    t(DESCRIBESTATEMENT_SYNTAX, HU, '[ <Logikai kifejezés> ]', ZK)
+    t(DESCRIBESTATEMENT_SYNTAX, DE, '[ <Boolscher Ausdruck> ]', ZK)
+    t(DESCRIBESTATEMENT_SYNTAX, ES, '[ <Expresión Booleana> ]', TR)
