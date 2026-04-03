@@ -239,9 +239,24 @@ if __name__ == "__main__":
     CNI_NOW_THESIS_POLY = n()
     CNI_THESIS_STILL_DIV = n()
     CNI_THESIS_CANNOT_BE_EXPRESSED_DIV = n()
+    CNI_THESIS_TAG = n() 
+    CNI_SIMPLIFIED_TO_NUMBER = n()
+    CNI_SIMPLIFIED_SAME_NUMBER = n()
+    CNI_PRIMED_LABELS_WARNING = n()
+    
 
     DESCRIBESTATEMENT = n()
     DESCRIBESTATEMENT_SYNTAX = n()
+    
+    
+    # additional text output for primed CAS output
+    CNI_PRIMED_SYMBOLS = n()
+    CNI_ALGEBRAIC_RELATIONS = n()
+    CNI_THESIS_ALGEBRAIC_FORM = n()
+    CNI_ELIMINATE_COMMAND_INFO = n()
+    CNI_ELIMINATE_COMMAND_INFO_DIVISOR = n()
+    CNI_SIMPLIFY_BOTH = n()
+    CNI_SIMPLIFIED_EQUAL_THESIS = n()
 
 
     # Languages
@@ -267,6 +282,7 @@ if __name__ == "__main__":
     NL = 8 # Noël Lambert
     XCP = 34 # Xicheng Peng (fake)
     MPV = 34 # M. Pilar Vélez (fake)
+    JK = 34 # Jasmin Kropshofer (fake)
 
     # Properties
     c(DISCOVER, 'Discover')
@@ -305,6 +321,16 @@ if __name__ == "__main__":
     m(CNI_NOW_THESIS_POLY, 'NowThesisCanBeExpressedPolynomial')
     m(CNI_THESIS_STILL_DIV, 'ThesisStillContainsDivision')
     m(CNI_THESIS_CANNOT_BE_EXPRESSED_DIV, 'ThesisCannotBeExpressedDivision')
+    m(CNI_PRIMED_SYMBOLS, 'CNIPrimedSymbols')
+    m(CNI_ALGEBRAIC_RELATIONS, 'CNIAlgebraicRelations')
+    m(CNI_THESIS_ALGEBRAIC_FORM, 'CNIThesisAlgebraicForm')
+    m(CNI_ELIMINATE_COMMAND_INFO, 'CNIEliminateCommandInfo')
+    m(CNI_ELIMINATE_COMMAND_INFO_DIVISOR, 'CNIEliminateCommandInfoDivisor')
+    m(CNI_SIMPLIFY_BOTH, 'CNISimplifyBoth')
+    m(CNI_SIMPLIFIED_EQUAL_THESIS, 'CNISimplifiedEqualThesis')
+    m(CNI_SIMPLIFIED_TO_NUMBER, 'CNISimplifiedToNumber')
+    m(CNI_SIMPLIFIED_SAME_NUMBER, 'CNISimplifiedSameNumber')
+    m(CNI_PRIMED_LABELS_WARNING, 'CNIPrimedLabelsWarning')
 
     t(DISCOVER, EN, 'Discover', ZK)
     t(DISCOVER, DE, 'Entdecken', ZK)
@@ -366,6 +392,7 @@ if __name__ == "__main__":
     t(CANNOT_DECIDE_EQUALITY_OF_POINTS_A_B, DE, 'Kann die Gleichheit der Punkte %0 und %1 nicht entscheiden.', ZK)
     t(CANNOT_DECIDE_EQUALITY_OF_POINTS_A_B, ES, 'No se puede decidir la igualdad de los puntos %0 y %1.', ZK)
     t(CANNOT_DECIDE_EQUALITY_OF_POINTS_A_B, HU, 'Nem tudom eldönteni, hogy a(z) %0 és %1 pontok megegyeznek-e.', ZK)
+    
     t(CNI_THESIS_A_EXPRESSABLE, EN, 'The thesis (%0) can be expressed as a rational expression of the hypotheses, because %0 is linear in the following polynomial equation:', ZK);
     t(CNI_THESIS_A_EXPRESSABLE, HU, 'A következmény (%0) megadható az előfeltételek racionális kifejezéseként, mivel %0 lináris a következő polinomegyenletben:', ZK);
     t(CNI_THESIS_A_NOW_EXPRESSABLE, EN, 'The thesis (%0) can be expressed now as a rational expression of the hypotheses, because %0 is linear in the following polynomial equation:', ZK);
@@ -408,9 +435,57 @@ if __name__ == "__main__":
     t(CNI_THESIS_STILL_DIV, HU, 'A következmény még mindig osztást tartalmaz, az állítás nem igazolható.', ZK)
     t(CNI_THESIS_CANNOT_BE_EXPRESSED_DIV, EN, 'The thesis cannot be expressed as a division.', ZK)
     t(CNI_THESIS_CANNOT_BE_EXPRESSED_DIV, HU, 'A következmény nem fejezhető ki osztásként.', ZK)
+    
+    t(CNI_PRIMED_SYMBOLS, EN, "Denote point %0 by %1 in a symbolic manner.", JK)
+    t(CNI_ALGEBRAIC_RELATIONS, EN, "We now turn geometric relations into algebraic expressions. The symbols %0, %1, ... stand for these expressions:", JK)
+    t(CNI_THESIS_ALGEBRAIC_FORM, EN, "We now turn the thesis into an algebraic expression. The symbol %0 stands for this expression:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO, EN, "The next command does this elimination. It removes the free-point coordinates and keeps only the relation between the hypotheses and the thesis:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO_DIVISOR, EN, "The next command repeats the elimination with the extra assumption divisor = 0. It checks whether this case is possible:", JK)
+    t(CNI_SIMPLIFY_BOTH, EN, "We now simplify both expressions. This makes them easier to compare:", JK)
+    t(CNI_SIMPLIFIED_EQUAL_THESIS, EN, "If the simplified expressions are the same, then the result matches the thesis.", JK)
+    t(CNI_SIMPLIFIED_TO_NUMBER, EN, "The expression simplifies to a fixed number. This means the hypotheses already determine its value.", JK)
+    t(CNI_SIMPLIFIED_SAME_NUMBER, EN, "Both simplified expressions are the same number. So the result matches the thesis.", JK)
+    t(CNI_PRIMED_LABELS_WARNING, EN, "Warning: Labels that already contain a prime symbol will cause display problems in later proof steps.", JK)
+    
+    ############################## GERMAN TANSLATION (CNI) ##############################
+        
+    t(CNI_THESIS_A_NOW_EXPRESSABLE, DE, 'Die These (%0) kann als rationaler Ausdruck der Hypothesen dargestellt werden, da %0 in der folgenden Polynomgleichung linear vorkommt:', JK)
+    t(CNI_THESIS_A_EXPRESSABLE, DE, 'Die These (%0) kann nun als rationaler Ausdruck der Hypothesen dargestellt werden, da %0 in der folgenden Polynomgleichung linear vorkommt:', JK)
+    t(CNI_SOLVING_FOR_A_REQUIRES_DIV_BY_B, DE, 'Das Auflösen nach %0 erfordert eine Division durch %1.', JK)
+    t(CNI_ELIMINATE_FREEVARS, DE, 'Wir eliminieren alle Variablen, die freien Punkten entsprechen.', JK)
+    t(CNI_HREAL_TREAL, DE, 'Da alle Hypothesen reelle Ausdrücke sind, muss auch die Konsequenz reell sein.', JK)
+    t(CNI_THE_HYPOTHESES, DE, 'Die Hypothesen:', JK)
+    t(CNI_PERP_PAR, DE, 'Orthogonalität bedeutet hier zugleich Orthogonalität oder Parallelität.', JK)
+    t(CNI_EQ_COLL, DE, 'Streckengleichheit bedeutet hier zugleich Gleichheit oder Kollinearität.', JK)
+    t(CNI_THE_THESIS, DE, 'Die These:', JK)
+    t(CNI_ANGLE_AMBIGUITY, DE, 'Winkelgleichheit bedeutet hier zugleich Gleichheit oder Gleichheit mit einem anderen, spezifischen Winkel.', JK)
+    t(CNI_NO_CORRESPONDENCE, DE, 'Zwischen den Hypothesen und der These besteht kein Zusammenhang.', JK)
+    t(CNI_THESIS_CANNOT_BE_EXPRESSED, DE, 'Die These lässt sich nicht aus den Hypothesen ausdrücken.', JK)   
+    t(CNI_THESIS_ZERO_TRUE, DE, 'Da die These Null ist, ist die Aussage wahr.', JK)
+    t(CNI_THESIS_SHOULD_BE_ZERO, DE, 'Da die These nicht Null ist, kann die Aussage nicht bewiesen werden.', JK)
+    t(CNI_THESIS_CAN_BE_EXPRESSED_POLY, DE, 'Die These lässt sich als Polynom in den Hypothesen ausdrücken.', JK)
+    t(CNI_ASSUME_DIV_ZERO, DE, 'Nehmen wir an, dass dieser Nenner 0 ist, und starten die Eliminierung neu.', JK)
+    t(CNI_DIV_CANNOT_BE_ZERO, DE, 'Die Eliminierung zeigt, dass dieser Nenner nicht Null sein kann.', JK)
+    t(CNI_ASSUMING_ZERO_THESIS_CANNOT_BE_EXPRESSED, DE, 'Unter der Annahme, dass dies Null ist, lässt sich die These nicht aus den Hypothesen ausdrücken.', JK)
+    t(CNI_NOW_THESIS_POLY, DE, 'Nun kann die These als Polynom in den Hypothesen ausgedrückt werden.', JK)
+    t(CNI_THESIS_STILL_DIV, DE, 'Die These enthält weiterhin eine Division; es kann keine Schlussfolgerung gezogen werden.', JK)
+    t(CNI_THESIS_CANNOT_BE_EXPRESSED_DIV, DE, 'Die These kann nicht als Quotient dargestellt werden.', JK) 
+    
+    t(CNI_PRIMED_SYMBOLS, DE, "Bezeichne den Punkt %0 in symbolischer Form mit %1.", JK)
+    t(CNI_ALGEBRAIC_RELATIONS, DE, "Wir wandeln geometrische Beziehungen nun in algebraische Ausdrücke um. Die Symbole %0, %1, ... stehen für diese Ausdrücke:", JK)
+    t(CNI_THESIS_ALGEBRAIC_FORM, DE, "Wir wandeln die These nun in einen algebraischen Ausdruck um. Das Symbol %0 steht für diesen Ausdruck:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO, DE, "Der nächste Befehl führt diese Eliminierung aus. Er entfernt die Koordinaten der freien Punkte und behält nur die Beziehung zwischen den Hypothesen und der These:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO_DIVISOR, DE, "Der nächste Befehl wiederholt die Eliminierung mit der zusätzlichen Annahme Nenner = 0. Er prüft, ob dieser Fall möglich ist:", JK)
+    t(CNI_SIMPLIFY_BOTH, DE, "Wir vereinfachen nun beide Ausdrücke. So lassen sie sich leichter vergleichen:", JK)
+    t(CNI_SIMPLIFIED_EQUAL_THESIS, DE, "Wenn die vereinfachten Ausdrücke gleich sind, dann stimmt das Ergebnis mit der These überein.", JK)
+    t(CNI_SIMPLIFIED_TO_NUMBER, DE, "Der Ausdruck vereinfacht sich zu einer festen Zahl. Das bedeutet, dass die Hypothesen seinen Wert bereits festlegen.", JK)
+    t(CNI_SIMPLIFIED_SAME_NUMBER, DE, "Beide vereinfachten Ausdrücke sind dieselbe Zahl. Damit stimmt das Ergebnis mit der These überein.", JK)
+    t(CNI_PRIMED_LABELS_WARNING, DE, "Achtung: Bezeichnungen, die schon ein Strichsymbol enthalten, können in späteren Beweisschritten Darstellungsprobleme verursachen.", JK)
+    
+    #######################################################################################
 
-    t(CNI_THESIS_A_NOW_EXPRESSABLE, ES, 'La tesis (%0) se puede expresar ahora como una expresión racional de las hipótesis, ya que %0 es lineal en la siguiente expresión polinómica:', MPV);
-    t(CNI_THESIS_A_EXPRESSABLE, ES, 'La tesis (%0) se puede expresar como una expresión racional de las hipótesis, ya que %0 es lineal en la siguiente expresión polinómica:', MPV);
+    t(CNI_THESIS_A_NOW_EXPRESSABLE, ES, 'La tesis (%0) se puede expresar ahora como una expresión racional de las hipótesis, ya que %0 es lineal en la siguiente expresión polinómica:', MPV)
+    t(CNI_THESIS_A_EXPRESSABLE, ES, 'La tesis (%0) se puede expresar como una expresión racional de las hipótesis, ya que %0 es lineal en la siguiente expresión polinómica:', MPV)
     t(CNI_SOLVING_FOR_A_REQUIRES_DIV_BY_B, ES, 'Despejar la tesis %0 requiere dividir por la expresión %1.', MPV)
     t(CNI_ELIMINATE_FREEVARS, ES, 'Eliminamos todas las variables que corresponden a puntos libres.', MPV)
     t(CNI_HREAL_TREAL, ES, 'Como todas las hipotesis son expresiónes reales, la tesis debe ser también real.', MPV)
