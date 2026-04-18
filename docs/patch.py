@@ -437,15 +437,25 @@ if __name__ == "__main__":
     t(CNI_THESIS_CANNOT_BE_EXPRESSED_DIV, HU, 'A következmény nem fejezhető ki osztásként.', ZK)
     
     t(CNI_PRIMED_SYMBOLS, EN, "Denote point %0 by %1 in a symbolic manner.", JK)
+    t(CNI_PRIMED_SYMBOLS, HU, "Jelölje %1 a(z) %0 pontot szimbolikus értelemben.", ZK)
     t(CNI_ALGEBRAIC_RELATIONS, EN, "We now turn geometric relations into algebraic expressions. The symbols %0, %1, ... stand for these expressions:", JK)
+    t(CNI_ALGEBRAIC_RELATIONS, HU, "A geometriai összefüggéseket algebrai kifejezésekké alakítjuk. A(z) %0, %1, ... szimbólumok a következő kifejezéseket jelentik:", ZK)
     t(CNI_THESIS_ALGEBRAIC_FORM, EN, "We now turn the thesis into an algebraic expression. The symbol %0 stands for this expression:", JK)
+    t(CNI_THESIS_ALGEBRAIC_FORM, HU, "A konklúziót is algebrai kifejezéssé alakítjuk. A(z) %0 szimbólum a következő kifejezést jelenti:", ZK)
     t(CNI_ELIMINATE_COMMAND_INFO, EN, "The next command does this elimination. It removes the free-point coordinates and keeps only the relation between the hypotheses and the thesis:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO, HU, "A következő parancs végzi el az eliminációt. A szabad pontok koordinátáit elhagyva a premisszák és a konklúzió közötti közvetlen összefüggéshez jutunk:", ZK)
     t(CNI_ELIMINATE_COMMAND_INFO_DIVISOR, EN, "The next command repeats the elimination with the extra assumption divisor = 0. It checks whether this case is possible:", JK)
+    t(CNI_ELIMINATE_COMMAND_INFO_DIVISOR, HU, "A következő parancs megismétli az eliminációt azzal az extra feltétellel, hogy a nevező 0. Ellenőrizzük, hogy ez lehetséges-e:", ZK)
     t(CNI_SIMPLIFY_BOTH, EN, "We now simplify both expressions. This makes them easier to compare:", JK)
+    t(CNI_SIMPLIFY_BOTH, HU, "Mindkét kifejezést egyszerűsítjük. Így könnyebb őket összehasonlítani:", ZK)
     t(CNI_SIMPLIFIED_EQUAL_THESIS, EN, "If the simplified expressions are the same, then the result matches the thesis.", JK)
+    t(CNI_SIMPLIFIED_EQUAL_THESIS, HU, "Ha az egyszerűsített kifejezések azonosak, akkor az eredmény megegyezik a konklúzióval.", ZK)
     t(CNI_SIMPLIFIED_TO_NUMBER, EN, "The expression simplifies to a fixed number. This means the hypotheses already determine its value.", JK)
+    t(CNI_SIMPLIFIED_TO_NUMBER, HU, "A kifejezés egy konkrét számra egyszerűsíthető. Ez azt jelenti, hogy a premisszák eleve meghatározzák ezt a számot.", ZK)
     t(CNI_SIMPLIFIED_SAME_NUMBER, EN, "Both simplified expressions are the same number. So the result matches the thesis.", JK)
+    t(CNI_SIMPLIFIED_SAME_NUMBER, HU, "Mindkét egyszerűsített kifejezés ugyanazt a számot adja. Vagyis az eredmény a konklúziónak felel meg.", ZK)
     t(CNI_PRIMED_LABELS_WARNING, EN, "Warning: Labels that already contain a prime symbol will cause display problems in later proof steps.", JK)
+    t(CNI_PRIMED_LABELS_WARNING, HU, "Figyelem: Azok a címkék, amelyekben aposztróf szerepel, hibás levezetési lépéseket eredményezhetnek.", ZK)
     
     ############################## GERMAN TANSLATION (CNI) ##############################
         
