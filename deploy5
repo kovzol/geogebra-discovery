@@ -92,11 +92,9 @@ echo "#!/bin/bash
 MYBASENAME=\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$0\"\`
 MYPATH=\`dirname \"\$MYBASENAME\"\`
 
-echo \"Welcome to $SOFTWARE_NAME\"
 . \"\$MYPATH\"/helper/detect
 test -x \"\$MYPATH\"/jre && export JAVA_HOME=\"\`perl -MCwd -e 'print Cwd::abs_path shift' \"\$MYPATH\"/jre\`\"
-echo
-\"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery
+JAVA_OPTS=-Dnashorn.args=--no-deprecation-warning \"\$MYPATH\"/geogebra/desktop/bin/desktop \"\$@\"" > dist/$PACKAGE_NAME/GeoGebra-Discovery
 chmod 755 dist/$PACKAGE_NAME/GeoGebra-Discovery
 fi # End of non-cross-platform deployment
 
