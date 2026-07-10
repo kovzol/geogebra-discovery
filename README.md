@@ -139,6 +139,10 @@ This table is ordered by maturity.
 | Raspberry Pi 3D View | no | yes | ![stable](images/green.png) |
 | Giac: threads on Linux | no | yes | ![stable](images/green.png) |
 | Same color for circles with the same radius | no | yes | ![stable](images/green.png) |
+| Console mode | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2026May27) | ![stable](images/green.png) |
+| Silent mode | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2026May27) | ![stable](images/green.png) |
+| TeXmacs plugin mode | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2026May27) | ![stable](images/green.png) |
+| DescribeStatement command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2026Apr18) | ![stable](images/green.png) |
 | Plotting logical connectives of inequalities | partial | [full](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
 | Plot2D command | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2023Apr22) | ![unstable](images/orange.png) Possible errors on saving |
 | CNI prover | no | [yes](https://github.com/kovzol/geogebra/releases/tag/v5.0.641.0-2025Nov01) | ![work in progress](images/wip.png) Subscripted labels yet unsupported |
