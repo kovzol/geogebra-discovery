@@ -9,7 +9,7 @@
 
 # Usage:
 # 1. Add entries in the main program (see below, at the end of this file). Don't delete existing entries, just add new ones.
-# 2. Copy the raw ggbtransdb file from the current database to this folder.
+# 2. Copy the raw ggbtransdb file from the current database to this folder. Set ggbtransdb_path below.
 # 3. Run this program.
 # 4. Create an output folder, e.g. output-trunk, with "mkdir output-trunk".
 # 5. Run "./export.py trunk output-trunk ggbtransdb".
@@ -21,6 +21,8 @@
 #    in your local repository of GeoGebra Discovery.
 # 10. Test the new translations.
 # 11. Commit the changes in the fork/geogebra/ folder.
+
+ggbtransdb_path = "/work/data/ggbtransdb" # for docker run
 
 # We avoid overwriting or overlapping any existing or future entries, so we start our patching in a large ID area.
 start_properties_translation_id = 1000000; # < 360000 on 2021-05-09
@@ -42,7 +44,8 @@ def next_property_id():
     return properties_property_id
 
 def add_property(properties_property_id, category_id, version, key):
-    with sqlite3.connect("ggbtransdb") as conn:
+    global ggbtransdb_path
+    with sqlite3.connect(ggbtransdb_path) as conn:
         c = conn.cursor()
         query = "INSERT INTO properties_property (id, parent_id, category_id, version, comment, key, creation_date, modification_date, max_length, ticket) VALUES "
         query += "(" + str(properties_property_id) + ", NULL, " + str(category_id) + ", '" + str(version) + "', "
@@ -51,7 +54,8 @@ def add_property(properties_property_id, category_id, version, key):
         c.execute(query)
 
 def add_translation(property_id, locale_id, text, author_id):
-    with sqlite3.connect("ggbtransdb") as conn:
+    global ggbtransdb_path
+    with sqlite3.connect(ggbtransdb_path) as conn:
         c = conn.cursor()
         global properties_translation_id
         properties_translation_id += 1
@@ -80,7 +84,8 @@ def n():
 
 
 def cleanup():
-    with sqlite3.connect("ggbtransdb") as conn:
+    global ggbtransdb_path
+    with sqlite3.connect(ggbtransdb_path) as conn:
         c = conn.cursor()
         global start_properties_translation_id
         query = "DELETE from properties_translation WHERE id > " + str(start_properties_translation_id)
@@ -211,6 +216,15 @@ if __name__ == "__main__":
     A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES = n()
     A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B = n()
     A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E = n()
+    A_VALUE_OF_MIRROR_OF_B_ABOUT_C = n()
+    A_VALUE_OF_MIRROR_OF_CENTER_OF_B_ABOUT_C = n()
+    A_VALUE_OF_MIRROR_OF_POINT_OF_B_ABOUT_C = n()
+    A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_B_ON_C = n()
+    A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_CENTER_OF_B_ON_C = n()
+    A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_POINT_OF_B_ON_C = n()
+    A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_D = n()
+    A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_CENTER_OF_D = n()
+    A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_POINT_OF_D = n()
 
     VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST = n()
     PLEASE_OPEN_THE_CAS_VIEW_FIRST = n()
@@ -638,6 +652,15 @@ if __name__ == "__main__":
     m(A_VALUE_OF_ROTATION_OF_POINT_B_AROUND_THE_MIDPOINT_OF_C_BY_D_DEGREES, 'AValueOfRotationOfPointBAroundTheMidpointOfCByDDegrees')
     m(A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B, 'AValueOfMidpointOfRhombusAngularBisectorB')
     m(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, 'AValueOfHelperPointMirrorBCAboutDE')
+    m(A_VALUE_OF_MIRROR_OF_B_ABOUT_C, 'AValueOfMirrorOfBAboutC')
+    m(A_VALUE_OF_MIRROR_OF_CENTER_OF_B_ABOUT_C, 'AValueOfMirrorOfCenterOfBAboutC')
+    m(A_VALUE_OF_MIRROR_OF_POINT_OF_B_ABOUT_C, 'AValueOfMirrorOfPointOfBAboutC')
+    m(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_B_ON_C, 'AValueOfOrthogonalProjectionOfBOnC')
+    m(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_CENTER_OF_B_ON_C, 'AValueOfOrthogonalProjectionOfCenterOfBOnC')
+    m(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_POINT_OF_B_ON_C, 'AValueOfOrthogonalProjectionOfPointOfBOnC')
+    m(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_D, 'AValueOfRotationVectorOnBByCDegreesAboutD')
+    m(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_CENTER_OF_D, 'AValueOfRotationVectorOnBByCDegreesAboutCenterOfD')
+    m(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_POINT_OF_D, 'AValueOfRotationVectorOnBByCDegreesAboutPointOfD')
 
     m(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, 'VariableAIsAlreadyDefinedPleaseRemoveItFirst')
     m(PLEASE_OPEN_THE_CAS_VIEW_FIRST, 'PleaseOpenTheCASViewFirst')
@@ -807,6 +830,24 @@ if __name__ == "__main__":
     t(A_VALUE_OF_MIDPOINT_OF_RHOMBUS_ANGULAR_BISECTOR_B, HU, 'Azon rombusz középpontjának %0-koordinátája, amely a(z) %1 szögfelezőre illeszkedik', ZK)
     t(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, EN, '%0 value of the helper point that is a mirror of (%1,%2) about (%3,%4)', ZK) # DE, ...
     t(A_VALUE_OF_HELPER_POINT_MIRROR_B_C_ABOUT_D_E, HU, 'Egy segédpont %0-koordinátája, amely (%1,%2)-nak/-nek (%3,%4)-ra/-re vonatkozó tükörképe', ZK)
+    t(A_VALUE_OF_MIRROR_OF_B_ABOUT_C, EN, '%0 value of mirror image of %1 about %2', ZK)
+    t(A_VALUE_OF_MIRROR_OF_CENTER_OF_B_ABOUT_C, EN, '%0 value of mirror image of center of %1 about %2', ZK)
+    t(A_VALUE_OF_MIRROR_OF_POINT_OF_B_ABOUT_C, EN, '%0 value of mirror image of a point of %1 about %2', ZK)
+    t(A_VALUE_OF_MIRROR_OF_B_ABOUT_C, HU, '%1 %2-ra/-re vonatkozó tükörképének %0-koordinátája', ZK)
+    t(A_VALUE_OF_MIRROR_OF_CENTER_OF_B_ABOUT_C, HU, '%1 középpontja %2-ra/-re vonatkozó tükörképének %0-koordinátája', ZK)
+    t(A_VALUE_OF_MIRROR_OF_POINT_OF_B_ABOUT_C, HU, '%1 egy pontja %2-ra/-re vonatkozó tükörképének %0-koordinátája', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_B_ON_C, EN, '%0 value of orthogonal projection of %1 on %2', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_CENTER_OF_B_ON_C, EN, '%0 value of orthogonal projection of center of %1 on %2', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_POINT_OF_B_ON_C, EN, '%0 value of orthogonal projection of a point of %1 on %2', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_B_ON_C, HU, '%1 %2-ra/-re vonatkozó merőleges vetületének %0-koordinátája', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_CENTER_OF_B_ON_C, HU, '%1 középpontja %2-ra/-re vonatkozó merőleges vetületének %0-koordinátája', ZK)
+    t(A_VALUE_OF_ORTHOGONAL_PROJECTION_OF_POINT_OF_B_ON_C, HU, '%1 egy pontja %2-ra/-re vonatkozó merőleges vetületének %0-koordinátája', ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_D, EN, "%0 value of a vector on %1 by %2 degrees about %3", ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_CENTER_OF_D, EN, "%0 value of a vector on %1 by %2 degrees about the center of %3", ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_POINT_OF_D, EN, "%0 value of a vector on %1 by %2 degrees about a point of %3", ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_D, HU, "Egy %1-ra/-re eső vektor %3 körül %2 fokkal elforgatottjának %0-koordinátája", ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_CENTER_OF_D, HU, "Egy %1-ra/-re eső vektor %3 középpontja körül %2 fokkal elforgatottjának %0-koordinátája", ZK)
+    t(A_VALUE_OF_ROTATION_VECTOR_ON_B_BY_C_DEGREES_ABOUT_POINT_OF_D, HU, "Egy %1-ra/-re eső vektor %3 egy pontja körül %2 fokkal elforgatottjának %0-koordinátája", ZK)
 
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, EN, 'Variable %0 is already defined. Please remove it first.', ZK)
     t(VARIABLE_A_IS_ALREADY_DEFINED_PLEASE_REMOVE_IT_FIRST, DE, 'Variable %0 wurde bereits definiert. Sie muss erst gelöscht werden.', ZK)
